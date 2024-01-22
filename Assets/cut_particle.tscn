@@ -93,6 +93,7 @@ _data = {
 }
 
 [node name="cut_effect" type="GPUParticles2D"]
+emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_5mb1v")
 lifetime = 0.2
