@@ -1,3 +1,5 @@
+# import Character
+
 extends Control
 
 func _ready():
@@ -10,3 +12,6 @@ func _on_PlayButton_pressed():
 	
 	# Transition to the game scene
 	get_tree().change_scene_to_packed(gameScene)
+
+	var c : Character = Character.new()
+	c.test()
