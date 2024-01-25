@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+[gd_scene format=3 uid="uid://dotehpfb6kbjn"]
+
+[node name="Main" type="Node2D"]
+=======
 [gd_scene load_steps=3 format=3 uid="uid://blrgbudpgi7en"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/MainMenu.gd" id="1_dxr64"]
@@ -21,3 +26,4 @@ offset_bottom = 386.0
 theme_override_font_sizes/font_size = 64
 text = "[ START ]"
 script = ExtResource("1_dxr64")
+>>>>>>> c1bfd9f9f752fb01764c2c4a09623c41e5876165
