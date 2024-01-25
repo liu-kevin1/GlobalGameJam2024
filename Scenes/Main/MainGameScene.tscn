@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6cns3eapr0jf"]
+
+[ext_resource type="Texture2D" uid="uid://bnojjmv7p64j" path="res://Assets/Images/jerma_july.jpg" id="1_101s4"]
+
+[node name="MainGameScene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -18.0
+offset_top = -62.0
+offset_right = 1262.0
+offset_bottom = 658.0
+texture = ExtResource("1_101s4")
