@@ -1,3 +1,29 @@
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://dotehpfb6kbjn"]
 
 [node name="Main" type="Node2D"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://blrgbudpgi7en"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/MainMenu.gd" id="1_dxr64"]
+[ext_resource type="Texture2D" uid="uid://1qlppn0iogwr" path="res://Assets/Images/jerma_red_wine.jpg" id="1_vrj5c"]
+
+[node name="Main" type="Node3D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -21.0
+offset_top = -23.0
+offset_right = 1163.0
+offset_bottom = 670.0
+texture = ExtResource("1_vrj5c")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 461.0
+offset_top = 301.0
+offset_right = 744.0
+offset_bottom = 386.0
+theme_override_font_sizes/font_size = 64
+text = "[ START ]"
+script = ExtResource("1_dxr64")
+>>>>>>> c1bfd9f9f752fb01764c2c4a09623c41e5876165
