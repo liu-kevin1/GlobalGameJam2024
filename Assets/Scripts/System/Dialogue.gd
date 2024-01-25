@@ -5,4 +5,4 @@ class_name Dialogue
 extends Node
 
 func test():
-    print("DIALOGUE")
+	print("DIALOGUE")
