@@ -4,10 +4,10 @@
 class_name Character
 extends Node
 
-var name;
-var nickname;
+var characterName;
+var characterNickname;
 
 
 
 func test():
-    print("CHARACTER")
+	print("CHARACTER")
