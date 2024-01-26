@@ -2,3 +2,4 @@
 extends Node
 
 #define global vars below - call global vars with global."var_name"
+var SELECTED_CHOICE = -1
