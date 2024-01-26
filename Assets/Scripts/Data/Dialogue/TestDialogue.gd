@@ -5,4 +5,4 @@ class_name TestDialogue
 extends Dialogue
 
 func testDialogueFunction():
-    print("TEST DIALOGUE - TEST DIALOGUE FUNCTION")
+	print("TEST DIALOGUE - TEST DIALOGUE FUNCTION")
