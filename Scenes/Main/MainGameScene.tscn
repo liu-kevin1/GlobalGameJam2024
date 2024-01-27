@@ -2,33 +2,32 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/InteractiveElements/Dining.gd" id="1_bowsx"]
 [ext_resource type="Script" path="res://Assets/Scripts/InteractiveElements/TemplateButton.gd" id="3_r0y0u"]
-[ext_resource type="Texture2D" uid="uid://bjjtxcy3t2j8b" path="res://Assets/Images/Mashed-Up_Cheesecake.png" id="4_5mx2k"]
 [ext_resource type="Texture2D" uid="uid://curjxx3ltbiw1" path="res://Assets/Images/restaurant_pov.jpg" id="4_ihfs1"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Characters/CharacterManager.gd" id="6_aw6co"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Dialogue/DialogueManager.gd" id="7_1cykw"]
-[ext_resource type="Script" path="res://Scenes/Main/ChoiceManager.gd" id="8_paiog"]
 
 [node name="MainGameScene" type="Node2D"]
 position = Vector2(-592, -410)
-script = ExtResource("1_bowsx")
+script = ExtResource("1_t1jsi")
 
 [node name="TemplateButton" type="Button" parent="."]
-offset_left = 782.0
-offset_top = 176.0
-offset_right = 918.0
-offset_bottom = 312.0
-script = ExtResource("3_r0y0u")
+offset_left = 352.0
+offset_top = -224.0
+offset_right = 488.0
+offset_bottom = -88.0
+icon = ExtResource("3_53php")
+script = ExtResource("4_fs18x")
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
 position = Vector2(1174, 744)
 scale = Vector2(0.462949, 0.383673)
 texture = ExtResource("4_ihfs1")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1153, 768)
-scale = Vector2(0.520582, 0.506621)
-texture = ExtResource("4_5mx2k")
+position = Vector2(1147, 776)
+scale = Vector2(0.192839, 0.183594)
+texture = ExtResource("5_0toel")
 
 [node name="DialogueBox" type="Label" parent="."]
 offset_left = 691.0
@@ -45,7 +44,7 @@ autowrap_mode = 3
 
 [node name="ChoiceButtons" type="Node" parent="."]
 
-[node name="Button" type="Button" parent="ChoiceButtons"]
+[node name="Button1" type="Button" parent="ChoiceButtons"]
 visible = false
 offset_left = 858.0
 offset_top = 117.0
@@ -100,6 +99,17 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "CHOICE 5"
 
+[node name="TemplateButton" type="Button" parent="ChoiceButtons"]
+visible = false
+offset_left = 858.0
+offset_top = 117.0
+offset_right = 1123.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "CHOICE 1"
+
 [node name="Managers" type="Node" parent="."]
 
 [node name="CharacterManager" type="Node" parent="Managers"]
@@ -107,6 +117,3 @@ script = ExtResource("6_aw6co")
 
 [node name="DialogueManager" type="Node" parent="Managers"]
 script = ExtResource("7_1cykw")
-
-[node name="ChoiceManager" type="Node" parent="Managers"]
-script = ExtResource("8_paiog")
