@@ -6,6 +6,7 @@ static var instance : CharacterManager = null
 
 func addCharacter(c):
 	var obj = c.new()
+	get_parent().get_parent().add_child(obj)
 	CHARACTERS[obj.character.characterName] = obj
 	print(CHARACTERS)
 
@@ -13,7 +14,7 @@ func _ready():
 	instance = self
 	
 	addCharacter(TestCharacter)
-
+	
 # static func getCharacterManager():
 # 	return instance
 # func _init():

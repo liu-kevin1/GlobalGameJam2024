@@ -18,5 +18,6 @@ func _process(delta):
 
 #delete the button
 func delete_self():
-	get_parent().remove_child(self)
-	queue_free()
+	if(self.name != "TemplateButton"):
+		get_parent().remove_child(self)
+		queue_free()

@@ -33,10 +33,10 @@ func _input(event):
 func playDialogue(dialogueName):
 	print("Playing dialogue...")
 	var dial : Dialogue = DIALOGUE[dialogueName]
-	print(dial)
+	#print(dial)
 
 	for line in dial.dialogueLines:
-		print(line)
+		#print(line)
 		var text : String = line.dialogueText
 		var buffer : String = ""
 		var modifiers : DialogueLineModifiers = line.modifiers
