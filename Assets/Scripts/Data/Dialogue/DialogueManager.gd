@@ -44,7 +44,7 @@ func _ready():
 	templateButton = choiceButtons.get_node("TemplateButton")
 	characterSprite = root.get_node("MainGameScene/CharacterSprite")
 
-	DialogueManager.instance.playDialogue("Cheesecake_Base")
+	DialogueManager.instance.playDialogue("Cheesecake_Served")
 	
 func _input(event):
 	if event is InputEventKey:
@@ -76,7 +76,10 @@ func playDialogue(dialogueName : String):
 		var options = modifiers.options
 		var events = modifiers.events
 
-		characterSprite.texture = character.character.characterSprites.IDLE
+		var spriteInfo = character.character.characterSprites.IDLE
+		characterSprite.texture = spriteInfo.Texture
+		characterSprite.scale = spriteInfo.Scale
+		characterSprite.position = spriteInfo.Position
 
 		hasPressedEnter = false
 		for c in text:

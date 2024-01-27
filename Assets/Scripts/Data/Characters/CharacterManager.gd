@@ -17,6 +17,8 @@ func _ready():
 	instance = self
 	
 	instance.addCharacter(TestCharacter)
+	instance.addCharacter(Cheesecake)
+	instance.addCharacter(EmperorJohn)
 	
 # static func getCharacterManager():
 # 	return instance
