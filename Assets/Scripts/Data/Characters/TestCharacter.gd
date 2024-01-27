@@ -8,7 +8,7 @@ var character : Character
 
 func _init():
 	var sprites = {
-		IDLE = preload("res://Assets/Images/steak.png")
+		IDLE = preload("res://Assets/Images/jerma_red_wine.jpg")
 	}
 	character = Character.new("TestCharacter", sprites)
 

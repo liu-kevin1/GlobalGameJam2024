@@ -7,6 +7,7 @@ static var instance : DialogueManager = null
 var dialogueBox : Label = null
 var choiceButtons : Node = null
 var templateButton : Button = null
+var characterSprite : Sprite2D = null
 
 var hasPressedEnter : bool = false
 var lastEnterPress : float = 0
@@ -35,10 +36,13 @@ func _ready():
 		DialogueLine.new("TestCharacter", "This is the second line of dialogue. This is normal speed, but it won't wait for you to press enter before going to the next line, so, toodles!!", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("TestCharacter", "Aaaaaaaaaaaaaaaaand this is the third line of dialogue and it's so so much faster!!! WOOOO!!!!", DialogueLineModifiers.new(2))
 	]))
+
+	var root = get_tree().get_root()
 	
-	dialogueBox = get_tree().get_root().get_node("MainGameScene/DialogueBox")
-	choiceButtons = get_tree().get_root().get_node("MainGameScene/ChoiceButtons")
+	dialogueBox = root.get_node("MainGameScene/DialogueBox")
+	choiceButtons = root.get_node("MainGameScene/ChoiceButtons")
 	templateButton = choiceButtons.get_node("TemplateButton")
+	characterSprite = root.get_node("MainGameScene/CharacterSprite")
 
 	DialogueManager.instance.playDialogue("Cheesecake_Base")
 	
@@ -65,11 +69,14 @@ func playDialogue(dialogueName : String):
 
 	hasPressedEnter = false
 	for line in dial.dialogueLines:
+		var character = CharacterManager.instance.CHARACTERS[line.characterName]
 		var text : String = line.dialogueText
 		var buffer : String = ""
 		var modifiers : DialogueLineModifiers = line.modifiers
 		var options = modifiers.options
 		var events = modifiers.events
+
+		characterSprite.texture = character.character.characterSprites.IDLE
 
 		hasPressedEnter = false
 		for c in text:

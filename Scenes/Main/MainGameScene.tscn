@@ -21,12 +21,12 @@ icon = ExtResource("3_53php")
 script = ExtResource("4_fs18x")
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
 position = Vector2(1174, 744)
 scale = Vector2(0.462949, 0.383673)
 texture = ExtResource("4_ihfs1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="CharacterSprite" type="Sprite2D" parent="."]
 position = Vector2(1147, 776)
 scale = Vector2(0.192839, 0.183594)
 texture = ExtResource("5_0toel")

@@ -4,8 +4,8 @@
 class_name Character
 extends Node2D
 
-var characterName;
-var characterSprites
+var characterName : String
+var characterSprites : Dictionary
 
 func _init(name, sprites):
 	# print("Initializing character <%s>..." % name)
