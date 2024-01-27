@@ -21,6 +21,4 @@ Global="*res://GLOBAL_DATA.gd"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1600
-window/size/resizable=false
+window/stretch/mode="viewport"

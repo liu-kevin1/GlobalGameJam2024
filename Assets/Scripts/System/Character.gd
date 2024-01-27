@@ -5,10 +5,17 @@ class_name Character
 extends Node2D
 
 var characterName;
-var characterNickname;
+var characterSprites
+
+func _init(name, sprites):
+	print("Initializing character <%s>..." % name)
+	characterName = name
+	characterSprites = sprites
+
+
 
 #creates dialogue options
-func choice(choices: Array):#please input string vectors
+func choice(choices: Array):#please input String vectors
 	#screensize 2560x1600, center 1280x800
 	var y_offset = 0
 	var x_offset = 0
