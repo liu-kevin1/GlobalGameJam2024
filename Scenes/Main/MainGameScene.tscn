@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/InteractiveElements/Dining.gd" id="1_bowsx"]
 [ext_resource type="Script" path="res://Assets/Scripts/InteractiveElements/TemplateButton.gd" id="3_r0y0u"]
+[ext_resource type="Texture2D" uid="uid://bjjtxcy3t2j8b" path="res://Assets/Images/Mashed-Up_Cheesecake.png" id="4_5mx2k"]
 [ext_resource type="Texture2D" uid="uid://curjxx3ltbiw1" path="res://Assets/Images/restaurant_pov.jpg" id="4_ihfs1"]
-[ext_resource type="Texture2D" uid="uid://dcxuuo642lou4" path="res://Assets/Images/steak.png" id="5_0toel"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Characters/CharacterManager.gd" id="6_aw6co"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Dialogue/DialogueManager.gd" id="7_1cykw"]
 [ext_resource type="Script" path="res://Scenes/Main/ChoiceManager.gd" id="8_paiog"]
@@ -26,9 +26,9 @@ scale = Vector2(0.462949, 0.383673)
 texture = ExtResource("4_ihfs1")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1147, 776)
-scale = Vector2(0.192839, 0.183594)
-texture = ExtResource("5_0toel")
+position = Vector2(1153, 768)
+scale = Vector2(0.520582, 0.506621)
+texture = ExtResource("4_5mx2k")
 
 [node name="DialogueBox" type="Label" parent="."]
 offset_left = 691.0
