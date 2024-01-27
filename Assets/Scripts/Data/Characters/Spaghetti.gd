@@ -1,4 +1,4 @@
-class_name Cheesecake
+class_name Spaghetti
 extends Character
 
 var character : Character 
