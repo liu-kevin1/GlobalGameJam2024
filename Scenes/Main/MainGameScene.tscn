@@ -1,8 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bxw0sb5jllxpp"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/InteractiveElements/Dining.gd" id="1_bowsx"]
-[ext_resource type="Script" path="res://Assets/Scripts/InteractiveElements/TemplateButton.gd" id="3_r0y0u"]
+[ext_resource type="Script" path="res://Assets/Scripts/Dining.gd" id="1_t1jsi"]
+[ext_resource type="Texture2D" uid="uid://dw4rgwn8ixu6o" path="res://Assets/Images/icon.svg" id="3_53php"]
+[ext_resource type="Script" path="res://Assets/Scripts/TemplateButton.gd" id="4_fs18x"]
 [ext_resource type="Texture2D" uid="uid://curjxx3ltbiw1" path="res://Assets/Images/restaurant_pov.jpg" id="4_ihfs1"]
+[ext_resource type="Texture2D" uid="uid://dcxuuo642lou4" path="res://Assets/Images/steak.png" id="5_0toel"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Characters/CharacterManager.gd" id="6_aw6co"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Dialogue/DialogueManager.gd" id="7_1cykw"]
 
@@ -24,7 +26,7 @@ position = Vector2(1174, 744)
 scale = Vector2(0.462949, 0.383673)
 texture = ExtResource("4_ihfs1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="CharacterSprite" type="Sprite2D" parent="."]
 position = Vector2(1147, 776)
 scale = Vector2(0.192839, 0.183594)
 texture = ExtResource("5_0toel")
