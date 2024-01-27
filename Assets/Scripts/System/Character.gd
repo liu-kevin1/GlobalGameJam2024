@@ -8,6 +8,6 @@ var characterName;
 var characterSprites
 
 func _init(name, sprites):
-	print("Initializing character <%s>..." % name)
+	# print("Initializing character <%s>..." % name)
 	characterName = name
 	characterSprites = sprites

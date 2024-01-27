@@ -4,15 +4,28 @@ extends Node
 var DIALOGUE : Dictionary = {}
 static var instance : DialogueManager = null
 
-var dialogueBox = null
+var dialogueBox : Label = null
+var choiceButtons : Node = null
+var templateButton : Button = null
+
+var hasPressedEnter : bool = false
+var lastEnterPress : float = 0
+var enterPressDebounce : float = 1
+
 signal pressedEnter
+signal optionPressed
 
 func addDialogue(dial):
 	DIALOGUE[dial.dialogueName] = dial
 	print(DIALOGUE)
 
+# func _init():
+# 	instance = self
+
 func _ready():
 	instance = self
+
+	DialogueCheesecake.new()
 
 	addDialogue(Dialogue.new("TestDialogue", [
 		DialogueLine.new("TestCharacter", "Hey, this is a test line of dialogue! Woohoo! Press ENTER to continue to the next line.", DialogueLineModifiers.new(0.25)),
@@ -21,28 +34,87 @@ func _ready():
 	]))
 	
 	dialogueBox = get_tree().get_root().get_node("MainGameScene/DialogueBox")
-	print("DB: ", dialogueBox)
+	choiceButtons = get_tree().get_root().get_node("MainGameScene/ChoiceButtons")
+	templateButton = choiceButtons.get_node("TemplateButton")
 
-	DialogueManager.instance.playDialogue("TestDialogue")
+	DialogueManager.instance.playDialogue("Cheesecake")
 	
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_ENTER:
+			# This has to be before the signal is emitted, otherwise dialogue gets skipped to the end
+			# when continuing past the last line of dialogue
+			if Time.get_ticks_msec() - lastEnterPress > enterPressDebounce:
+				hasPressedEnter = true
+				lastEnterPress = Time.get_ticks_msec()
+			
 			pressedEnter.emit()
 
-func playDialogue(dialogueName):
+func playDialogue(dialogueName : String):
 	print("Playing dialogue...")
 	var dial : Dialogue = DIALOGUE[dialogueName]
-	#print(dial)
 
+	hasPressedEnter = false
 	for line in dial.dialogueLines:
-		#print(line)
 		var text : String = line.dialogueText
 		var buffer : String = ""
 		var modifiers : DialogueLineModifiers = line.modifiers
+		var options = modifiers.options
+		var events = modifiers.events
+
+		hasPressedEnter = false
 		for c in text:
 			buffer += c
 			dialogueBox.text = buffer
 			await get_tree().create_timer(0.02).timeout
-		if modifiers.waitForPlayerInput:
+
+			# If the player presses enter, skip to the end 
+			if hasPressedEnter:
+				buffer = text
+				dialogueBox.text = buffer
+				break
+
+		hasPressedEnter = false
+
+		if options.size() > 0:
+			generateOptions(options)
+			await optionPressed
+		elif modifiers.waitForPlayerInput:
 			await pressedEnter
+
+func generateOptions(options : Array[Option]):
+	print("Generating options for", options)
+
+	var yOffset = 40
+
+	var xPosition = templateButton.position.x
+	var yPosition = templateButton.position.y
+
+	var generatedButtons : Array[Button] = []
+
+	for option in options:
+		print("Option:", option)
+		var newButton = templateButton.duplicate()
+		newButton.text = option.optionText
+
+		newButton.position.x = xPosition
+		newButton.position.y = yPosition
+
+		newButton.visible = true
+
+		choiceButtons.add_child(newButton)
+
+		newButton.pressed.connect(
+			func():
+				print("Button clicked")
+				option.optionCall.call()
+				optionPressed.emit()
+				for button in generatedButtons:
+					button.queue_free()
+		)
+
+		generatedButtons.push_back(newButton)
+
+		yPosition += yOffset
+
+	print(generatedButtons)

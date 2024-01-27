@@ -7,7 +7,6 @@ extends Character
 var character : Character 
 
 func _init():
-	print("Initializing TestCharacter")
 	var sprites = {
 		IDLE = preload("res://Assets/Images/steak.png")
 	}
