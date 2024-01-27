@@ -11,9 +11,12 @@ var templateButton : Button = null
 var hasPressedEnter : bool = false
 var lastEnterPress : float = 0
 var enterPressDebounce : float = 1
+var currentDialogue : Dialogue = null
+var markCurrentDialogueForKill : bool = false
 
 signal pressedEnter
 signal optionPressed
+signal dialogueFinished
 
 func addDialogue(dial):
 	DIALOGUE[dial.dialogueName] = dial
@@ -37,7 +40,7 @@ func _ready():
 	choiceButtons = get_tree().get_root().get_node("MainGameScene/ChoiceButtons")
 	templateButton = choiceButtons.get_node("TemplateButton")
 
-	DialogueManager.instance.playDialogue("Cheesecake")
+	DialogueManager.instance.playDialogue("Cheesecake_Base")
 	
 func _input(event):
 	if event is InputEventKey:
@@ -51,8 +54,14 @@ func _input(event):
 			pressedEnter.emit()
 
 func playDialogue(dialogueName : String):
+	if currentDialogue != null:
+		markCurrentDialogueForKill = true
+		await dialogueFinished
+		markCurrentDialogueForKill = false
+
 	print("Playing dialogue...")
 	var dial : Dialogue = DIALOGUE[dialogueName]
+	currentDialogue = dial
 
 	hasPressedEnter = false
 	for line in dial.dialogueLines:
@@ -74,6 +83,12 @@ func playDialogue(dialogueName : String):
 				dialogueBox.text = buffer
 				break
 
+			if markCurrentDialogueForKill:
+				break
+
+		if markCurrentDialogueForKill:
+			break
+
 		hasPressedEnter = false
 
 		if options.size() > 0:
@@ -81,6 +96,8 @@ func playDialogue(dialogueName : String):
 			await optionPressed
 		elif modifiers.waitForPlayerInput:
 			await pressedEnter
+
+	dialogueFinished.emit()
 
 func generateOptions(options : Array[Option]):
 	print("Generating options for", options)
