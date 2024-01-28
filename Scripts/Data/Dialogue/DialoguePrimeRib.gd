@@ -89,10 +89,17 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Curious1", [
 		DialogueLine.new("PrimeRib", "\"What? Is there a problem? All I'm seeing is that I'm refined goodness. None of that useless additional mass, which also gives me a smaller hitbox. You should know that much, at least.\""),
 		DialogueLine.new("Player", "Smaller... hitbox? Well, it sounds right, but..."),
-		DialogueLine.new("PrimeRib", "\"Anyways. You aren't think of eating me, are you?\""),
+		DialogueLine.new("PrimeRib", "\"You're shaming me like I'm compensating for something...\""),
+		DialogueLine.new("Player", "\"Can you really blame me? That was a really nerdy thing you just said\""),
+		DialogueLine.new("Player", "\"And it's not like I'm shaming you, I just expected something bigger. Dork.\""),
+		DialogueLine.new("PrimeRib", "\"DON'T CALL ME A DORK\""),
+		DialogueLine.new("PrimeRib", "\"I clearly have more worth than that\""),
+		
 		DialogueLine.new("Player", "...", DialogueLineModifiers.new(1, true, [
-			Option.new("\"I am, actually.\"", func(): dialogueManager.playDialogue("PrimeRib_Consumption1")),
-			Option.new("\"Am I worthy of eating you?\"", func(): dialogueManager.playDialogue("PrimeRib_Curious2"))
+			Option.new("\"Worthy of my stomach...\"", func(): dialogueManager.playDialogue("PrimeRib_Consumption1")),
+			Option.new("\"Am I worthy of eating you?\"", func(): dialogueManager.playDialogue("PrimeRib_Curious2")),
+			Option.new("\"Am I worthy even worthy of you?\"", func(): dialogueManager.playDialogue("PrimeRib_Love"))
+			
 		]))
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Curious2", [
@@ -107,6 +114,20 @@ func _init():
 		DialogueLine.new("PrimeRib", "\"Ha! It seems that I am too much for you to handle, after all.\""),
 		DialogueLine.new("Server", "\"I will be right back with your next dish.\""),
 		DialogueLine.new("Player", "...", DialogueLineModifiers.new(1, true, [], [
+			func(): dialogueManager.playDialogue("RockCandy_Served")
+		]))
+	]))
+	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Love", [
+		DialogueLine.new("PrimeRib", "\"I'm not sure what you mean when you would say you are worthy of me\""),
+		DialogueLine.new("Player", "\"I mean am I worthy of your company my dearest meat\""),
+		DialogueLine.new("Player", "\"My meatness\""),
+		DialogueLine.new("PrimeRib", "\"That is certainly not a word in my lexicon but I take that as a compliment\""),
+		DialogueLine.new("Player", "\"How could I possibly eat something as elegant and posh as this!\""),
+		DialogueLine.new("PrimeRib", "\"Would you kiss my meat?\""),
+		DialogueLine.new("Player", "\"Please don't say it like that.\""),
+		DialogueLine.new("Player", "\"But yes I would let you\""),
+		DialogueLine.new("PrimeRib", "Juice oozes out of the prime rib"),
+		DialogueLine.new("Server", "Your next course is ready sir.", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("RockCandy_Served")
 		]))
 	]))
