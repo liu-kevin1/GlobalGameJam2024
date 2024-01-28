@@ -22,4 +22,5 @@ func _ready():
 	instance.addCharacter(Server)
 	instance.addCharacter(ShinjiChair)
 	instance.addCharacter(Spaghetti)
+	instance.addCharacter(Steak)
 	instance.addCharacter(TestCharacter)
