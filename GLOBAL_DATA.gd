@@ -5,3 +5,6 @@ extends Node
 var SELECTED_CHOICE = -1
 var CREDIT_TEXT = ""
 var FADE = false
+var MAIN_SCENE = preload("res://Scenes/Main/MainGameScene.tscn")
+var CREDITS_SCENE = preload("res://Scenes/Main/Credits.tscn")
+var MAIN_MENU = preload("res://Scenes/Main/MainMenu.tscn")

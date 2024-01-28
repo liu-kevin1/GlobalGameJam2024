@@ -9,7 +9,7 @@ func _ready():
 	playButton.connect("pressed", _restart)
 
 func _restart():
-	var gameScene = preload("res://Scenes/Main/MainMenu.tscn")
+	var gameScene = Global.MAIN_MENU
 	get_tree().change_scene_to_packed(gameScene)
 	
 func appear():
