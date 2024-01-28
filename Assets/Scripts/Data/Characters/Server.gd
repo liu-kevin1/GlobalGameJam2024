@@ -1,4 +1,4 @@
-class_name EmperorJohn
+class_name Server
 extends Character
 
 var character : Character 
@@ -11,6 +11,6 @@ func _init():
             Position = Vector2(1147, 776)
         }
 	}
-	character = Character.new("EmperorJohn", sprites)
+	character = Character.new("Server", sprites)
 
 

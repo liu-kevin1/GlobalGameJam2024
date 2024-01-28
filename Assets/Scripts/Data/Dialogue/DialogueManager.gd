@@ -4,9 +4,11 @@ extends Node
 var DIALOGUE : Dictionary = {}
 static var instance : DialogueManager = null
 
+const templateButton = preload("res://Assets/Instances/template_button.tscn")
+
 var dialogueBox : Label = null
 var choiceButtons : Node = null
-var templateButton : Button = null
+# var templateButton : Button = null
 var characterSprite : Sprite2D = null
 
 var hasPressedEnter : bool = false
@@ -30,21 +32,22 @@ func _ready():
 	instance = self
 
 	DialogueCheesecake.new()
+	DialoguePrimeRib.new()
 
-	addDialogue(Dialogue.new("TestDialogue", [
-		DialogueLine.new("TestCharacter", "Hey, this is a test line of dialogue! Woohoo! Press ENTER to continue to the next line.", DialogueLineModifiers.new(0.25)),
-		DialogueLine.new("TestCharacter", "This is the second line of dialogue. This is normal speed, but it won't wait for you to press enter before going to the next line, so, toodles!!", DialogueLineModifiers.new(1, false)),
-		DialogueLine.new("TestCharacter", "Aaaaaaaaaaaaaaaaand this is the third line of dialogue and it's so so much faster!!! WOOOO!!!!", DialogueLineModifiers.new(2))
-	]))
+	# addDialogue(Dialogue.new("TestDialogue", [
+	# 	DialogueLine.new("TestCharacter", "Hey, this is a test line of dialogue! Woohoo! Press ENTER to continue to the next line.", DialogueLineModifiers.new(0.25)),
+	# 	DialogueLine.new("TestCharacter", "This is the second line of dialogue. This is normal speed, but it won't wait for you to press enter before going to the next line, so, toodles!!", DialogueLineModifiers.new(1, false)),
+	# 	DialogueLine.new("TestCharacter", "Aaaaaaaaaaaaaaaaand this is the third line of dialogue and it's so so much faster!!! WOOOO!!!!", DialogueLineModifiers.new(2))
+	# ]))
 
 	var root = get_tree().get_root()
 	
 	dialogueBox = root.get_node("MainGameScene/DialogueBox")
 	choiceButtons = root.get_node("MainGameScene/ChoiceButtons")
-	templateButton = choiceButtons.get_node("TemplateButton")
+	# templateButton = choiceButtons.get_node("TemplateButton")
 	characterSprite = root.get_node("MainGameScene/CharacterSprite")
 
-	DialogueManager.instance.playDialogue("Cheesecake_Served")
+	DialogueManager.instance.playDialogue("PrimeRib_Served")
 	
 func _input(event):
 	if event is InputEventKey:
@@ -96,6 +99,9 @@ func playDialogue(dialogueName : String):
 			if markCurrentDialogueForKill:
 				break
 
+		for event in events:
+			event.call()
+
 		if markCurrentDialogueForKill:
 			break
 
@@ -112,17 +118,20 @@ func playDialogue(dialogueName : String):
 func generateOptions(options : Array[Option]):
 	print("Generating options for", options)
 
-	var yOffset = 40
+	var yOffset = 60
 
-	var xPosition = templateButton.position.x
-	var yPosition = templateButton.position.y
+	var example = templateButton.instantiate()
+	var xPosition = example.position.x
+	var yPosition = example.position.y
+	example.queue_free()
 
 	var generatedButtons : Array[Button] = []
 
 	for option in options:
 		print("Option:", option)
-		var newButton = templateButton.duplicate()
-		newButton.text = option.optionText
+		var newButton = templateButton.instantiate()
+		newButton.text = ""
+		newButton.get_node("Label").text = option.optionText
 
 		newButton.position.x = xPosition
 		newButton.position.y = yPosition
@@ -145,3 +154,6 @@ func generateOptions(options : Array[Option]):
 		yPosition += yOffset
 
 	print(generatedButtons)
+
+func enterCredits():
+	print("---------ENTERING CREDITS-----------")

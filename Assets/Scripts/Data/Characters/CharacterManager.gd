@@ -16,10 +16,15 @@ func addCharacter(c):
 func _ready():
 	instance = self
 	
-	instance.addCharacter(TestCharacter)
 	instance.addCharacter(Cheesecake)
-	instance.addCharacter(EmperorJohn)
+	instance.addCharacter(Pizza)
+	instance.addCharacter(Player)
+	instance.addCharacter(PrimeRib)
+	instance.addCharacter(RockCandy)
+	instance.addCharacter(Sashimi)
+	instance.addCharacter(Server)
 	instance.addCharacter(Spaghetti)
+	instance.addCharacter(TestCharacter)
 	
 # static func getCharacterManager():
 # 	return instance

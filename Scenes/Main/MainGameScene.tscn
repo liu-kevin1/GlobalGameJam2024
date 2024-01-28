@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxw0sb5jllxpp"]
+[gd_scene load_steps=9 format=3 uid="uid://bxw0sb5jllxpp"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Dining.gd" id="1_t1jsi"]
 [ext_resource type="Texture2D" uid="uid://dw4rgwn8ixu6o" path="res://Assets/Images/icon.svg" id="3_53php"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://curjxx3ltbiw1" path="res://Assets/Images/restaurant_pov.jpg" id="4_ihfs1"]
 [ext_resource type="Texture2D" uid="uid://dcxuuo642lou4" path="res://Assets/Images/steak.png" id="5_0toel"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Characters/CharacterManager.gd" id="6_aw6co"]
+[ext_resource type="PackedScene" uid="uid://ogeu3vx25ayk" path="res://Assets/Instances/template_button.tscn" id="6_cn31g"]
 [ext_resource type="Script" path="res://Assets/Scripts/Data/Dialogue/DialogueManager.gd" id="7_1cykw"]
 
 [node name="MainGameScene" type="Node2D"]
@@ -101,16 +102,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "CHOICE 5"
 
-[node name="TemplateButton" type="Button" parent="ChoiceButtons"]
-visible = false
-offset_left = 858.0
-offset_top = 117.0
-offset_right = 1123.0
-offset_bottom = 148.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-text = "CHOICE 1"
+[node name="TemplateButton" parent="ChoiceButtons" instance=ExtResource("6_cn31g")]
 
 [node name="Managers" type="Node" parent="."]
 

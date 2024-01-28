@@ -6,7 +6,7 @@ var dialogueManager : DialogueManager = null
 func _init():
 	dialogueManager = DialogueManager.instance
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Served", [
-		DialogueLine.new("EmperorJohn", "Here you go. The cheesecake that you ordered has arrived.", DialogueLineModifiers.new(0.5)),
+		DialogueLine.new("Server", "Here you go. The cheesecake that you ordered has arrived.", DialogueLineModifiers.new(0.5)),
 		DialogueLine.new("Cheesecake", "Hello! It's me. The one and only. The mighty, magnificent...", DialogueLineModifiers.new(1)),
 		DialogueLine.new("Cheesecake", "CHEEEEEEEEEEEEEEESECAAAAAAAAAAAAKEEEEE!!!!!!!!!!!!!!!", DialogueLineModifiers.new(1))
 	]))
