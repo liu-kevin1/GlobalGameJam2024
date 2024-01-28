@@ -10,7 +10,7 @@ var characterManager : CharacterManager
 func _init(
 	aCharacterName : String, 
 	aDialogueText : String,
-	aModifiers : DialogueLineModifiers
+	aModifiers : DialogueLineModifiers = DialogueLineModifiers.new()
 	):
 
 	characterName = aCharacterName
