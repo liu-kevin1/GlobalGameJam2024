@@ -6,7 +6,7 @@ var dialogueManager : DialogueManager = null
 func _init():
 	dialogueManager = DialogueManager.instance
 
-    dialogueManager.addDialogue(Dialogue.new("Steak_Served", [
+	dialogueManager.addDialogue(Dialogue.new("Steak_Served", [
 		DialogueLine.new("Server", "\"Allow us to introduce our finest-cut steak, dear customer.\""),
 		DialogueLine.new("Steak", "\"Look at me...Perfectly seared - my edges crisp, my flesh rare...\""),
 		DialogueLine.new("Steak", "\"A sight truly to behold, once in a lifetime, feast your eyes upon me!\""),
