@@ -36,6 +36,7 @@ func _ready():
 	DialoguePrimeRib.new()
 	DialogueSashimi.new()
 	DialogueSpaghetti.new()
+	DialogueSteak.new()
 
 	# addDialogue(Dialogue.new("TestDialogue", [
 	# 	DialogueLine.new("TestCharacter", "Hey, this is a test line of dialogue! Woohoo! Press ENTER to continue to the next line.", DialogueLineModifiers.new(0.25)),
@@ -87,7 +88,10 @@ func playDialogue(dialogueName : String):
 		characterSprite.scale = spriteInfo.Scale
 		characterSprite.position = spriteInfo.Position
 
-		buffer = line.characterName + ":\n" 
+		var nickname = "\n"
+		if character.character.characterNickname != "":
+			nickname = character.character.characterNickname + ":\n"
+		buffer = nickname
 
 		hasPressedEnter = false
 		for c in text:
@@ -97,7 +101,7 @@ func playDialogue(dialogueName : String):
 
 			# If the player presses enter, skip to the end 
 			if hasPressedEnter:
-				buffer = line.characterName + ":\n" + text
+				buffer = nickname + text
 				dialogueBox.text = buffer
 				break
 

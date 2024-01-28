@@ -128,7 +128,7 @@ func _init():
 		DialogueLine.new("Player", "\"But yes I would let you\""),
 		DialogueLine.new("PrimeRib", "Juice oozes out of the prime rib"),
 		DialogueLine.new("Server", "Your next course is ready sir.", DialogueLineModifiers.new(1, true, [], [
-			func(): dialogueManager.playDialogue("RockCandy_Served")
+			func(): dialogueManager.playDialogue("Spaghetti_Served")
 		]))
 	]))
 

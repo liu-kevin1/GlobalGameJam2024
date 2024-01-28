@@ -16,6 +16,7 @@ func _init():
 		DialogueLine.new("Spaghetti", "\"You can do a lot on a plate....\""),
 		DialogueLine.new("Player", "\"I could do a lot right now.....\"", DialogueLineModifiers.new(1, true, [
 			Option.new("\"Come Mangiare!\"", func(): dialogueManager.playDialogue("Spaghetti_ConsumptionBranch")),
+			Option.new("\"サンライトイエローオーバードライブ！\"", func(): dialogueManager.playDialogue("Jojo's")),
 			Option.new("\"Like admiring your color\"", func(): dialogueManager.playDialogue("Spaghetti_WholesomeBranch")),
 			Option.new("\"Who eats pasta like this in my America\"", func(): dialogueManager.playDialogue("Spaghetti_Skip")),
 		])),
@@ -46,6 +47,14 @@ func _init():
 		DialogueLine.new("Spaghetti", "\"I will keep being me then.\""),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.enterCredits("Spaghetti_Skip")
+		])),
+	]))
+	dialogueManager.addDialogue(Dialogue.new("Jojo's", [
+		DialogueLine.new("Spaghetti", "\"What- huh???\""),
+		DialogueLine.new("Player", "\"UUUUURRAAAAAAGGGHHHHH\""),
+		DialogueLine.new("Spaghetti", "\"OOOUUUGGGGGHHH\""),
+		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
+			func(): dialogueManager.enterCredits("[YOU USED YOUR HAMON TO DESTROY SPAGHETTO]")
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Spaghetti_FunnyBranch", [
