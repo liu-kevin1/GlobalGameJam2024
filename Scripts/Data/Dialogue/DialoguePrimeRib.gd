@@ -10,23 +10,24 @@ func _init():
 		DialogueLine.new("PrimeRib", "\"Certainly not the most elegant of ways that I have been introduced. Perhaps I should have tried my luck at a different restaurant; the service here is mediocre.\"", DialogueLineModifiers.new(1)),
 		DialogueLine.new("Player", "Mediocre? I thought that was pretty formal.", DialogueLineModifiers.new(1)),
 		DialogueLine.new("PrimeRib", "\"Anyways, I suppose I'm here now. What do you want with me, commoner?\"", DialogueLineModifiers.new(1, true, [
-			Option.new("\"I want to eat you.\"", func(): dialogueManager.playDialogue("PrimeRib_Consumption1")),
-			Option.new("\"You don't seem like a delectable dinner to me.\"", func(): dialogueManager.playDialogue("PrimeRib_Honest1")),
+			Option.new("\"I want to get to know you.\"", func(): dialogueManager.playDialogue("PrimeRib_Consumption1")),
+			Option.new("\"You don't seem like a delectable dinner nor date to me.\"", func(): dialogueManager.playDialogue("PrimeRib_Honest1")),
 			Option.new("\"Are you always this small?\"", func(): dialogueManager.playDialogue("PrimeRib_Curious1")),
 			Option.new("\"Hard pass. Yikes.\"", func(): dialogueManager.playDialogue("RockCandy_Served"))
 		]))
 	]))
+	
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Consumption1", [
-		DialogueLine.new("PrimeRib", "\"Oh? You think you're worthy of eating me? Hm.\""),
+		DialogueLine.new("PrimeRib", "\"Oh? You think you're worthy of getting to know me? Hm.\""),
 		DialogueLine.new("PrimeRib", "\"FOOL! YOU ABSOLUTE BUFFOON!\""),
 		DialogueLine.new("PrimeRib", "\"I'll have you know, I have seventeen separate doctorates, all in different fields!\""),
 		DialogueLine.new("Player", "\"....Sure.\"", DialogueLineModifiers.new(0.2)),
-		DialogueLine.new("PrimeRib", "\"Indeed! I am an esteemed scholar in all of the fields, too. I'd be more surprised if somebody didn't know me at the local research convention, honestly.\""),
-		DialogueLine.new("Player", "\"Is it really okay to eat such an important researcher, then?\""),
+		DialogueLine.new("PrimeRib", "\"Indeed! I am an esteemed scholar in all of the fields, too. I'd be more surprised if somebody DIDN'T know me at any of the local research convention, honestly.\""),
+		DialogueLine.new("Player", "\"...How is this related to getting to know you better\""),
 		DialogueLine.new("PrimeRib", "\"Bah! What a foolish question, befitting a narrow-brained person like you. Of course it is! Though, not for you. My intelligence would go to waste on a specimen such as yourself.\""),
 		DialogueLine.new("Player", "That's so harsh....", DialogueLineModifiers.new(0.2, true, [
-			Option.new("\"Actually, I think I want to eat you even more now.\"", func(): dialogueManager.playDialogue("PrimeRib_Consumption2")),
-			Option.new("\"I suppose I wouldn't be fit for eating you, then...\"", func(): dialogueManager.playDialogue("PrimeRib_Curious2")),
+			Option.new("\"Actually, I think I want to learn about you even more now.\"", func(): dialogueManager.playDialogue("PrimeRib_Consumption2")),
+			Option.new("\"I suppose I wouldn't be fit for you, then...\"", func(): dialogueManager.playDialogue("PrimeRib_Curious2")),
 			Option.new("\"What traits would I need in order to be worthy?\"", func(): dialogueManager.playDialogue("PrimeRib_Curious2"))
 		]))
 	]))
