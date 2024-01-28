@@ -12,6 +12,3 @@ func _init():
 		}
 	}
 	character = Character.new("RockCandy", sprites)
-
-func testCharacterFunction():
-	print("TEST CHARACTER - TEST CHARACTER FUNCTION")

@@ -12,6 +12,3 @@ func _init():
 		}
 	}
 	character = Character.new("Spaghetti", sprites, "Squid Ink Spaghetti")
-
-func testCharacterFunction():
-	print("TEST CHARACTER - TEST CHARACTER FUNCTION")

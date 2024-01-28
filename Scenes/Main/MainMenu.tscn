@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://2dv74dvdd87s"]
 
-[ext_resource type="Texture2D" uid="uid://oo4w7pi4fb2u" path="res://Assets/Images/main_menu.png" id="1_mjft6"]
+[ext_resource type="Texture2D" uid="uid://2q0kk1ln5oia" path="res://Assets/Images/main_menu.png" id="1_mjft6"]
 [ext_resource type="Script" path="res://Scripts/InteractiveElements/MainMenu.gd" id="2_1kxnd"]
 
 [node name="MainMenu" type="Node2D"]
@@ -10,11 +10,20 @@ position = Vector2(575.5, 326)
 scale = Vector2(0.911719, 0.90784)
 texture = ExtResource("1_mjft6")
 
-[node name="Button" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 523.0
 offset_top = 28.0
 offset_right = 697.0
 offset_bottom = 316.0
+theme_override_font_sizes/font_size = 64
+script = ExtResource("2_1kxnd")
+
+[node name="CreditsButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 587.0
+offset_top = 356.0
+offset_right = 818.0
+offset_bottom = 618.0
 theme_override_font_sizes/font_size = 64
 script = ExtResource("2_1kxnd")

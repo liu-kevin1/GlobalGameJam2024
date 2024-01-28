@@ -1,4 +1,4 @@
-class_name Sashimi
+class_name Steak
 extends Character
 
 var character : Character 
@@ -6,9 +6,10 @@ var character : Character
 func _init():
 	var sprites = {
 		IDLE = {
-			Texture = preload("res://Assets/Images/Gas_Station_Sashimi.png"),
+			Texture = preload("res://Assets/Images/Steak.png"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		}
 	}
-	character = Character.new("Sashimi", sprites, "Gas Station Sashimi")
+	character = Character.new("Steak", sprites, "Steak")
+
