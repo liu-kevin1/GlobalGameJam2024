@@ -4,11 +4,13 @@
 [ext_resource type="Script" path="res://Scripts/TemplateButton.gd" id="3_041xk"]
 [ext_resource type="Texture2D" uid="uid://dw4rgwn8ixu6o" path="res://Assets/Images/icon.svg" id="3_53php"]
 [ext_resource type="Texture2D" uid="uid://cjxp0rfwh5kce" path="res://Assets/Images/Main_Background.png" id="4_ta6nt"]
-[ext_resource type="Texture2D" uid="uid://dcxuuo642lou4" path="res://Assets/Images/steak.png" id="5_0toel"]
 [ext_resource type="Texture2D" uid="uid://o4fyoxm11td5" path="res://Assets/Images/Table.png" id="5_dsc16"]
 [ext_resource type="PackedScene" uid="uid://ogeu3vx25ayk" path="res://Assets/Instances/template_button.tscn" id="6_cn31g"]
 [ext_resource type="Script" path="res://Scripts/Data/Characters/CharacterManager.gd" id="8_720ed"]
 [ext_resource type="Script" path="res://Scripts/Data/Dialogue/DialogueManager.gd" id="9_cmfmj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s2rg5"]
+load_path = "res://.godot/imported/steak.png-0e13baa51746d1a98697fd9b5a9d7aeb.ctex"
 
 [node name="MainGameScene" type="Node2D"]
 position = Vector2(-592, -410)
@@ -38,7 +40,7 @@ texture = ExtResource("5_dsc16")
 texture_filter = 1
 position = Vector2(1167, 854)
 scale = Vector2(0.6, 0.573)
-texture = ExtResource("5_0toel")
+texture = SubResource("CompressedTexture2D_s2rg5")
 
 [node name="DialogueBox" type="Label" parent="."]
 offset_left = 691.0
