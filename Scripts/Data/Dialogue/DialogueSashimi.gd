@@ -44,7 +44,7 @@ func _init():
 		DialogueLine.new("Player", "\"Then why should we writhe in pain in a future you cannot prevent.\""),
 		DialogueLine.new("Sashimi", "\"...\""),
 		DialogueLine.new("Player", "\"Perhaps, you should ponder you own pessimistic outlook.\"", DialogueLineModifiers.new(1, true, [
-			Option.new("ANYwhose, NOM", func(): dialogueManager.enterCredits("[ YOU ATE THE SASHIMI ]")),
+			Option.new("ANYwhose, NOM", func(): dialogueManager.playDialogue("Sashimi_ShinjiChairMoment")),
 			Option.new("Skip", func(): dialogueManager.playDialogue("Sashimi_Skip"))
 		])),
 	]))

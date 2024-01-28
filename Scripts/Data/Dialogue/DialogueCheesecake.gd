@@ -113,6 +113,6 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_NextDish", [
 		DialogueLine.new("Server", "\"It will only be a moment.\" The server returns to the kitchen, before walking back with a new dish."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
-			func(): dialogueManager.playDialogue("Steak_Served")
+			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))

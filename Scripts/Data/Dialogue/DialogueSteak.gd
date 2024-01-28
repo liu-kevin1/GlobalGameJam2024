@@ -31,7 +31,7 @@ func _init():
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))
-	dialogueManager.addDialogue(Dialogue.new("Steak_Skip2:", [
+	dialogueManager.addDialogue(Dialogue.new("Steak_Skip2", [
 		DialogueLine.new("Server", "\"Is there a problem?\""),
 		DialogueLine.new("Player", "\"I can't do it... this steak is too perfect...\""),
 		DialogueLine.new("Player", "\"They're out of my league! I beg you, bring me another dish!\""),
