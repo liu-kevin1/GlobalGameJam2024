@@ -12,9 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://btxvehlbynsm3" path="res://Assets/Audio/dining dating.wav" id="10_lg828"]
 [ext_resource type="AudioStream" uid="uid://yobrro6p5sju" path="res://Assets/Audio/restaur_amb.wav" id="11_esi2y"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s2rg5"]
-load_path = "res://.godot/imported/steak.png-0e13baa51746d1a98697fd9b5a9d7aeb.ctex"
-
 [node name="MainGameScene" type="Node2D"]
 position = Vector2(-592, -410)
 script = ExtResource("1_go7wu")
