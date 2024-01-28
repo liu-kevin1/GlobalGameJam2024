@@ -36,6 +36,7 @@ func _ready():
 	DialoguePrimeRib.new()
 	DialogueSashimi.new()
 	DialogueSpaghetti.new()
+	DialogueSteak.new()
 
 	# addDialogue(Dialogue.new("TestDialogue", [
 	# 	DialogueLine.new("TestCharacter", "Hey, this is a test line of dialogue! Woohoo! Press ENTER to continue to the next line.", DialogueLineModifiers.new(0.25)),
