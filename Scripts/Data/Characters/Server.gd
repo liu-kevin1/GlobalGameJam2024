@@ -8,9 +8,9 @@ func _init():
 		IDLE = {
 			Texture = preload("res://Assets/Images/Emperor.png"),
 			Scale = Vector2(1, 1),
-			Position = Vector2(1147, 776)
+			Position = Vector2(1147, 876)
 		}
 	}
-	character = Character.new("Server", sprites)
+	character = Character.new("Server", sprites, "Server")
 
 

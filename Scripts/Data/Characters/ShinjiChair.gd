@@ -11,7 +11,7 @@ func _init():
 			Position = Vector2(1147, 676)
 		}
 	}
-	character = Character.new("ShinjiChair", sprites)
+	character = Character.new("ShinjiChair", sprites, "")
 
 func testCharacterFunction():
 	print("TEST CHARACTER - TEST CHARACTER FUNCTION")

@@ -87,7 +87,10 @@ func playDialogue(dialogueName : String):
 		characterSprite.scale = spriteInfo.Scale
 		characterSprite.position = spriteInfo.Position
 
-		buffer = line.characterName + ":\n" 
+		var nickname = "\n"
+		if character.character.characterNickname != "":
+			nickname = character.character.characterNickname + ":\n"
+		buffer = nickname
 
 		hasPressedEnter = false
 		for c in text:
@@ -97,7 +100,7 @@ func playDialogue(dialogueName : String):
 
 			# If the player presses enter, skip to the end 
 			if hasPressedEnter:
-				buffer = line.characterName + ":\n" + text
+				buffer = nickname + text
 				dialogueBox.text = buffer
 				break
 
