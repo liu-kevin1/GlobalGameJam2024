@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxw0sb5jllxpp"]
+[gd_scene load_steps=10 format=3 uid="uid://bxw0sb5jllxpp"]
 
 [ext_resource type="Script" path="res://Scripts/Dining.gd" id="1_go7wu"]
 [ext_resource type="Script" path="res://Scripts/TemplateButton.gd" id="3_041xk"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ogeu3vx25ayk" path="res://Assets/Instances/template_button.tscn" id="6_cn31g"]
 [ext_resource type="Script" path="res://Scripts/Data/Characters/CharacterManager.gd" id="8_720ed"]
 [ext_resource type="Script" path="res://Scripts/Data/Dialogue/DialogueManager.gd" id="9_cmfmj"]
-[ext_resource type="AudioStream" uid="uid://btxvehlbynsm3" path="res://Assets/Audio/dining dating.wav" id="10_lg828"]
-[ext_resource type="AudioStream" uid="uid://yobrro6p5sju" path="res://Assets/Audio/restaur_amb.wav" id="11_esi2y"]
 
 [node name="MainGameScene" type="Node2D"]
 position = Vector2(-592, -410)
@@ -121,13 +119,3 @@ script = ExtResource("8_720ed")
 
 [node name="DialogueManager" type="Node" parent="Managers"]
 script = ExtResource("9_cmfmj")
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_lg828")
-volume_db = -15.929
-autoplay = true
-
-[node name="RestaurantAmb" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_esi2y")
-volume_db = -11.197
-autoplay = true
