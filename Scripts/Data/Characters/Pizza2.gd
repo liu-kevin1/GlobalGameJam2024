@@ -12,6 +12,3 @@ func _init():
 		}
 	}
 	character = Character.new("Pizza 2", sprites, "Chill Pizza")
-
-func testCharacterFunction():
-	print("TEST CHARACTER - TEST CHARACTER FUNCTION")
