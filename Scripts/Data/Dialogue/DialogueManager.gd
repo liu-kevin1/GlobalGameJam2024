@@ -163,3 +163,6 @@ func generateOptions(options : Array[Option]):
 func enterCredits(text):
 	print("---------ENTERING CREDITS-----------")
 	print(text)
+	var credits = preload("res://Scenes/Main/Credits.tscn")
+	# Transition to the game scene
+	get_tree().change_scene_to_packed(credits)
