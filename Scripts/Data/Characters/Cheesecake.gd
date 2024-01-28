@@ -7,7 +7,7 @@ func _init():
 	var sprites = {
 		IDLE = {
 			Texture = preload("res://Assets/Images/Mashed-Up_Cheesecake.png"),
-			Scale = Vector2(0.193, 0.184),
+			Scale = Vector2(0.4, 0.4),
 			Position = Vector2(1147, 776)
 		}
 	}

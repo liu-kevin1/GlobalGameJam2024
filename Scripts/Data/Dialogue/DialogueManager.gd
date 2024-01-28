@@ -32,7 +32,10 @@ func _ready():
 	instance = self
 
 	DialogueCheesecake.new()
+	DialoguePizza.new()
 	DialoguePrimeRib.new()
+	DialogueSashimi.new()
+	DialogueSpaghetti.new()
 
 	# addDialogue(Dialogue.new("TestDialogue", [
 	# 	DialogueLine.new("TestCharacter", "Hey, this is a test line of dialogue! Woohoo! Press ENTER to continue to the next line.", DialogueLineModifiers.new(0.25)),
@@ -47,7 +50,7 @@ func _ready():
 	# templateButton = choiceButtons.get_node("TemplateButton")
 	characterSprite = root.get_node("MainGameScene/CharacterSprite")
 
-	DialogueManager.instance.playDialogue("PrimeRib_Served")
+	DialogueManager.instance.playDialogue("Cheesecake_Served")
 	
 func _input(event):
 	if event is InputEventKey:
@@ -155,5 +158,6 @@ func generateOptions(options : Array[Option]):
 
 	print(generatedButtons)
 
-func enterCredits():
+func enterCredits(text):
 	print("---------ENTERING CREDITS-----------")
+	print(text)

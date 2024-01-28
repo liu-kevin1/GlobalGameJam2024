@@ -17,12 +17,14 @@ func _ready():
 	instance = self
 	
 	instance.addCharacter(Cheesecake)
-	instance.addCharacter(Pizza)
+	instance.addCharacter(Pizza1)
+	instance.addCharacter(Pizza2)
 	instance.addCharacter(Player)
 	instance.addCharacter(PrimeRib)
 	instance.addCharacter(RockCandy)
 	instance.addCharacter(Sashimi)
 	instance.addCharacter(Server)
+	instance.addCharacter(ShinjiChair)
 	instance.addCharacter(Spaghetti)
 	instance.addCharacter(TestCharacter)
 	
