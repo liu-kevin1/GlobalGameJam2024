@@ -5,7 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
-
+	print("Initialized DialogueSteak")
 	dialogueManager.addDialogue(Dialogue.new("Steak_Served", [
 		DialogueLine.new("Server", "\"Allow us to introduce our finest-cut steak, dear customer.\""),
 		DialogueLine.new("Steak", "\"Look at me...Perfectly seared - my edges crisp, my flesh rare...\""),
@@ -27,7 +27,7 @@ func _init():
 		DialogueLine.new("Server", "\"Absolutely, dear customer.\""),
 		DialogueLine.new("Steak", "\"Stop it! Stop! I don't get rejected! I reject the customers here!\""),
 		DialogueLine.new("Server", "*The server picks up the plate, and you hear the yelling of the steak as it is brought back to the kitchens.*"),
-		DialogueLine.new("Server", "...", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))
@@ -38,7 +38,7 @@ func _init():
 		DialogueLine.new("Steak", "\"Muahahaha! I guess I'm too perfect for you... time to go stare at my reflection in a pot!\""),
 		DialogueLine.new("Server", "\"Understood, dear customer.\""),
 		DialogueLine.new("Server", "*He takes the laughing steak away.*"),
-		DialogueLine.new("Server", "...", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))
@@ -83,7 +83,7 @@ func _init():
 		DialogueLine.new("Server", "\"Are you feeling well?\""),
 		DialogueLine.new("Player", "\"I-I think I'm sick...\""),
 		DialogueLine.new("Player", "*You collapse, having contracted immediate, intense salmonella from the undercooked steak.*"),
-		DialogueLine.new("Player", "...", DialogueLineModifiers.new(1, false, [], [
+		DialogueLine.new("Player", "", DialogueLineModifiers.new(1, false, [], [
 			func(): dialogueManager.enterCredits("[ YOU GOT SALMONELLA ]")
 		]))
 	]))
@@ -115,7 +115,7 @@ func _init():
 		DialogueLine.new("Steak", "\"This customer can't appreciate my succulence! Take me back to the chef!\""),
 		DialogueLine.new("Server", "\"I'm so sorry dear customer, we'll compensate you immediately with another dish.\""),
 		DialogueLine.new("Server", "*The server leaves with the steak.*"),
-		DialogueLine.new("Server", "...", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))

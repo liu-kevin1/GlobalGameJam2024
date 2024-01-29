@@ -5,6 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
+	print("Initialized DialogueCheesecake")
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Served", [
 		DialogueLine.new("Server", "\"And here is the cheesecake for you, esteemed customer.\""),
 		DialogueLine.new("Cheesecake", "\"uh...um. hi :D\""),
@@ -106,13 +107,13 @@ func _init():
 		DialogueLine.new("Player", "\"Help! I'm too young to drown!\""),
 		DialogueLine.new("Server", "\"Not again....\" *takes the cheesecake away and starts watering the plants with its tears*"),
 		DialogueLine.new("Server", "\"So sorry, I will bring the next dish out shortly.\""),
-		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Player", "...................", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Cheesecake_NextDish")
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_NextDish", [
 		DialogueLine.new("Server", "\"It will only be a moment.\" The server returns to the kitchen, before walking back with a new dish."),
-		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Player", "...................", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Steak_Served")
 		])),
 	]))

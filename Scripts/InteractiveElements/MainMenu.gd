@@ -4,8 +4,6 @@ func _ready():
 	var playButton = self
 	playButton.connect("pressed", _on_PlayButton_pressed)
 
-	print("loading the stuff")
-
 func _on_PlayButton_pressed():
 	print("PLAY BUTTON PRESSED")
 	# Load the game scene

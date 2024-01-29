@@ -9,7 +9,7 @@ var characterSprites : Dictionary
 var characterNickname : String
 
 func _init(name, sprites, nickname=""):
-	# print("Initializing character <%s>..." % name)
+	print("Initializing character <%s>" % name)
 	characterName = name
 	characterSprites = sprites
 	characterNickname = nickname

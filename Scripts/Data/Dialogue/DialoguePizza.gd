@@ -5,7 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
-
+	print("Initialized DialoguePizza")
 	dialogueManager.addDialogue(Dialogue.new("Pizza_Served", [
 		DialogueLine.new("Server", "\"Please enjoy our local cuisine; the New York Pizza.\""),
 		DialogueLine.new("Pizza 1", "\"Hello!\"", DialogueLineModifiers.new(1, false)),
@@ -39,7 +39,7 @@ func _init():
 		DialogueLine.new("Pizza 1", "\"My brother was the one who was snarky with you though!!\""),
 		DialogueLine.new("Pizza 2", "\"I get the last laugh...\""),
 		DialogueLine.new("Player", "\"I spare you for now but you better pray that I'm still not hungry\""),
-		DialogueLine.new("Pizza 1", "\"PLEEEAAHHEEEAASE\"", DialogueLineModifiers.new(1, false)),
+		DialogueLine.new("Pizza 1", "\"PLEEEEEEAAAAAHHHHHHEEEEEEEAAAASSSSSEEEEE\"", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("Player", "You slowly lift up the pizza with your hands"),
 		DialogueLine.new("Pizza 1", "\"You OBVIOUSLY have no morals do you!!\""),
 		DialogueLine.new("Player", "\"Yeah hunger is my moral but you're still just too loud\""),

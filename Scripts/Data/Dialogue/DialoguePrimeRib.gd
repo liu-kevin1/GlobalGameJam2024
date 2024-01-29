@@ -5,6 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
+	print("Initialized DialoguePrimeRib")
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Served", [
 		DialogueLine.new("Server", "\"This is one of our finest dishes ever cooked up; a delectable dinner in a bite sized chunk.\"", DialogueLineModifiers.new(0.5)),
 		DialogueLine.new("PrimeRib", "\"Certainly not the most elegant of ways that I have been introduced. Perhaps I should have tried my luck at a different restaurant; the service here is mediocre.\"", DialogueLineModifiers.new(1)),

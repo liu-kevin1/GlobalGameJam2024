@@ -17,6 +17,3 @@ func _init(
 	waitForPlayerInput = aWaitForPlayerInput
 	options = aOptions
 	events = aEvents
-
-func test():
-	print("DIALOGUE")
