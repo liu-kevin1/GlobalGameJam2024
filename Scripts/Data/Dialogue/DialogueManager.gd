@@ -13,7 +13,7 @@ var characterSprite : Sprite2D = null
 
 var hasPressedEnter : bool = false
 var lastEnterPress : float = 0
-var enterPressDebounce : float = 1
+var enterPressDebounce : float = 500
 var currentDialogue : Dialogue = null
 var markCurrentDialogueForKill : bool = false
 

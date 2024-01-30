@@ -7,7 +7,7 @@ func _ready():
 func _on_CreditsButton_pressed():
 	print("CREDITS BUTTON PRESSED")
 	# Load the game scene
-	var creditsScene = Global.CREDITS_SCENE
+	var creditsScene = preload("res://Scenes/Main/Credits.tscn")
 	Global.CREDIT_TEXT = ""
 	Global.FADE = true
 	await get_tree().create_timer(2.0).timeout
