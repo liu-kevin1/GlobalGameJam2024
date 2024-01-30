@@ -4,8 +4,11 @@ var button: Button
 var tween: Tween
 
 func _ready():
+	# When we enter the scene, play the fade in animation
 	appear()
 	var playButton = self
+
+	# Send the player back to the main menu
 	playButton.connect("pressed", _restart)
 
 func _restart():

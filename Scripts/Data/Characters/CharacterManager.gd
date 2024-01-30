@@ -5,6 +5,7 @@ var CHARACTERS : Dictionary = {}
 static var instance : CharacterManager = null
 
 func addCharacter(c):
+	# Store a reference to the added character
 	var obj = c.new()
 	CHARACTERS[obj.character.characterName] = obj
 	print(CHARACTERS)
@@ -12,6 +13,7 @@ func addCharacter(c):
 func _ready():
 	instance = self
 	
+	# Load in all the characters
 	instance.addCharacter(Cheesecake)
 	instance.addCharacter(Pizza1)
 	instance.addCharacter(Pizza2)

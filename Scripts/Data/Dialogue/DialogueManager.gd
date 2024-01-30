@@ -22,15 +22,14 @@ signal optionPressed
 signal dialogueFinished
 
 func addDialogue(dial):
+	# Store a reference to the dialogue
 	DIALOGUE[dial.dialogueName] = dial
 	print(DIALOGUE)
-
-# func _init():
-# 	instance = self
 
 func _ready():
 	instance = self
 
+	# Initialize the dialogue modules
 	DialogueCheesecake.new()
 	DialoguePizza.new()
 	DialoguePrimeRib.new()
@@ -38,12 +37,14 @@ func _ready():
 	DialogueSpaghetti.new()
 	DialogueSteak.new()
 
+	# Test dialogue
 	# addDialogue(Dialogue.new("TestDialogue", [
 	# 	DialogueLine.new("TestCharacter", "Hey, this is a test line of dialogue! Woohoo! Press ENTER to continue to the next line.", DialogueLineModifiers.new(0.25)),
 	# 	DialogueLine.new("TestCharacter", "This is the second line of dialogue. This is normal speed, but it won't wait for you to press enter before going to the next line, so, toodles!!", DialogueLineModifiers.new(1, false)),
 	# 	DialogueLine.new("TestCharacter", "Aaaaaaaaaaaaaaaaand this is the third line of dialogue and it's so so much faster!!! WOOOO!!!!", DialogueLineModifiers.new(2))
 	# ]))
 
+	# Initialize object references
 	var root = get_tree().get_root()
 	
 	dialogueBox = root.get_node("MainGameScene/DialogueBox")
@@ -51,11 +52,14 @@ func _ready():
 	# templateButton = choiceButtons.get_node("TemplateButton")
 	characterSprite = root.get_node("MainGameScene/CharacterSprite")
 
+	# Play the first dialogue
+	# We start with serving the cheesecake
 	DialogueManager.instance.playDialogue("Cheesecake_Served")
 	
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_ENTER:
+		# Trigger when ENTER or SPACE is pressed
+		if event.pressed and event.keycode == KEY_ENTER or event.keycode == KEY_SPACE:
 			# This has to be before the signal is emitted, otherwise dialogue gets skipped to the end
 			# when continuing past the last line of dialogue
 			if Time.get_ticks_msec() - lastEnterPress > enterPressDebounce:
@@ -65,17 +69,22 @@ func _input(event):
 			pressedEnter.emit()
 
 func playDialogue(dialogueName : String):
+	# If we're currently playing dialogue, send it a signal to die
+	# Wait for it to die
+	# Then start playing this dialogue
 	if currentDialogue != null:
 		markCurrentDialogueForKill = true
 		await dialogueFinished
 		markCurrentDialogueForKill = false
 
-	print("Playing dialogue...")
+	# print("Playing dialogue...")
+	# Load the dialogue from reference
 	var dial : Dialogue = DIALOGUE[dialogueName]
 	currentDialogue = dial
 
-	hasPressedEnter = false
+	# For each line in the dialogue...
 	for line in dial.dialogueLines:
+		# Initialize our variables
 		var character = CharacterManager.instance.CHARACTERS[line.characterName]
 		var text : String = line.dialogueText
 		var buffer : String = ""
@@ -83,20 +92,24 @@ func playDialogue(dialogueName : String):
 		var options = modifiers.options
 		var events = modifiers.events
 
+		# Update the character sprite with the current speaker
 		var spriteInfo = character.character.characterSprites.IDLE
 		characterSprite.texture = spriteInfo.Texture
 		characterSprite.scale = spriteInfo.Scale
 		characterSprite.position = spriteInfo.Position
 
+		# Get the name that the player should see, when referring to a character
 		var nickname = "\n"
 		if character.character.characterNickname != "":
 			nickname = character.character.characterNickname + ":\n"
 		buffer = nickname
 
+		# Reset the enter tracker
 		hasPressedEnter = false
 		for c in text:
 			buffer += c
 			dialogueBox.text = buffer
+			# Wait a short bit before moving onto the next character
 			await get_tree().create_timer(0.02).timeout
 
 			# If the player presses enter, skip to the end 
@@ -105,69 +118,93 @@ func playDialogue(dialogueName : String):
 				dialogueBox.text = buffer
 				break
 
+			# If we've received a signal to kill, then kill the text loop
 			if markCurrentDialogueForKill:
 				break
 
+		# Call all of the attached events for this dialogue line
 		for event in events:
 			event.call()
 
+		# If we've received a signal to kill, then kill the dialogue line loop
 		if markCurrentDialogueForKill:
 			break
-
-		hasPressedEnter = false
-
+		
+		# If there are options, generate them
 		if options.size() > 0:
 			generateOptions(options)
 			await optionPressed
 		elif modifiers.waitForPlayerInput:
 			await pressedEnter
 
+	# Tell everybody that we finished playing this dialogue
 	dialogueFinished.emit()
 
 func generateOptions(options : Array[Option]):
 	print("Generating options for", options)
 
+	# Used for the y offset between option buttons
 	var yOffset = 60
 
+	# Get the base values
 	var example = templateButton.instantiate()
 	var xPosition = example.position.x
 	var yPosition = example.position.y
+	# Destroy the example instance after we get our necessary variables
 	example.queue_free()
 
+	# Store the generated buttons to be destroyed once an option is chosen
 	var generatedButtons : Array[Button] = []
 
 	for option in options:
-		print("Option:", option)
+		# print("Option:", option)
+		# Create a copy
 		var newButton = templateButton.instantiate()
+		# Set the text to be empty
 		newButton.text = ""
+		# We set the text of the label rather than the button, 
+		# because labels support word wrapping and buttons do not
 		newButton.get_node("Label").text = option.optionText
 
+		# Set the position of the new button
 		newButton.position.x = xPosition
 		newButton.position.y = yPosition
 
+		# Make it able to be seen
 		newButton.visible = true
 
+		# Add it as a child under the choiceButtons node
 		choiceButtons.add_child(newButton)
 
+		# Hook a function to the buttons
 		newButton.pressed.connect(
 			func():
-				print("Button clicked")
+				# print("Button clicked")
+
+				# Upon being clicked:
+				# - call the attached option function
+				# - tell everybody that an option was pressed
+				# - destroy all the generated buttons
 				option.optionCall.call()
 				optionPressed.emit()
 				for button in generatedButtons:
 					button.queue_free()
 		)
 
+		# Store the generated button
 		generatedButtons.push_back(newButton)
 
+		# Increment the y position for the next button
 		yPosition += yOffset
 
 	print(generatedButtons)
 
 func enterCredits(text):
-	print("---------ENTERING CREDITS-----------")
-	print(text)
-	var credits = preload("res://Scenes/Main/Credits.tscn")
+	# print("---------ENTERING CREDITS-----------")
+	# print(text)
+
+	# Get the credits scene, set the text to be loaded, and transition
+	var credits = Global.CREDITS_SCENE
 	Global.CREDIT_TEXT = text
 	# Transition to the game scene
 	get_tree().change_scene_to_packed(credits)
