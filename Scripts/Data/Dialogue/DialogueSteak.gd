@@ -5,7 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
-
+	print("Initialized DialogueSteak")
 	dialogueManager.addDialogue(Dialogue.new("Steak_Served", [
 		DialogueLine.new("Server", "\"Allow us to introduce our finest-cut steak, dear customer.\""),
 		DialogueLine.new("Steak", "\"Look at me...Perfectly seared - my edges crisp, my flesh rare...\""),
@@ -27,7 +27,7 @@ func _init():
 		DialogueLine.new("Server", "\"Absolutely, dear customer.\""),
 		DialogueLine.new("Steak", "\"Stop it! Stop! I don't get rejected! I reject the customers here!\""),
 		DialogueLine.new("Server", "*The server picks up the plate, and you hear the yelling of the steak as it is brought back to the kitchens.*"),
-		DialogueLine.new("Server", "...", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))
@@ -38,7 +38,7 @@ func _init():
 		DialogueLine.new("Steak", "\"Muahahaha! I guess I'm too perfect for you... time to go stare at my reflection in a pot!\""),
 		DialogueLine.new("Server", "\"Understood, dear customer.\""),
 		DialogueLine.new("Server", "*He takes the laughing steak away.*"),
-		DialogueLine.new("Server", "...", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))
@@ -64,6 +64,29 @@ func _init():
 			Option.new("\"I'd be absolutely honored if I were to be given the chance to eat you.\"", func(): dialogueManager.playDialogue("Steak_Amour1")),
 		])),
 	]))
+	dialogueManager.addDialogue(Dialogue.new("Steak_Consume2", [
+		DialogueLine.new("Steak", "\"Excuse me? Don't treat me like that, I'll have you know I'm a gift from the heavens themselves.\""),
+		DialogueLine.new("Player", "\"I don't really care...\""),
+		DialogueLine.new("Steak", "\"UGH! I deserve better than you! I'm out of your league! I'm the best thing you're ever going to experience! Don't waste me like this!\""),
+		DialogueLine.new("Player", "......", DialogueLineModifiers.new(1, true, [
+			Option.new("*You shrug. You're going to eat this steak if it's the last thing you do.*", func(): dialogueManager.playDialogue("Steak_Consume3")),
+			Option.new("*You wrinkle your nose. It kind of looks like a slab of pretty, but raw meat.*", func(): dialogueManager.playDialogue("Steak_Skip1")),
+		])),
+	]))
+	dialogueManager.addDialogue(Dialogue.new("Steak_Consume3", [
+		DialogueLine.new("Steak", "*It screams as you cut it up and put it in your mouth.*"),
+		DialogueLine.new("Player", "*The steak's essence dissolves in your veins through your throat.*"),
+		DialogueLine.new("Steak", "\"Wait! Y.... your insolence...!\""),
+		DialogueLine.new("Player", "*You swallow the last bite.*"),
+		DialogueLine.new("Server", "\"Hello, dear customer. Is everything to your liking?\""),
+		DialogueLine.new("Player", "*You feel bile rising in your throat before you can respond.*"),
+		DialogueLine.new("Server", "\"Are you feeling well?\""),
+		DialogueLine.new("Player", "\"I-I think I'm sick...\""),
+		DialogueLine.new("Player", "*You collapse, having contracted immediate, intense salmonella from the undercooked steak.*"),
+		DialogueLine.new("Player", "", DialogueLineModifiers.new(1, false, [], [
+			func(): dialogueManager.enterCredits("[ YOU GOT SALMONELLA ]")
+		]))
+	]))
 	dialogueManager.addDialogue(Dialogue.new("Steak_Silence1", [
 		DialogueLine.new("Steak", "\"So I've rendered you speechless, then?\""),
 		DialogueLine.new("Player", "\"...\""),
@@ -75,7 +98,7 @@ func _init():
 			Option.new("\"...\"", func(): dialogueManager.playDialogue("Steak_Silence2")),
 			Option.new("\"You're absolutely stunning, I have no words to describe a specimen of your caste.\"", func(): dialogueManager.playDialogue("Steak_Amour1")),
 			Option.new("\"You're bleeding. I don't wanna eat something with so much blood...\"", func(): dialogueManager.playDialogue("Steak_Disgust1")),
-			Option.new("*You're starving, and you look at the steak with hunger.*", func(): dialogueManager.playDialogue("Steak_Consumption1")),
+			Option.new("*You're starving, and you look at the steak with hunger.*", func(): dialogueManager.playDialogue("Steak_Consume1")),
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Steak_Silence2", [
@@ -92,7 +115,7 @@ func _init():
 		DialogueLine.new("Steak", "\"This customer can't appreciate my succulence! Take me back to the chef!\""),
 		DialogueLine.new("Server", "\"I'm so sorry dear customer, we'll compensate you immediately with another dish.\""),
 		DialogueLine.new("Server", "*The server leaves with the steak.*"),
-		DialogueLine.new("Server", "...", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))
@@ -109,5 +132,43 @@ func _init():
 		])),
 	]))
 	
+	dialogueManager.addDialogue(Dialogue.new("Steak_Amour2", [
+		DialogueLine.new("Steak", "\"Now, I feel like we could have a future together...\""),
+		DialogueLine.new("Player", "\"I could get lost in the shine of your char.\""),
+		DialogueLine.new("Steak", "\"You know how to make a piece of meat blush, and that's not rare!\""),
+		DialogueLine.new("Player", "\"What can I say? You bring my tender side out.\""),
+		DialogueLine.new("Steak", "\"Hm... I think it's time to call for a take-out container. Don't you agree?\""),
+		DialogueLine.new("Player", "...", DialogueLineModifiers.new(1, false, [
+			Option.new("*You stare at the steak, unable to eat it.*", func(): dialogueManager.playDialogue("Steak_Skip2")),
+			Option.new("\"Let's be together forever.\"", func(): dialogueManager.playDialogue("Steak_Consume3")),
+		])),
+	]))
 
+	dialogueManager.addDialogue(Dialogue.new("Steak_Disgust1", [
+		DialogueLine.new("Steak", "\"I am NOT bleeding. Those are simply my sauces.\""),
+		DialogueLine.new("Player", "\"Your what!?\""),
+		DialogueLine.new("Steak", "\"My meat sauce. Juices. Oils, even, if you will.\""),
+		DialogueLine.new("Player", "*You look at the shiny reddish-brown liquid, shiny with bubbles of grease.*", DialogueLineModifiers.new(1, true, [
+			Option.new("\"Sorry, but that looks a lot like blood to me.\"", func(): dialogueManager.playDialogue("Steak_Disgust2")),
+			Option.new("\"I guess it doesn't matter in the end.\"", func(): dialogueManager.playDialogue("Steak_Consume2")),
+			Option.new("\"You're right, I'm so sorry. How can I make it up to you?\"", func(): dialogueManager.playDialogue("Steak_Amour1")),
+		])),
+	]))
 
+	dialogueManager.addDialogue(Dialogue.new("Steak_Disgust2", [
+		DialogueLine.new("Steak", "\"Well?\""),
+		DialogueLine.new("Player", "\"Hm...\""),
+		DialogueLine.new("Steak", "\"I usually don't have all day to wait, but I suppose I can make an exception for yo-\""),
+		DialogueLine.new("Player", "\"It's bright red, do you need medical attention?\""),
+		DialogueLine.new("Steak", "\"How DARE you!\""),
+		DialogueLine.new("Steak", "\"That's it! I'm done with you!\""),
+		DialogueLine.new("Steak", "\"SERVER!!!!!!!!\""),
+		DialogueLine.new("Server", "\"Did you need something, dear customer?\""),
+		DialogueLine.new("Steak", "Shush! I need you to take me back to the kitchen. Maybe soon I will meet someone who will genuinely appreciate me for what I am worth!\""),
+		DialogueLine.new("Player", "\"You should take him to the hospital...\""),
+		DialogueLine.new("Server", "\"I'll take your consideration into mind, dear customer.\""),
+		DialogueLine.new("Server", "*The server takes the screaming plate away.\""),
+		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, false, [], [
+			func(): dialogueManager.playDialogue("Pizza_Served")
+		]))
+	]))

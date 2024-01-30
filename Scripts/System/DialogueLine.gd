@@ -21,6 +21,3 @@ func _init(
 
 	character = characterManager.CHARACTERS[characterName]
 	print(character)
-
-func test():
-	print("DIALOGUE")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cci1r8hvaujh"]
+[gd_scene load_steps=7 format=3 uid="uid://bdoy801vfk2vk"]
 
 [ext_resource type="Texture2D" uid="uid://dbtdhjdwpvx86" path="res://Assets/Images/gray.png" id="1_f6qgq"]
 [ext_resource type="Script" path="res://Scenes/Main/Restart.gd" id="2_nqmen"]
@@ -49,10 +49,10 @@ texture = ExtResource("1_f6qgq")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 460.0
-offset_top = 531.0
-offset_right = 777.0
-offset_bottom = 594.0
+offset_left = 182.0
+offset_top = 503.0
+offset_right = 499.0
+offset_bottom = 566.0
 text = "Main Menu"
 script = ExtResource("2_nqmen")
 
@@ -62,9 +62,35 @@ libraries = {
 "": SubResource("AnimationLibrary_kfq6y")
 }
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 474.0
-offset_top = 207.0
-offset_right = 749.0
-offset_bottom = 371.0
+[node name="CreditsLabel" type="Label" parent="."]
+offset_left = 632.0
+offset_top = 4.0
+offset_right = 1147.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 16
+text = "[ CREDITS ]
+Audio and Sound Design: Allan Tan​
+
+​Character Dialogue: Kevin Liu, ​Jasmin Chen, Elia Poncia, Jared Lee, Claire Chen
+
+Director: Kevin Liu,  Khayniyah Culpepper
+
+Graphic Design: Khayniyah Culpepper, Claire Chen​​
+
+Lead Programmer:  Kevin Liu
+
+Programmers: Claire Chen, Elia Poncia, Jared Lee​​​, Jasmin Chen"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="EndingLabel" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 105.0
+offset_right = 634.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 script = ExtResource("3_1ohyq")

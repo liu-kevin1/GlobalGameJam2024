@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://2dv74dvdd87s"]
+[gd_scene load_steps=8 format=3 uid="uid://2dv74dvdd87s"]
 
-[ext_resource type="Texture2D" uid="uid://ctgwl4ahpy1m7" path="res://Assets/Images/main_menu.png" id="1_mjft6"]
+[ext_resource type="Texture2D" uid="uid://2q0kk1ln5oia" path="res://Assets/Images/main_menu.png" id="1_mjft6"]
 [ext_resource type="Script" path="res://Scripts/InteractiveElements/MainMenu.gd" id="2_1kxnd"]
+[ext_resource type="Script" path="res://Scripts/InteractiveElements/Credits.gd" id="3_dyusg"]
 [ext_resource type="Script" path="res://Scenes/Main/ScreenFade.gd" id="3_nqrom"]
 
 [sub_resource type="Animation" id="Animation_cx4hg"]
@@ -64,7 +65,7 @@ offset_top = 356.0
 offset_right = 818.0
 offset_bottom = 618.0
 theme_override_font_sizes/font_size = 64
-script = ExtResource("2_1kxnd")
+script = ExtResource("3_dyusg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -110.0

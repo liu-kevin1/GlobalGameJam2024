@@ -6,7 +6,7 @@ var character : Character
 func _init():
 	var sprites = {
 		IDLE = {
-			Texture = preload("res://Assets/Images/NY_Pizza_Transparent.png"),
+			Texture = preload("res://Assets/Images/NY_Pizza_Transparent1.png"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		}
