@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://ogeu3vx25ayk"]
+[gd_scene load_steps=2 format=3 uid="uid://ogeu3vx25ayk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ixf6"]
+bg_color = Color(0.101961, 0.509804, 0.717647, 1)
 
 [node name="TemplateButton" type="Button"]
 visible = false
@@ -6,15 +9,18 @@ offset_left = 725.0
 offset_top = 100.0
 offset_right = 1125.0
 offset_bottom = 150.0
+tooltip_text = "...Are you sure?"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-text = "CHOICE 1"
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ixf6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 50.0
+focus_previous = NodePath("..")
+focus_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "At a loss, you decide to shove the cheesecake into your mouth to prevent the restaurant from flooding"
 horizontal_alignment = 1

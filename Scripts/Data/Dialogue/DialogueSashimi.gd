@@ -5,7 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
-	print("Initialized DialogueSashimi")
+	# print("Initialized DialogueSashimi")
 	dialogueManager.addDialogue(Dialogue.new("Sashimi_Served", [
 		DialogueLine.new("Server", "\"Behold, our only and best selection of raw fish\""),
 		DialogueLine.new("Server", "\"Hopefully the addons are to your liking.\""),

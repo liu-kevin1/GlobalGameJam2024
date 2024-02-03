@@ -5,7 +5,7 @@ func _ready():
 	playButton.connect("pressed", _on_PlayButton_pressed)
 
 func _on_PlayButton_pressed():
-	print("PLAY BUTTON PRESSED")
+	# print("PLAY BUTTON PRESSED")
 	# Load the game scene
 	var gameScene = Global.MAIN_SCENE
 	Global.CREDIT_TEXT = ""
@@ -15,4 +15,4 @@ func _on_PlayButton_pressed():
 	get_tree().change_scene_to_packed(gameScene)
 
 	var characters = CharacterManager.new()
-	print(characters)
+	# print(characters)

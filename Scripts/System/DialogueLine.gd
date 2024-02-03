@@ -20,4 +20,4 @@ func _init(
 	characterManager = CharacterManager.instance
 
 	character = characterManager.CHARACTERS[characterName]
-	print(character)
+	# print(character)

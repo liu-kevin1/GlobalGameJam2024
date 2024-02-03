@@ -5,7 +5,7 @@ func _ready():
 	playButton.connect("pressed", _on_CreditsButton_pressed)
 
 func _on_CreditsButton_pressed():
-	print("CREDITS BUTTON PRESSED")
+	# print("CREDITS BUTTON PRESSED")
 	# Load the game scene
 	var creditsScene = preload("res://Scenes/Main/Credits.tscn")
 	Global.CREDIT_TEXT = ""

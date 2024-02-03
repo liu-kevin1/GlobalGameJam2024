@@ -4,18 +4,22 @@ extends Node
 var DIALOGUE : Dictionary = {}
 static var instance : DialogueManager = null
 
-const templateButton = preload("res://Assets/Instances/template_button.tscn")
+const templateButton = preload("res://Assets/Instances/TemplateButton.tscn")
+const clickEffect = preload("res://Assets/Instances/ClickEffect.tscn")
 
 var dialogueBox : Label = null
 var choiceButtons : Node = null
 # var templateButton : Button = null
 var characterSprite : Sprite2D = null
+var currentCharacter : Character = null
 
 var hasPressedEnter : bool = false
 var lastEnterPress : float = 0
 var enterPressDebounce : float = 500
 var currentDialogue : Dialogue = null
 var markCurrentDialogueForKill : bool = false
+
+var _thread_blink_continue = false
 
 signal pressedEnter
 signal optionPressed
@@ -24,7 +28,7 @@ signal dialogueFinished
 func addDialogue(dial):
 	# Store a reference to the dialogue
 	DIALOGUE[dial.dialogueName] = dial
-	print(DIALOGUE)
+	# print(DIALOGUE)
 
 func _ready():
 	instance = self
@@ -49,24 +53,86 @@ func _ready():
 	
 	dialogueBox = root.get_node("MainGameScene/DialogueBox")
 	choiceButtons = root.get_node("MainGameScene/ChoiceButtons")
-	# templateButton = choiceButtons.get_node("TemplateButton")
 	characterSprite = root.get_node("MainGameScene/CharacterSprite")
 
 	# Play the first dialogue
 	# We start with serving the cheesecake
 	DialogueManager.instance.playDialogue("Cheesecake_Served")
+
+	# Start the sprite animation thread
+	startCharacterAnimation()
 	
+func registerContinue():
+	if Time.get_ticks_msec() - lastEnterPress > enterPressDebounce:
+		hasPressedEnter = true
+		lastEnterPress = Time.get_ticks_msec()
+	
+		pressedEnter.emit()
+
+func generateClickEffect(position):
+	# Create an instance of the click effect
+	var effect = clickEffect.instantiate()
+	get_tree().get_root().add_child(effect)
+
+	effect.position.x = position.x
+	effect.position.y = position.y
+
+	# Get the sprite, we'll need it later
+	# since we want to destroy the click effect
+	# when the animation finishes
+	var sprite = effect.get_node("AnimatedSprite2D")
+	sprite.connect("animation_finished", func():
+		effect.queue_free())
+	sprite.play("Click")
+
+
 func _input(event):
 	if event is InputEventKey:
 		# Trigger when ENTER or SPACE is pressed
 		if event.pressed and event.keycode == KEY_ENTER or event.keycode == KEY_SPACE:
 			# This has to be before the signal is emitted, otherwise dialogue gets skipped to the end
 			# when continuing past the last line of dialogue
-			if Time.get_ticks_msec() - lastEnterPress > enterPressDebounce:
-				hasPressedEnter = true
-				lastEnterPress = Time.get_ticks_msec()
-			
-			pressedEnter.emit()
+			registerContinue()
+	elif event is InputEventMouseButton:
+		# Generate a new click effect
+		generateClickEffect(event.position)
+
+		registerContinue()
+
+func startCharacterAnimation():
+	# Create a thread to handle blinking
+	# This makes it so that characters can blink randomly,
+	# and it won't stop execution
+	var blinkThread = Thread.new()
+	blinkThread.start(_thread_blink.bind())
+
+func _thread_blink():
+	var rng = RandomNumberGenerator.new()
+
+	while true:
+		var chance = rng.randf()
+
+		var characterSprites = currentCharacter.characterSprites
+		var blinkInfo = characterSprites.BLINK
+		if blinkInfo.has("Frequency"):
+			var frequency = blinkInfo.Frequency
+
+			# Only blink if the character sprite is on an idle animation
+			if characterSprite.texture == characterSprites.IDLE.Texture and chance <= frequency:
+				var oldTexture = characterSprite.texture
+				characterSprite.texture = blinkInfo.Texture
+				await get_tree().create_timer(blinkInfo.Duration).timeout
+
+				# If either of these conditions are true, then don't revert the change
+				# instead, just leave things how they are
+				if characterSprites != currentCharacter.characterSprites or characterSprite.texture != blinkInfo.Texture:
+					continue
+				characterSprite.texture = oldTexture
+
+		var waitDuration = 1
+		if blinkInfo.has("Wait"):
+			waitDuration = blinkInfo.Wait
+		await get_tree().create_timer(waitDuration).timeout
 
 func playDialogue(dialogueName : String):
 	# If we're currently playing dialogue, send it a signal to die
@@ -92,8 +158,10 @@ func playDialogue(dialogueName : String):
 		var options = modifiers.options
 		var events = modifiers.events
 
+		currentCharacter = character.character
+
 		# Update the character sprite with the current speaker
-		var spriteInfo = character.character.characterSprites.IDLE
+		var spriteInfo = character.character.characterSprites[modifiers.spriteName]
 		characterSprite.texture = spriteInfo.Texture
 		characterSprite.scale = spriteInfo.Scale
 		characterSprite.position = spriteInfo.Position
@@ -135,13 +203,15 @@ func playDialogue(dialogueName : String):
 			generateOptions(options)
 			await optionPressed
 		elif modifiers.waitForPlayerInput:
+			await get_tree().create_timer(0.25).timeout
+			dialogueBox.text = dialogueBox.text + "\n\nPress (SPACE/ENTER/MOUSE) to continue..."
 			await pressedEnter
 
 	# Tell everybody that we finished playing this dialogue
 	dialogueFinished.emit()
 
 func generateOptions(options : Array[Option]):
-	print("Generating options for", options)
+	# print("Generating options for", options)
 
 	# Used for the y offset between option buttons
 	var yOffset = 60
@@ -191,13 +261,26 @@ func generateOptions(options : Array[Option]):
 					button.queue_free()
 		)
 
+		# Have the button change colors when the mouse enters / exits
+		# Store the original color to revert back when the mouse exits
+		# var baseColor
+		# var newColor = 
+		# newButton.mouse_entered.connect(
+		# 	func():
+		# 		newButton.
+		# )
+		# newButton.mouse_exited.connect(
+		# 	func():
+		# 		newButton.
+		# )
+
 		# Store the generated button
 		generatedButtons.push_back(newButton)
 
 		# Increment the y position for the next button
 		yPosition += yOffset
 
-	print(generatedButtons)
+	# print(generatedButtons)
 
 func enterCredits(text):
 	# print("---------ENTERING CREDITS-----------")

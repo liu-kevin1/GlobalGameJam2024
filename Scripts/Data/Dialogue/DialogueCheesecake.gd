@@ -5,7 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
-	print("Initialized DialogueCheesecake")
+	# print("Initialized DialogueCheesecake")
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Served", [
 		DialogueLine.new("Server", "\"And here is the cheesecake for you, esteemed customer.\""),
 		DialogueLine.new("Cheesecake", "\"uh...um. hi :D\""),
@@ -13,7 +13,7 @@ func _init():
 			Option.new("\"...\"", func(): dialogueManager.playDialogue("Cheesecake_Enthusiastic1")),
 			Option.new("\"What a unique way to serve a cheesecake!\"", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
 			Option.new("*vomits all over cheesecake* \"...yeah, no thanks.\"", func(): dialogueManager.playDialogue("Cheesecake_Skip1"))
-		])),
+		], [], "FLUSHED")),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Silence1", [
 		DialogueLine.new("Cheesecake", "\"...why are you so quiet? do you not like me? D:\" *starts to cry* \"you must hate me like everyone else does!\" *continues quiet crying*"),

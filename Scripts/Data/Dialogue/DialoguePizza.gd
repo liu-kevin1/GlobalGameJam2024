@@ -5,7 +5,7 @@ var dialogueManager : DialogueManager = null
 
 func _init():
 	dialogueManager = DialogueManager.instance
-	print("Initialized DialoguePizza")
+	# print("Initialized DialoguePizza")
 	dialogueManager.addDialogue(Dialogue.new("Pizza_Served", [
 		DialogueLine.new("Server", "\"Please enjoy our local cuisine; the New York Pizza.\""),
 		DialogueLine.new("Pizza 1", "\"Hello!\"", DialogueLineModifiers.new(1, false)),

@@ -9,7 +9,21 @@ var characterSprites : Dictionary
 var characterNickname : String
 
 func _init(name, sprites, nickname=""):
-	print("Initializing character <%s>" % name)
+	if not sprites.has("IDLE"):
+		print("Warning: Sprite <%s> does not have an IDLE sprite, which is required.", name)
+	# print("Initializing character <%s>" % name)
 	characterName = name
 	characterSprites = sprites
 	characterNickname = nickname
+
+	# Initialize more sprites using IDLE as a reference
+	var spriteNames = [
+		"BLINK",
+		"FLUSHED",
+		"DISGUSTED",
+		"CONFUSED",
+		"HAPPY"
+	]
+	for spriteName in spriteNames:
+		if not characterSprites.has(spriteName):
+			characterSprites[spriteName] = characterSprites.IDLE

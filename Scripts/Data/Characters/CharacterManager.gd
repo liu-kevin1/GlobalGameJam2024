@@ -8,7 +8,7 @@ func addCharacter(c):
 	# Store a reference to the added character
 	var obj = c.new()
 	CHARACTERS[obj.character.characterName] = obj
-	print(CHARACTERS)
+	# print(CHARACTERS)
 
 func _ready():
 	instance = self

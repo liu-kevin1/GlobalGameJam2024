@@ -7,7 +7,7 @@ func _ready():
 
 #updates the global variable to the selected choice
 func _on_PlayButton_pressed():
-	print(button.name)
+	# print(button.name)
 	Global.SELECTED_CHOICE = (button.name).to_int()
 
 #check if a player chooses a option

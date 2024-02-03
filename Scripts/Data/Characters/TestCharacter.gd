@@ -13,5 +13,5 @@ func _init():
 	}
 	character = Character.new("TestCharacter", sprites)
 
-func testCharacterFunction():
-	print("TEST CHARACTER - TEST CHARACTER FUNCTION")
+# func testCharacterFunction():
+	# print("TEST CHARACTER - TEST CHARACTER FUNCTION")
