@@ -17,7 +17,7 @@ func _init():
 			Option.new("\"...\"", func(): dialogueManager.playDialogue("Steak_Silence1")),
 		])),
 	]))
-	dialogueManager.addDialogue(Dialogue.new("Steak_Skip", [
+	dialogueManager.addDialogue(Dialogue.new("Steak_Skip1", [
 		DialogueLine.new("Steak", "\"Wh-Hey!\""),
 		DialogueLine.new("Steak", "\"Don't you want a piece of me?\""),
 		DialogueLine.new("Steak", "*The steak does a little wiggle, meat juices squirting out as he tries to prompt the player with his promiscuity. It doesn't work.*"),
