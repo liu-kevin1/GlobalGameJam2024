@@ -43,7 +43,7 @@ func _init():
 		])),
 	]))
 
-	dialogueManager.addDialogue(Dialogue.new("Steak_Consume", [
+	dialogueManager.addDialogue(Dialogue.new("Steak_Consume1", [
 		DialogueLine.new("Player", "*you pick up your fork and knife*"),
 		DialogueLine.new("Steak", "\"Ah, so it's come to this\""),
 		DialogueLine.new("Steak", "\"I don't really mind..., After all, I may only have a few hours left before my consciousness fades.\""),
