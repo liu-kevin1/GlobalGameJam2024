@@ -95,9 +95,10 @@ func _input(event):
 			registerContinue()
 	elif event is InputEventMouseButton:
 		# Generate a new click effect
-		generateClickEffect(event.position)
+		if event.pressed:
+			generateClickEffect(event.position)
 
-		registerContinue()
+			registerContinue()
 
 func startCharacterAnimation():
 	# Create a thread to handle blinking
