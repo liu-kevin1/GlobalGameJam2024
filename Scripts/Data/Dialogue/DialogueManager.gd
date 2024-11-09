@@ -15,7 +15,7 @@ var currentCharacter : Character = null
 
 var hasPressedEnter : bool = false
 var lastEnterPress : float = 0
-var enterPressDebounce : float = 500
+var enterPressDebounce : float = 10
 var currentDialogue : Dialogue = null
 var markCurrentDialogueForKill : bool = false
 
@@ -179,7 +179,7 @@ func playDialogue(dialogueName : String):
 			buffer += c
 			dialogueBox.text = buffer
 			# Wait a short bit before moving onto the next character
-			await get_tree().create_timer(0.02).timeout
+			await get_tree().create_timer(0.02 * modifiers.typewriterModifier).timeout
 
 			# If the player presses enter, skip to the end 
 			if hasPressedEnter:
@@ -191,9 +191,6 @@ func playDialogue(dialogueName : String):
 			if markCurrentDialogueForKill:
 				break
 
-		# Call all of the attached events for this dialogue line
-		for event in events:
-			event.call()
 
 		# If we've received a signal to kill, then kill the dialogue line loop
 		if markCurrentDialogueForKill:
@@ -207,6 +204,10 @@ func playDialogue(dialogueName : String):
 			await get_tree().create_timer(0.25).timeout
 			dialogueBox.text = dialogueBox.text + "\n\nPress (SPACE/ENTER/MOUSE) to continue..."
 			await pressedEnter
+
+		# Call all of the attached events for this dialogue line
+		for event in events:
+			event.call()
 
 	# Tell everybody that we finished playing this dialogue
 	dialogueFinished.emit()

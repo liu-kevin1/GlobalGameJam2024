@@ -1,13 +1,13 @@
 class_name DialogueLineModifiers
 
-var typewriterModifier : int
+var typewriterModifier : float
 var waitForPlayerInput : bool
 var options : Array[Option]
 var events : Array[Callable]
 var spriteName : String
 
 func _init(
-	aTypewriterModifier : int = 1,
+	aTypewriterModifier : float = 1,
 	aWaitForPlayerInput : bool = true,
 	aOptions : Array[Option] = [],
 	aEvents : Array[Callable] = [],
