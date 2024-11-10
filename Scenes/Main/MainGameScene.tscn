@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxw0sb5jllxpp"]
+[gd_scene load_steps=11 format=3 uid="uid://bxw0sb5jllxpp"]
 
 [ext_resource type="Script" path="res://Scripts/Dining.gd" id="1_go7wu"]
 [ext_resource type="Script" path="res://Scripts/TemplateButton.gd" id="3_041xk"]
 [ext_resource type="Texture2D" uid="uid://dw4rgwn8ixu6o" path="res://Assets/Images/icon.svg" id="3_53php"]
 [ext_resource type="Texture2D" uid="uid://cjxp0rfwh5kce" path="res://Assets/Images/Main_Background.png" id="4_ta6nt"]
+[ext_resource type="Texture2D" uid="uid://wplyciw080oo" path="res://Assets/Images/Steak.png" id="5_0toel"]
 [ext_resource type="Texture2D" uid="uid://o4fyoxm11td5" path="res://Assets/Images/Table.png" id="5_dsc16"]
-[ext_resource type="PackedScene" uid="uid://ogeu3vx25ayk" path="res://Assets/Instances/TemplateButton.tscn" id="7_2qn17"]
+[ext_resource type="PackedScene" path="res://Assets/Instances/TemplateButton.tscn" id="7_2qn17"]
 [ext_resource type="Script" path="res://Scripts/Data/Characters/CharacterManager.gd" id="8_720ed"]
 [ext_resource type="Script" path="res://Scripts/Data/Dialogue/DialogueManager.gd" id="9_cmfmj"]
+[ext_resource type="Texture2D" uid="uid://dbtdhjdwpvx86" path="res://Assets/Images/gray.png" id="10_gj8sl"]
 
 [node name="MainGameScene" type="Node2D"]
 position = Vector2(-592, -410)
@@ -37,6 +39,7 @@ texture = ExtResource("5_dsc16")
 texture_filter = 1
 position = Vector2(1167, 854)
 scale = Vector2(0.6, 0.573)
+texture = ExtResource("5_0toel")
 
 [node name="DialogueBox" type="Label" parent="."]
 offset_left = 691.0
@@ -117,3 +120,20 @@ script = ExtResource("8_720ed")
 
 [node name="DialogueManager" type="Node" parent="Managers"]
 script = ExtResource("9_cmfmj")
+
+[node name="DialogueLogBackground" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.87451)
+z_index = 1
+position = Vector2(1187, 768)
+texture = ExtResource("10_gj8sl")
+
+[node name="LogBox" type="Label" parent="DialogueLogBackground"]
+z_index = 2
+offset_left = -547.0
+offset_top = -324.0
+offset_right = -327.0
+offset_bottom = -279.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "LOREM IPSUM"
