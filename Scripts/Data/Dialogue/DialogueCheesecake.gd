@@ -7,45 +7,48 @@ func _init():
 	dialogueManager = DialogueManager.instance
 	# print("Initialized DialogueCheesecake")
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Served", [
-		DialogueLine.new("Server", "\"And here is the cheesecake for you, esteemed customer.\""),
+		DialogueLine.new("Server", "\"Your 6 Course meal for one has arrived.\""),
+		DialogueLine.new("Server", "\"We're starting off the night with a cheesecake.\""),
+		DialogueLine.new("Server", "\"Please, enjoy!\""),
 		DialogueLine.new("Cheesecake", "\"uh...um. hi :D\""),
-		DialogueLine.new("Cheesecake", "\"..i hope im not being a disturbance...\"", DialogueLineModifiers.new(1, true, [
-			Option.new("\"...\"", func(): dialogueManager.playDialogue("Cheesecake_Enthusiastic1")),
-			Option.new("\"What a unique way to serve a cheesecake!\"", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
-			Option.new("*vomits all over cheesecake* \"...yeah, no thanks.\"", func(): dialogueManager.playDialogue("Cheesecake_Skip1"))
+		DialogueLine.new("Cheesecake", "\"i hope im not being a disturbance...\"", DialogueLineModifiers.new(1, true, [
+			Option.new("\"I'm into hot messes.\"", func(): dialogueManager.playDialogue("Cheesecake_Enthusiastic1")),
+			Option.new("\"I'd like someone a who has it together.\"", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
+			Option.new("*trying not to vomit* \"...I'll pass on you.\"", func(): dialogueManager.playDialogue("Cheesecake_Skip1"))
 		], [], "FLUSHED")),
 	]))
-	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Silence1", [
-		DialogueLine.new("Cheesecake", "\"...why are you so quiet? do you not like me? D:\" *starts to cry* \"you must hate me like everyone else does!\" *continues quiet crying*"),
-		DialogueLine.new("Cheesecake", "\"wait\" *instantly stops* \"you must be admiring my beauty, right? thats why youre so quiet, cuz you're speechless at how amazing i am :D\"", DialogueLineModifiers.new(1, true, [
-			Option.new("\"Yes, you look absolutely delicious! I bet you'll taste even more delicious when I eat you!\"", func(): dialogueManager.playDialogue("Cheesecake_Consumption1")),
-			Option.new(
-				"\"Wow, I didn't think it was possible to be more delusional than people who think they're going to receive a letter to Hogwarts on their 11th birthday. Please continue humoring yourself but there's no way I would like a vomit inducing looking like thing like you.\"", 
-				func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")
-			)
-		])),
-	]))
+	#dialogueManager.addDialogue(Dialogue.new("Cheesecake_Silence1", [
+	#	DialogueLine.new("Cheesecake", "\"...why are you so quiet? do you not like me? D:\" *starts to cry* \"you must hate me like everyone else does!\" *continues quiet crying*"),
+	#	DialogueLine.new("Cheesecake", "\"wait\" *instantly stops* \"you must be admiring my beauty, right? thats why youre so quiet, cuz you're speechless at how amazing i am :D\"", DialogueLineModifiers.new(1, true, [
+	#		Option.new("\"Yes, you look absolutely delicious! I bet you'll taste even more delicious when I eat you!\"", func(): dialogueManager.playDialogue("Cheesecake_Consumption1")),
+	#		Option.new(
+	#			"\"Wow, I didn't think it was possible to be more delusional than people who think they're going to receive a letter to Hogwarts on their 11th birthday. Please continue humoring yourself but there's no way I would like a vomit inducing looking like thing like you.\"", 
+	#			func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")
+	#		)
+	#	])),
+	#]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Enthusiastic1", [
-		DialogueLine.new("Cheesecake", "\"..*gasp* i think i've found the love of my life..you're the first person to use such a positive word for me :)\""),
-		DialogueLine.new("Cheesecake", "\"usually others start vomiting all over me just at the first sight of me\" *sniffles*"),
-		DialogueLine.new("Cheesecake", "\"can i marry you o-o\"", DialogueLineModifiers.new(1, true, [
-			Option.new("*Vomits all over cheesecake*", func(): dialogueManager.playDialogue("Cheesecake_Skip1")),
-			Option.new("\"Of course, we can easily stay together forever with you in my stomach.\"", func(): dialogueManager.playDialogue("Cheesecake_Consumption1")),
-			Option.new("\"Why? So that my eyes can be burned everyday by your ugliness?\"", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
+		DialogueLine.new("Cheesecake", "\"y-you are? that's the meanest yet nicest thing you could say about me. :)\""),
+		DialogueLine.new("Cheesecake", "\"people think i'm ugly and vomit usually\" *sniffles*"),
+		DialogueLine.new("Cheesecake", "\"i'm into u too o-o\"", DialogueLineModifiers.new(1, true, [
+			Option.new("*Vomits violently*", func(): dialogueManager.playDialogue("Cheesecake_Skip1")),
+			Option.new("\"Of course, we can easily stay together forever with you... in my stomach~.\"", func(): dialogueManager.playDialogue("Cheesecake_Consumption1")),
+			Option.new("\"Actually on second thought, I'm not into that kind of hot mess.\"", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Disgusted1", [
-		DialogueLine.new("Cheesecake", "*stares at you with wide eyes*"),
-		DialogueLine.new("Player", "You never thought it was possible for someone's..or something's eyes to expand to half the size of it."),
-		DialogueLine.new("Player", "Intrigued, you stare silently back at it."),
-		DialogueLine.new("Player", "*5 minutes later*"),
-		DialogueLine.new("Player", "*feeling uneasy* \"....hello? Did I break you?\""),
+		DialogueLine.new("Cheesecake", "\"w-whaat?\" *stares at you with wide eyes*"),
+		DialogueLine.new("Player", "\"It's just what I think though, don't take it so personally.\""),
+		DialogueLine.new("Player", "It's been 5 whole minutes, I think I really did it now."),
+		DialogueLine.new("Player", "*feeling uneasy* \"...You ok?\""),
 		DialogueLine.new("Cheesecake", "*waterfall of tears start pouring out of its eyes*"),
+		DialogueLine.new("Cheesecake", "\"UAAAAAHHAHAAHAAAAHHhhhh\""),
 		DialogueLine.new("Player", "\"Oh dear..\""),
 		DialogueLine.new("Cheesecake", "*tears start pouring out at an alarmingly fast rate*"),
+		DialogueLine.new("Cheesecake", "\"UUUHHHUUGGHH WEEEEeeeeeeehhh....\""),
 		DialogueLine.new("Cheesecake", "*tears start overflowing plate*"),
 		DialogueLine.new("Player", "\"Wait, hold on-\" *starts panicking*", DialogueLineModifiers.new(1, true, [
-			Option.new("At a loss, you decide to shove the cheesecake into your mouth to prevent the restaurant from flooding", func(): dialogueManager.playDialogue("Cheesecake_Consumption3")),
+			Option.new("I have to eat this thing now or the whole restaurant sinks like the titanic!", func(): dialogueManager.playDialogue("Cheesecake_Consumption3")),
 			Option.new("Scared, you shout for the server to fix the problem you created", func(): dialogueManager.playDialogue("Cheesecake_Skip3")),
 		])),
 	]))
