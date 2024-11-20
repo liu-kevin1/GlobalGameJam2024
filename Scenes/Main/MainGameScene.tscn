@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxw0sb5jllxpp"]
+[gd_scene load_steps=13 format=3 uid="uid://bxw0sb5jllxpp"]
 
 [ext_resource type="Script" path="res://Scripts/Dining.gd" id="1_go7wu"]
 [ext_resource type="Script" path="res://Scripts/TemplateButton.gd" id="3_041xk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Data/Dialogue/DialogueManager.gd" id="9_cmfmj"]
 [ext_resource type="Texture2D" uid="uid://dbtdhjdwpvx86" path="res://Assets/Images/gray.png" id="10_gj8sl"]
 [ext_resource type="AudioStream" uid="uid://yobrro6p5sju" path="res://Assets/Audio/restaur_amb.wav" id="11_rfkbb"]
+[ext_resource type="AudioStream" uid="uid://btxvehlbynsm3" path="res://Assets/Audio/dining dating.wav" id="12_y2nva"]
 
 [node name="MainGameScene" type="Node2D"]
 position = Vector2(-592, -410)
@@ -143,4 +144,8 @@ text = "LOREM IPSUM"
 
 [node name="RestaurantAmbience" type="AudioStreamPlayer" parent="AudioInstances"]
 stream = ExtResource("11_rfkbb")
+autoplay = true
+
+[node name="RestaurantMusic" type="AudioStreamPlayer" parent="AudioInstances"]
+stream = ExtResource("12_y2nva")
 autoplay = true
