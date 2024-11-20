@@ -293,3 +293,19 @@ func enterCredits(text):
 	Global.CREDIT_TEXT = text
 	# Transition to the game scene
 	get_tree().change_scene_to_packed(credits)
+
+# 
+# Dialogue Effects
+# 
+
+# Moving
+# func moveSprite(characterSprite):
+
+
+# Shaking
+# func shakeSprite(characterSprite):
+
+
+# Rotating
+# func rotateSprite(characterSprite):
+
