@@ -10,7 +10,7 @@ func _init():
 		DialogueLine.new("Server", "\"Please enjoy our local cuisine; the New York Pizza.\""),
 		DialogueLine.new("Pizza 1", "\"Hello!\"", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("Pizza 2", "\"Hi....\""),
-		DialogueLine.new("Player", "\"Sir? I believe you gave me two of these?\""),
+		DialogueLine.new("Player", "\"Sir? I believe you gave me two of this dish?\""),
 		DialogueLine.new("Server", "\"What are you talking about it's just a pizza I meannnnn\""),
 		DialogueLine.new("Pizza 1", "\"Yeah!\""),
 		DialogueLine.new("Pizza 2", "\"Shoulda read what it said on the menu...\""),
@@ -27,6 +27,8 @@ func _init():
 	]))
 
 	dialogueManager.addDialogue(Dialogue.new("Pizza_Skip", [
+		DialogueLine.new("Pizza 1", "\"We're just that uninteresting to you?\""),
+		DialogueLine.new("Pizza 2", "\"Brother, I think we blew it...\""),
 		DialogueLine.new("Server", "\"Please give us just a moment while we prepare the next dish.\" The server strolls back into the kitchen before coming back, holding a delicate platter."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Sashimi_Served")
@@ -95,7 +97,7 @@ func _init():
 		DialogueLine.new("Pizza 1", "\"It's not like me being cold matters anyway!\""),
 		DialogueLine.new("Pizza 2", "\"Yeah we don't even have a perception for that.\""),
 		DialogueLine.new("Player", "\"I never knew that my food couldn't feel the temperature!\""),
-		DialogueLine.new("Pizza 1", "\"THANK YOU FOR YOUR KIND WO-\" (autoskip"),
+		DialogueLine.new("Pizza 1", "\"THANK YOU FOR YOUR KIND WO-\""),
 		DialogueLine.new("Pizza 2", "\"shut up.....\""),
 		DialogueLine.new("Player", "You decide to spare the pizzas"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [

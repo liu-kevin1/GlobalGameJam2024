@@ -90,7 +90,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Skip1", [
 		DialogueLine.new("Cheesecake", "*starts wailing*"),
-		DialogueLine.new("Cheesecake", "\"why does everyone do this to me??? soon ill actually become vomit instead of just looking like one!\""),
+		DialogueLine.new("Cheesecake", "\"why does everyone do this to me??? soon ill actually become vomit instead of just looking like it!\""),
 		DialogueLine.new("Server", "\"And there's my cue. Please refrain from doing this to the next dishes please.\""),
 		DialogueLine.new("Server", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Cheesecake_NextDish")
@@ -115,7 +115,7 @@ func _init():
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_NextDish", [
-		DialogueLine.new("Server", "\"It will only be a moment.\" The server returns to the kitchen, before walking back with a new dish."),
+		DialogueLine.new("Server", "\"It will only be a moment.\""),
 		DialogueLine.new("Player", "...................", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Steak_Served")
 		])),
