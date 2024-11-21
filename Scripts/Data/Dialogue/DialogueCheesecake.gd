@@ -29,45 +29,45 @@ func _init():
 	#]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Enthusiastic1", [
 		DialogueLine.new("Cheesecake", "\"y-you are? that's the meanest yet nicest thing you could say about me. :)\""),
-		DialogueLine.new("Cheesecake", "\"people think i'm ugly and vomit usually\" *sniffles*"),
+		DialogueLine.new("Cheesecake", "\"people think i'm ugly and vomit usually\" *sniffles*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Cheesecake", "\"i'm into u too o-o\"", DialogueLineModifiers.new(1, true, [
 			Option.new("*Vomits violently*", func(): dialogueManager.playDialogue("Cheesecake_Skip1")),
 			Option.new("\"Of course, we can easily stay together forever with you... in my stomach~.\"", func(): dialogueManager.playDialogue("Cheesecake_Consumption1")),
 			Option.new("\"Actually on second thought, I'm not into that kind of hot mess.\"", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
-		])),
+		], [], "FLUSHED")),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Disgusted1", [
-		DialogueLine.new("Cheesecake", "\"w-whaat?\" *stares at you with wide eyes*"),
+		DialogueLine.new("Cheesecake", "\"w-whaat?\" *stares at you with wide eyes*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Player", "\"It's just what I think though, don't take it so personally.\""),
 		DialogueLine.new("Player", "It's been 5 whole minutes, I think I really did it now."),
 		DialogueLine.new("Player", "*feeling uneasy* \"...You ok?\""),
-		DialogueLine.new("Cheesecake", "*waterfall of tears start pouring out of its eyes*"),
-		DialogueLine.new("Cheesecake", "\"UAAAAAHHAHAAHAAAAHHhhhh\""),
+		DialogueLine.new("Cheesecake", "*waterfall of tears start pouring out of its eyes*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Cheesecake", "\"UAAAAAHHAHAAHAAAAHHhhhh\"", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Player", "\"Oh dear..\""),
-		DialogueLine.new("Cheesecake", "*tears start pouring out at an alarmingly fast rate*"),
-		DialogueLine.new("Cheesecake", "\"UUUHHHUUGGHH WEEEEeeeeeeehhh....\""),
-		DialogueLine.new("Cheesecake", "*tears start overflowing plate*"),
+		DialogueLine.new("Cheesecake", "*tears start pouring out at an alarmingly fast rate*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Cheesecake", "\"UUUHHHUUGGHH WEEEEeeeeeeehhh....\"", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Cheesecake", "*tears start overflowing plate*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Player", "\"Wait, hold on-\" *starts panicking*", DialogueLineModifiers.new(1, true, [
 			Option.new("I have to eat this thing now or the whole restaurant sinks like the titanic!", func(): dialogueManager.playDialogue("Cheesecake_Consumption3")),
 			Option.new("Scared, you shout for the server to fix the problem you created", func(): dialogueManager.playDialogue("Cheesecake_Skip3")),
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Consumption1", [
-		DialogueLine.new("Cheesecake", "\"...wait..wai-wait waitwaitwait...uh that's not exactly what i meant- you wouldnt do that right? i know youre just joking, youre just saying that because of how stunning i look-\""),
+		DialogueLine.new("Cheesecake", "\"...wait..wai-wait waitwaitwait...uh that's not exactly what i meant- you wouldnt do that right? i know youre just joking, youre just saying that because of how stunning i look-\"", DialogueLineModifiers.new(1, true, [], [], "CONFUSED")),
 		DialogueLine.new("Player", "You take the fork placed on the table"),
 		DialogueLine.new("Cheesecake", "\"ah, now youre just going to give me some accessories to enhance my beauty...i must admit, a fork is probably the worst choice but i think i can pull it off.\"", DialogueLineModifiers.new(1, true, [
 			Option.new("Mildly concerned, you freeze just before your fork touches the cheesecake", func(): dialogueManager.playDialogue("Cheesecake_Skip2")),
 			Option.new("Continue to dig into cheesecake", func(): dialogueManager.playDialogue("Cheesecake_Consumption2")),
-		])),
+		], [], "FLUSHED")),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Consumption2", [
 		DialogueLine.new("Player", "Being the psychopathic creature you are, you start dismembering the cheesecake"),
-		DialogueLine.new("Cheesecake", "*starts shrieking*"),
-		DialogueLine.new("Cheesecake", "*continues shrieking* \"personally i dont think i need surgery, but if youre going to do it at least give me some anesthesia\""),
+		DialogueLine.new("Cheesecake", "*starts shrieking*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Cheesecake", "*continues shrieking* \"personally i dont think i need surgery, but if youre going to do it at least give me some anesthesia\"", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Player", "You bring the chunk of cheesecake closer to your mouth"),
-		DialogueLine.new("Cheesecake", "\"..ohhhh i see, you just want to kiss me\" *blushes* \"well why didnt you just say so at the start...although doing so with a bunch of pixels on a screen is a bit strange...\""),
+		DialogueLine.new("Cheesecake", "\"..ohhhh i see, you just want to kiss me\" *hehe* \"well why didnt you just say so at the start...although doing so with a bunch of pixels on a screen is a bit strange...\"", DialogueLineModifiers.new(1, true, [], [], "FLUSHED")),
 		DialogueLine.new("Player", "........."),
-		DialogueLine.new("Cheesecake", "\"um hey hey, can you please stop ignoring me ;-; just because i dont actually have any feelings doesnt mean you get to be rude to me..\""),
+		DialogueLine.new("Cheesecake", "\"um hey hey, can you please stop ignoring me ;-; just because i dont actually have any feelings doesnt mean you get to be rude to me..\"", DialogueLineModifiers.new(1, true, [], [], "CONFUSED")),
 		DialogueLine.new("Player", "You take a huge chomp out of the cheesecake and the screaming starts. Funny how a character characterized by the trait \"timid\" can still be written as loud in the right circumstances."),
 		DialogueLine.new("Player", "You continue munching on the cheesecake until there's not a speck left on the plate. Although..."),
 		DialogueLine.new("Player", "...Strange, why do I still hear screaming?"),
@@ -89,8 +89,8 @@ func _init():
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Skip1", [
-		DialogueLine.new("Cheesecake", "*starts wailing*"),
-		DialogueLine.new("Cheesecake", "\"why does everyone do this to me??? soon ill actually become vomit instead of just looking like it!\""),
+		DialogueLine.new("Cheesecake", "*starts wailing*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Cheesecake", "\"why does everyone do this to me??? soon ill actually become vomit instead of just looking like it!\"", DialogueLineModifiers.new(1, true, [], [], "CONFUSED")),
 		DialogueLine.new("Server", "\"And there's my cue. Please refrain from doing this to the next dishes please.\""),
 		DialogueLine.new("Server", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Cheesecake_NextDish")
@@ -98,10 +98,10 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Skip2", [
 		DialogueLine.new("Player", "\"...I'm about to eat you and the only thing you're thinking about are your looks??\""),
-		DialogueLine.new("Cheesecake", "\"...wait, you were actually about to eat me? D:\""),
+		DialogueLine.new("Cheesecake", "\"...wait, you were actually about to eat me? D:\"", DialogueLineModifiers.new(1, true, [], [], "CONFUSED")),
 		DialogueLine.new("Player", "\"..........\""),
 		DialogueLine.new("Player", "\"I can't do this anymore.\""),
-		DialogueLine.new("Cheesecake", "\"oh yay, youve changed your mind on eating me :D....wait wait wait, why am i being taken away? hold on, WAI-\" *is taken away by server*"),
+		DialogueLine.new("Cheesecake", "\"oh yay, youve changed your mind on eating me :D....wait wait wait, why am i being taken away? hold on, WAI-\" *is taken away by server*", DialogueLineModifiers.new(1, false, [], [], "HAPPY")),
 		DialogueLine.new("Cheesecake", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Cheesecake_NextDish")
 		])),
