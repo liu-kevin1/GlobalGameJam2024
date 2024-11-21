@@ -88,6 +88,8 @@ func generateClickEffect(position):
 		effect.queue_free())
 	sprite.play("Click")
 
+	playAudio("click_effect.wav", 2.0)
+
 
 func _input(event):
 	if event is InputEventKey:
@@ -178,11 +180,20 @@ func playDialogue(dialogueName : String):
 
 		# Reset the enter tracker
 		hasPressedEnter = false
+		var talkAudio = currentCharacter.characterAudio.get("TALK", null)
+		var lastTalk = Time.get_unix_time_from_system()
+		var talkDelay = 0.1
+
 		for c in text:
 			buffer += c
 			dialogueBox.text = buffer
 			# Wait a short bit before moving onto the next character
 			await get_tree().create_timer(0.02 * modifiers.typewriterModifier).timeout
+
+			if talkAudio != null:
+				if (Time.get_unix_time_from_system() - lastTalk) >= talkDelay:
+					lastTalk = Time.get_unix_time_from_system()
+					playAudio(talkAudio.Audio)
 
 			# If the player presses enter, skip to the end 
 			if hasPressedEnter:
@@ -297,12 +308,13 @@ func enterCredits(text):
 	# Transition to the game scene
 	get_tree().change_scene_to_packed(credits)
 
-func playAudio(audioName):
+func playAudio(audioName, volume=1.0):
 	var audioStreamPlayer = templateAudioStreamPlayer.instantiate()
 
 	var audioSource : AudioStream = load("res://Assets/Audio/" + audioName)
 
 	audioStreamPlayer.stream = audioSource
+	audioStreamPlayer.volume_db = volume
 
 	audioInstancesNode.add_child(audioStreamPlayer)
 	# audioStreamPlayer.play()

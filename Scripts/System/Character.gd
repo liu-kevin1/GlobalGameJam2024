@@ -7,14 +7,16 @@ extends Node2D
 var characterName : String
 var characterSprites : Dictionary
 var characterNickname : String
+var characterAudio : Dictionary
 
-func _init(name, sprites, nickname=""):
+func _init(name, sprites, nickname="", audio={}):
 	if not sprites.has("IDLE"):
 		print("Warning: Sprite <%s> does not have an IDLE sprite, which is required.", name)
 	# print("Initializing character <%s>" % name)
 	characterName = name
 	characterSprites = sprites
 	characterNickname = nickname
+	characterAudio = audio
 
 	# Initialize more sprites using IDLE as a reference
 	var spriteNames = [
