@@ -4,6 +4,7 @@ extends Node
 var DIALOGUE : Dictionary = {}
 static var instance : DialogueManager = null
 
+const templateAudioStreamPlayer = preload("res://Assets/Instances/TemplateAudioStreamPlayer.tscn")
 const templateButton = preload("res://Assets/Instances/TemplateButton.tscn")
 const clickEffect = preload("res://Assets/Instances/ClickEffect.tscn")
 
@@ -12,6 +13,7 @@ var choiceButtons : Node = null
 # var templateButton : Button = null
 var characterSprite : Sprite2D = null
 var currentCharacter : Character = null
+var audioInstancesNode : Node = null
 
 var hasPressedEnter : bool = false
 var lastEnterPress : float = 0
@@ -54,6 +56,7 @@ func _ready():
 	dialogueBox = root.get_node("MainGameScene/DialogueBox")
 	choiceButtons = root.get_node("MainGameScene/ChoiceButtons")
 	characterSprite = root.get_node("MainGameScene/CharacterSprite")
+	audioInstancesNode = root.get_node("MainGameScene/AudioInstances")
 
 	# Play the first dialogue
 	# We start with serving the cheesecake
@@ -293,6 +296,21 @@ func enterCredits(text):
 	Global.CREDIT_TEXT = text
 	# Transition to the game scene
 	get_tree().change_scene_to_packed(credits)
+
+func playAudio(audioName):
+	var audioStreamPlayer = templateAudioStreamPlayer.instantiate()
+
+	var audioSource : AudioStream = load("res://Assets/Audio/" + audioName)
+
+	audioStreamPlayer.stream = audioSource
+
+	audioInstancesNode.add_child(audioStreamPlayer)
+	# audioStreamPlayer.play()
+
+	# audioStreamPlayer.finished.connect(func() : print("Finished playing"))
+	audioStreamPlayer.finished.connect(func(): audioStreamPlayer.queue_free())
+
+
 
 # 
 # Dialogue Effects
