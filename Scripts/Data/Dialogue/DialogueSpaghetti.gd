@@ -7,7 +7,9 @@ func _init():
 	dialogueManager = DialogueManager.instance
 	# print("Initialized DialogueSpaghetti")
 	dialogueManager.addDialogue(Dialogue.new("Spaghetti_Served", [
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "This is a dish from our chef's homeland. Please enjoy it."),
+		DialogueSwitchSprite.new("Spaghetti"),
 		DialogueLine.new("Spaghetti", "Ciao! Come stai? Sembro proprio bene no?"),
 		DialogueLine.new("Player", "They weren't kidding, this really is not from here, and it does look good."),
 		DialogueLine.new("Spaghetti", "Oh no you understand me..... How long will it be until you know all of my interests too?"),
@@ -96,6 +98,7 @@ func _init():
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Starve", [
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "The server comes, taking the dish away."),
 		DialogueLine.new("Server", "It seems none of our cuisine was to your liking, esteemed customer."),
 		DialogueLine.new("Player", "Yeah, none of it really tickled my fancy, you know?"),

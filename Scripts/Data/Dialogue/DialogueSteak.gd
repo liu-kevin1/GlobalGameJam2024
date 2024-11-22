@@ -8,6 +8,7 @@ func _init():
 	# print("Initialized DialogueSteak")
 	dialogueManager.addDialogue(Dialogue.new("Steak_Served", [
 		DialogueLine.new("Server", "Allow us to introduce our finest-cut steak, dear customer."),
+		DialogueSwitchSprite.new("Steak"),
 		DialogueLine.new("Steak", "Look at me...Perfectly seared - my edges crisp, my flesh rare..."),
 		DialogueLine.new("Steak", "A sight truly to behold, once in a lifetime, feast your eyes upon me!"),
 		DialogueLine.new("Steak", "Is your mouth watering, try not to drool, it'll ruin your pretty face."),
@@ -21,23 +22,31 @@ func _init():
 		DialogueLine.new("Steak", "Wh-Hey!"),
 		DialogueLine.new("Steak", "Don't you want a piece of me?"),
 		DialogueLine.new("Steak", "*The steak does a little wiggle, meat juices squirting out as he tries to prompt the player with his promiscuity. It doesn't work.*"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Is there a problem?"),
 		DialogueLine.new("Player", "I'd like the next dish, please."),
+		DialogueSwitchSprite.new("Steak"),
 		DialogueLine.new("Steak", "I'll have you know I'm a flawless force of nature! You can't reject me!"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Absolutely, dear customer."),
+		DialogueSwitchSprite.new("Steak"),
 		DialogueLine.new("Steak", "Stop it! Stop! I don't get rejected! I reject the customers here!"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "*The server picks up the plate, and you hear the yelling of the steak as it is brought back to the kitchens.*"),
 		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Steak_Skip2", [
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Is there a problem?"),
 		DialogueLine.new("Player", "I can't do it... this steak is too perfect..."),
 		DialogueLine.new("Player", "They're out of my league! I beg you, bring me another dish!"),
+		DialogueSwitchSprite.new("Steak"),
 		DialogueLine.new("Steak", "Muahahaha! I guess I'm too perfect for you... time to go stare at my reflection in a pot!"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Understood, dear customer."),
-		DialogueLine.new("Server", "*He takes the laughing steak away.*"),
+		DialogueLine.new("Narrator", "He takes the laughing steak away."),
 		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		])),
@@ -111,8 +120,11 @@ func _init():
 		DialogueLine.new("Player", "..."),
 		DialogueLine.new("Steak", "To the kitchens, server!"),
 		DialogueLine.new("Steak", "*The steak makes a wiggling motion that splashes a little of its oils onto the tablecloth. The server arrives promptly.*"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Was there a problem?"),
+		DialogueSwitchSprite.new("Steak"),
 		DialogueLine.new("Steak", "This customer can't appreciate my succulence! Take me back to the chef!"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "I'm so sorry dear customer, we'll compensate you immediately with another dish."),
 		DialogueLine.new("Server", "*The server leaves with the steak.*"),
 		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, true, [], [
@@ -163,11 +175,14 @@ func _init():
 		DialogueLine.new("Steak", "How DARE you!"),
 		DialogueLine.new("Steak", "That's it! I'm done with you!"),
 		DialogueLine.new("Steak", "SERVER!!!!!!!!"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Did you need something, dear customer?"),
+		DialogueSwitchSprite.new("Steak"),
 		DialogueLine.new("Steak", "Shush! I need you to take me back to the kitchen. Maybe soon I will meet someone who will genuinely appreciate me for what I am worth!"),
 		DialogueLine.new("Player", "You should take him to the hospital..."),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "I'll take your consideration into mind, dear customer."),
-		DialogueLine.new("Server", "*The server takes the screaming plate away."),
+		DialogueLine.new("Narrator", "The server takes the screaming plate away."),
 		DialogueLine.new("Server", "", DialogueLineModifiers.new(1, false, [], [
 			func(): dialogueManager.playDialogue("Pizza_Served")
 		]))

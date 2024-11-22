@@ -144,6 +144,8 @@ func changeSprite(characterName : String, spriteModifier : String):
 	var character = CharacterManager.instance.CHARACTERS[characterName]
 	# Update the character sprite with the current speaker
 	var spriteInfo = character.character.characterSprites[spriteModifier]
+	print(character.character.characterSprites)
+	print(spriteModifier)
 	characterSprite.texture = spriteInfo.Texture
 	characterSprite.scale = spriteInfo.Scale
 	characterSprite.position = spriteInfo.Position

@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Scripts/TemplateButton.gd" id="3_041xk"]
 [ext_resource type="Texture2D" uid="uid://dw4rgwn8ixu6o" path="res://Assets/Images/icon.svg" id="3_53php"]
 [ext_resource type="Texture2D" uid="uid://cjxp0rfwh5kce" path="res://Assets/Images/Main_Background.png" id="4_ta6nt"]
-[ext_resource type="Texture2D" uid="uid://wplyciw080oo" path="res://Assets/Images/steak.png" id="5_0toel"]
 [ext_resource type="Texture2D" uid="uid://o4fyoxm11td5" path="res://Assets/Images/Table.png" id="5_dsc16"]
+[ext_resource type="Texture2D" uid="uid://dkjx7lbnxaovr" path="res://Assets/Images/FoodSprites/SquidInkSpaghetti/Squid_Ink_Spaget.png" id="6_72w4l"]
 [ext_resource type="PackedScene" uid="uid://ccq0t5dmm314d" path="res://Assets/Instances/TemplateButton.tscn" id="7_2qn17"]
 [ext_resource type="FontFile" uid="uid://ccn0uvaqbt3ry" path="res://Assets/Fonts/Mansalva-Regular.ttf" id="7_sqkdr"]
 [ext_resource type="Script" path="res://Scripts/Data/Characters/CharacterManager.gd" id="8_720ed"]
@@ -42,7 +42,7 @@ texture = ExtResource("5_dsc16")
 texture_filter = 1
 position = Vector2(1167, 854)
 scale = Vector2(0.6, 0.573)
-texture = ExtResource("5_0toel")
+texture = ExtResource("6_72w4l")
 
 [node name="DialogueBox" type="Label" parent="."]
 offset_left = 783.0

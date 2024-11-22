@@ -7,10 +7,12 @@ func _init():
 	dialogueManager = DialogueManager.instance
 	# print("Initialized DialogueSashimi")
 	dialogueManager.addDialogue(Dialogue.new("Sashimi_Served", [
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Behold, our only and best selection of raw fish"),
 		DialogueLine.new("Server", "Hopefully the addons are to your liking."),
 		DialogueLine.new("Server", "We went through heaven and hell collecting the finest ingredients"),
 		DialogueLine.new("Server", "We hope you will enjoy this delectable dish of sashimi."),
+		DialogueSwitchSprite.new("Sashimi"),
 		DialogueLine.new("Sashimi", "Oh its you . . . As they say, the day will always return."),
 		DialogueLine.new("Player", "Huh, I have never met you nor eaten Sashimi before."),
 		DialogueLine.new("Sashimi", "Well you haven't lived a good life haven't you?"),
@@ -34,6 +36,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Sashimi_ShinjiChairMoment", [
 		DialogueLine.new("Player", "Quite mid, really."),
+		DialogueSwitchSprite.new("ShinjiChair"),
 		DialogueLine.new("ShinjiChair", ""),
 		DialogueLine.new("ShinjiChair", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.enterCredits("[ YOU SUFFER FROM GUILT ]")
@@ -67,6 +70,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Sashimi_NextDish", [
 		DialogueLine.new("Player", "Please rid me of this guy."),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "I'll collect that, then. The server comes over to retrieve the dish, heading back into the kitchen."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("PrimeRib_Served")
@@ -85,7 +89,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Sashimi_Option3", [
 		DialogueLine.new("Sashimi", "You know what. YOU are definitely part of the problem. You should-"),
-		DialogueLine.new("Player", "- throws the plate across the room -"),
+		DialogueLine.new("Narrator", "You throw the plate Sushi is on across the room."),
 		DialogueLine.new("Server", "Please don't do that, the fine china costs money."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Sashimi_NextDish")

@@ -8,7 +8,9 @@ func _init():
 	#crap
 	# print("Initialized DialoguePrimeRib")
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Served", [
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "This is one of our finest dishes ever cooked up; a delectable dinner in a bite sized chunk.", DialogueLineModifiers.new(0.5)),
+		DialogueSwitchSprite.new("PrimeRib"),
 		DialogueLine.new("PrimeRib", "Certainly not the most elegant of ways that I have been introduced. Perhaps I should have tried my luck at a different restaurant; the service here is mediocre.", DialogueLineModifiers.new(1)),
 		DialogueLine.new("Player", "Mediocre? I thought that was pretty formal.", DialogueLineModifiers.new(1)),
 		DialogueLine.new("PrimeRib", "Anyways, I suppose I'm here now. What do you want with me, commoner?", DialogueLineModifiers.new(1, true, [
@@ -112,6 +114,7 @@ func _init():
 		]))
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Skip1", [
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "The server comes over, and he takes the plate of prime rib away."),
 		DialogueLine.new("PrimeRib", "Ha! It seems that I am too much for you to handle, after all."),
 		DialogueLine.new("Server", "I will be right back with your next dish."),
@@ -129,6 +132,7 @@ func _init():
 		DialogueLine.new("Player", "Please don't say it like that."),
 		DialogueLine.new("Player", "But yes I would let you"),
 		DialogueLine.new("PrimeRib", "Juice oozes out of the prime rib"),
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Your next course is ready sir.", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Spaghetti_Served")
 		]))
