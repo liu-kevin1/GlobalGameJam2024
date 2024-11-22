@@ -140,6 +140,15 @@ func _thread_blink():
 			waitDuration = blinkInfo.Wait
 		await get_tree().create_timer(waitDuration).timeout
 
+func changeSprite(characterName : String, spriteModifier : String):
+	var character = CharacterManager.instance.CHARACTERS[characterName]
+	# Update the character sprite with the current speaker
+	var spriteInfo = character.character.characterSprites[spriteModifier]
+	characterSprite.texture = spriteInfo.Texture
+	characterSprite.scale = spriteInfo.Scale
+	characterSprite.position = spriteInfo.Position
+
+
 func playDialogue(dialogueName : String):
 	# If we're currently playing dialogue, send it a signal to die
 	# Wait for it to die
@@ -155,76 +164,80 @@ func playDialogue(dialogueName : String):
 	currentDialogue = dial
 
 	# For each line in the dialogue...
-	for line in dial.dialogueLines:
+	for line in dial.dialogueActions:
 		# Initialize our variables
-		var character = CharacterManager.instance.CHARACTERS[line.characterName]
-		var text : String = line.dialogueText
-		var buffer : String = ""
-		var modifiers : DialogueLineModifiers = line.modifiers
-		var options = modifiers.options
-		var events = modifiers.events
+		if line is DialogueSwitchSprite:
+			changeSprite(line.characterName, line.spriteModifier)
 
-		currentCharacter = character.character
+		elif line is DialogueLine:
+			var character = CharacterManager.instance.CHARACTERS[line.characterName]
+			var text : String = line.dialogueText
+			var buffer : String = ""
+			var modifiers : DialogueLineModifiers = line.modifiers
+			var options = modifiers.options
+			var events = modifiers.events
 
-		# Update the character sprite with the current speaker
-		var spriteInfo = character.character.characterSprites[modifiers.spriteName]
-		characterSprite.texture = spriteInfo.Texture
-		characterSprite.scale = spriteInfo.Scale
-		characterSprite.position = spriteInfo.Position
+			currentCharacter = character.character
 
-		# Get the name that the player should see, when referring to a character
-		var nickname = "\n"
-		if character.character.characterNickname != "":
-			nickname = character.character.characterNickname + ":\n"
-		buffer = nickname
+			# # Update the character sprite with the current speaker
+			# var spriteInfo = character.character.characterSprites[modifiers.spriteName]
+			# characterSprite.texture = spriteInfo.Texture
+			# characterSprite.scale = spriteInfo.Scale
+			# characterSprite.position = spriteInfo.Position
 
-		# Reset the enter tracker
-		hasPressedEnter = false
-		var talkAudio = currentCharacter.characterAudio.get("TALK", null)
-		var lastTalk = Time.get_unix_time_from_system()
-		var talkDelay = 0.1
+			# Get the name that the player should see, when referring to a character
+			var nickname = "\n"
+			if character.character.characterNickname != "":
+				nickname = character.character.characterNickname + ":\n"
+			buffer = nickname
 
-		for c in text:
-			buffer += c
-			dialogueBox.text = buffer
-			# Wait a short bit before moving onto the next character
-			await get_tree().create_timer(0.02 * modifiers.typewriterModifier).timeout
+			# Reset the enter tracker
+			hasPressedEnter = false
+			var talkAudio = currentCharacter.characterAudio.get("TALK", null)
+			var lastTalk = Time.get_unix_time_from_system()
+			var talkDelay = 0.1
 
-			if talkAudio != null:
-				if (Time.get_unix_time_from_system() - lastTalk) >= talkDelay:
-					lastTalk = Time.get_unix_time_from_system()
-					playAudio(talkAudio.Audio)
-
-			# If the player presses enter, skip to the end 
-			if hasPressedEnter:
-				buffer = nickname + text
+			for c in text:
+				buffer += c
 				dialogueBox.text = buffer
-				break
+				# Wait a short bit before moving onto the next character
+				await get_tree().create_timer(0.02 * modifiers.typewriterModifier).timeout
 
-			# If we've received a signal to kill, then kill the text loop
+				if talkAudio != null:
+					if (Time.get_unix_time_from_system() - lastTalk) >= talkDelay:
+						lastTalk = Time.get_unix_time_from_system()
+						playAudio(talkAudio.Audio)
+
+				# If the player presses enter, skip to the end 
+				if hasPressedEnter:
+					buffer = nickname + text
+					dialogueBox.text = buffer
+					break
+
+				# If we've received a signal to kill, then kill the text loop
+				if markCurrentDialogueForKill:
+					break
+
+
+			# If we've received a signal to kill, then kill the dialogue line loop
 			if markCurrentDialogueForKill:
 				break
+			
+			# If there are options, generate them
+			if options.size() > 0:
+				generateOptions(options)
+				await optionPressed
+			elif modifiers.waitForPlayerInput:
+				await get_tree().create_timer(0.25).timeout
+				dialogueBox.text = dialogueBox.text + "\n\nPress (SPACE/ENTER/MOUSE) to continue..."
+				await pressedEnter
 
+			# Call all of the attached events for this dialogue line
+			for event in events:
+				event.call()
 
-		# If we've received a signal to kill, then kill the dialogue line loop
-		if markCurrentDialogueForKill:
-			break
-		
-		# If there are options, generate them
-		if options.size() > 0:
-			generateOptions(options)
-			await optionPressed
-		elif modifiers.waitForPlayerInput:
-			await get_tree().create_timer(0.25).timeout
-			dialogueBox.text = dialogueBox.text + "\n\nPress (SPACE/ENTER/MOUSE) to continue..."
-			await pressedEnter
-
-		# Call all of the attached events for this dialogue line
-		for event in events:
-			event.call()
-
-	# Tell everybody that we finished playing this dialogue
-	dialogueFinished.emit()
+		# Tell everybody that we finished playing this dialogue
+		dialogueFinished.emit()
 
 func generateOptions(options : Array[Option]):
 	# print("Generating options for", options)

@@ -2,8 +2,8 @@ class_name Dialogue
 extends Node
 
 var dialogueName : String
-var dialogueLines : Array[DialogueLine]
+var dialogueActions : Array[DialogueAction]
 
-func _init(aDialogueName : String, aDialogueLines : Array[DialogueLine] = []):
+func _init(aDialogueName : String, aDialogueActions : Array[DialogueAction] = []):
 	dialogueName = aDialogueName
-	dialogueLines = aDialogueLines
+	dialogueActions = aDialogueActions

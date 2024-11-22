@@ -1,11 +1,9 @@
 class_name DialogueLine
-extends Node
+extends DialogueAction
 
-var character : Character
 var characterName : String
 var dialogueText : String
 var modifiers : DialogueLineModifiers
-var characterManager : CharacterManager
 
 func _init(
 	aCharacterName : String, 
@@ -17,7 +15,4 @@ func _init(
 	dialogueText = aDialogueText
 	modifiers = aModifiers
 
-	characterManager = CharacterManager.instance
-
-	character = characterManager.CHARACTERS[characterName]
 	# print(character)

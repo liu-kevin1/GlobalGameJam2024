@@ -7,15 +7,18 @@ func _init():
 	dialogueManager = DialogueManager.instance
 	# print("Initialized DialogueCheesecake")
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Served", [
+		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Your 6 Course meal for one has arrived."),
 		DialogueLine.new("Server", "We're starting off the night with a cheesecake."),
 		DialogueLine.new("Server", "Please, enjoy!"),
+		DialogueSwitchSprite.new("Cheesecake"),
 		DialogueLine.new("Cheesecake", "uh...um. hi :D"),
+		DialogueSwitchSprite.new("Cheesecake", "FLUSHED"),
 		DialogueLine.new("Cheesecake", "i hope im not being a disturbance...", DialogueLineModifiers.new(1, true, [
 			Option.new("I'm into hot messes.", func(): dialogueManager.playDialogue("Cheesecake_Enthusiastic1")),
 			Option.new("I'd like someone a who has it together.", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
 			Option.new("*trying not to vomit* ...I'll pass on you.", func(): dialogueManager.playDialogue("Cheesecake_Skip1"))
-		], [], "FLUSHED")),
+		], [])),
 	]))
 	#dialogueManager.addDialogue(Dialogue.new("Cheesecake_Silence1", [
 	#	DialogueLine.new("Cheesecake", "...why are you so quiet? do you not like me? D: *starts to cry* you must hate me like everyone else does! *continues quiet crying*"),
