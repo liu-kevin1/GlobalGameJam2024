@@ -45,3 +45,4 @@ func _init():
 		}
 	}
 	character = Character.new("Spaghetti", sprites, "Squid Ink Spaghetti")
+	usesPlate = true

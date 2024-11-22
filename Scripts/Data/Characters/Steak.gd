@@ -11,5 +11,4 @@ func _init():
 			Position = Vector2(1147, 876)
 		}
 	}
-	character = Character.new("Steak", sprites, "Steak")
-
+	character = Character.new("Steak", sprites, "Steak", {}, false)

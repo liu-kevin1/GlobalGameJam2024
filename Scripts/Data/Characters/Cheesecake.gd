@@ -1,7 +1,7 @@
 class_name Cheesecake
 extends Character
 
-var character : Character 
+var character : Character
 
 func _init():
 	var sprites = {
@@ -50,3 +50,4 @@ func _init():
 		}
 	}
 	character = Character.new("Cheesecake", sprites, "Mashed Up Cheesecake", audio)
+

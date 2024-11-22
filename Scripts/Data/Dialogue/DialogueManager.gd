@@ -12,6 +12,7 @@ var dialogueBox : Label = null
 var choiceButtons : Node = null
 # var templateButton : Button = null
 var characterSprite : Sprite2D = null
+var plateInstance : Node2D = null
 var currentCharacter : Character = null
 var audioInstancesNode : Node = null
 
@@ -34,7 +35,18 @@ func addDialogue(dial):
 
 func _ready():
 	instance = self
-
+	
+	# Initialize object references
+	var root = get_tree().get_root()
+	
+	dialogueBox = root.get_node("MainGameScene/DialogueBox")
+	choiceButtons = root.get_node("MainGameScene/ChoiceButtons")
+	characterSprite = root.get_node("MainGameScene/CharacterSprite")
+	audioInstancesNode = root.get_node("MainGameScene/AudioInstances")
+	plateInstance = root.get_node("MainGameScene/Plate")
+	dialogueBox.visible = true
+	
+	
 	# Initialize the dialogue modules
 	DialogueCheesecake.new()
 	DialoguePizza.new()
@@ -50,14 +62,7 @@ func _ready():
 	# 	DialogueLine.new("TestCharacter", "Aaaaaaaaaaaaaaaaand this is the third line of dialogue and it's so so much faster!!! WOOOO!!!!", DialogueLineModifiers.new(2))
 	# ]))
 
-	# Initialize object references
-	var root = get_tree().get_root()
 	
-	dialogueBox = root.get_node("MainGameScene/DialogueBox")
-	choiceButtons = root.get_node("MainGameScene/ChoiceButtons")
-	characterSprite = root.get_node("MainGameScene/CharacterSprite")
-	audioInstancesNode = root.get_node("MainGameScene/AudioInstances")
-
 	# Play the first dialogue
 	# We start with serving the cheesecake
 	DialogueManager.instance.playDialogue("Cheesecake_Served")
@@ -170,6 +175,10 @@ func playDialogue(dialogueName : String):
 		# Initialize our variables
 		if line is DialogueSwitchSprite:
 			changeSprite(line.characterName, line.spriteModifier)
+			if(line.currentCharacter.usesPlate):
+				togglePlate(true)
+			else:
+				togglePlate(false)
 
 		elif line is DialogueLine:
 			var character = CharacterManager.instance.CHARACTERS[line.characterName]
@@ -337,7 +346,9 @@ func playAudio(audioName, volume=1.0):
 	# audioStreamPlayer.finished.connect(func() : print("Finished playing"))
 	audioStreamPlayer.finished.connect(func(): audioStreamPlayer.queue_free())
 
-
+func togglePlate(enable:bool):
+	plateInstance.visible = enable
+	
 
 # 
 # Dialogue Effects

@@ -8,8 +8,9 @@ var characterName : String
 var characterSprites : Dictionary
 var characterNickname : String
 var characterAudio : Dictionary
+var usesPlate : bool
 
-func _init(name, sprites, nickname="", audio={}):
+func _init(name, sprites, nickname="", audio={}, plate=true):
 	if not sprites.has("IDLE"):
 		print("Warning: Sprite <%s> does not have an IDLE sprite, which is required.", name)
 	# print("Initializing character <%s>" % name)
@@ -17,6 +18,7 @@ func _init(name, sprites, nickname="", audio={}):
 	characterSprites = sprites
 	characterNickname = nickname
 	characterAudio = audio
+	usesPlate = plate
 
 	# Initialize more sprites using IDLE as a reference
 	var spriteNames = [

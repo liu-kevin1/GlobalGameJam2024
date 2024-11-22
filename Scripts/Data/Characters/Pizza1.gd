@@ -17,3 +17,4 @@ func _init():
 		}
 	}
 	character = Character.new("Pizza 1", sprites, "Hot Headed Pizza", audio)
+	usesPlate = true

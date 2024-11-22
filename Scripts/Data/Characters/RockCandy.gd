@@ -12,3 +12,4 @@ func _init():
 		}
 	}
 	character = Character.new("RockCandy", sprites)
+	usesPlate = true
