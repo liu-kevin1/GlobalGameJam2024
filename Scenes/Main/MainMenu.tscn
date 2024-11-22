@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bm3lxdahhw64g" path="res://Assets/Images/main_menu.png" id="1_mjft6"]
 [ext_resource type="Script" path="res://Scripts/InteractiveElements/MainMenu.gd" id="2_1kxnd"]
 [ext_resource type="Script" path="res://Scripts/InteractiveElements/Credits.gd" id="3_dyusg"]
-[ext_resource type="Script" path="res://Scenes/Main/ScreenFade.gd" id="3_nqrom"]
+[ext_resource type="Script" path="res://Scripts/System/ScreenFade.gd" id="3_nqrom"]
 
 [sub_resource type="Animation" id="Animation_cx4hg"]
 resource_name = "Fade"

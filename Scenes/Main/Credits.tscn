@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdoy801vfk2vk"]
 
 [ext_resource type="Texture2D" uid="uid://dbtdhjdwpvx86" path="res://Assets/Images/gray.png" id="1_f6qgq"]
-[ext_resource type="Script" path="res://Scenes/Main/Restart.gd" id="2_nqmen"]
-[ext_resource type="Script" path="res://Scenes/Main/TextEdit.gd" id="3_1ohyq"]
+[ext_resource type="Script" path="res://Scripts/InteractiveElements/Restart.gd" id="2_3k7n4"]
+[ext_resource type="Script" path="res://Scripts/System/TextEdit.gd" id="3_i4qnd"]
 
 [sub_resource type="Animation" id="Animation_f1c4i"]
 resource_name = "Fade"
@@ -54,7 +54,7 @@ offset_top = 503.0
 offset_right = 499.0
 offset_bottom = 566.0
 text = "Main Menu"
-script = ExtResource("2_nqmen")
+script = ExtResource("2_3k7n4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Button"]
 root_node = NodePath("../..")
@@ -93,4 +93,4 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-script = ExtResource("3_1ohyq")
+script = ExtResource("3_i4qnd")
