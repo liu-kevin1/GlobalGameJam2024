@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxw0sb5jllxpp"]
+[gd_scene load_steps=14 format=3 uid="uid://bxw0sb5jllxpp"]
 
 [ext_resource type="Script" path="res://Scripts/Dining.gd" id="1_go7wu"]
 [ext_resource type="Script" path="res://Scripts/TemplateButton.gd" id="3_041xk"]
 [ext_resource type="Texture2D" uid="uid://dw4rgwn8ixu6o" path="res://Assets/Images/icon.svg" id="3_53php"]
 [ext_resource type="Texture2D" uid="uid://cjxp0rfwh5kce" path="res://Assets/Images/Main_Background.png" id="4_ta6nt"]
-[ext_resource type="Texture2D" uid="uid://wplyciw080oo" path="res://Assets/Images/Steak.png" id="5_0toel"]
+[ext_resource type="Texture2D" uid="uid://wplyciw080oo" path="res://Assets/Images/steak.png" id="5_0toel"]
 [ext_resource type="Texture2D" uid="uid://o4fyoxm11td5" path="res://Assets/Images/Table.png" id="5_dsc16"]
 [ext_resource type="PackedScene" uid="uid://ccq0t5dmm314d" path="res://Assets/Instances/TemplateButton.tscn" id="7_2qn17"]
+[ext_resource type="FontFile" uid="uid://ccn0uvaqbt3ry" path="res://Assets/Fonts/Mansalva-Regular.ttf" id="7_sqkdr"]
 [ext_resource type="Script" path="res://Scripts/Data/Characters/CharacterManager.gd" id="8_720ed"]
 [ext_resource type="Script" path="res://Scripts/Data/Dialogue/DialogueManager.gd" id="9_cmfmj"]
 [ext_resource type="Texture2D" uid="uid://dbtdhjdwpvx86" path="res://Assets/Images/gray.png" id="10_gj8sl"]
@@ -44,14 +45,15 @@ scale = Vector2(0.6, 0.573)
 texture = ExtResource("5_0toel")
 
 [node name="DialogueBox" type="Label" parent="."]
-offset_left = 691.0
-offset_top = 920.0
-offset_right = 1660.0
-offset_bottom = 1043.0
+offset_left = 783.0
+offset_top = 916.0
+offset_right = 1562.0
+offset_bottom = 1040.0
 theme_override_colors/font_color = Color(0.858824, 0.858824, 0.858824, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 8
-theme_override_font_sizes/font_size = 0
+theme_override_fonts/font = ExtResource("7_sqkdr")
+theme_override_font_sizes/font_size = 24
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros sit amet felis tincidunt gravida vel ullamcorper neque. Aenean vehicula eu augue id finibus."
 horizontal_alignment = 1
 autowrap_mode = 3
