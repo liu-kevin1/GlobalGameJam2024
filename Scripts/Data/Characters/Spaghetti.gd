@@ -42,7 +42,14 @@ func _init():
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.75, 0.75),
 			Position = Vector2(1147, 876)
+		},
+		PLATE = {
+			Texture = preload("res://Assets/Images/Plate.png")
 		}
 	}
-	character = Character.new("Spaghetti", sprites, "Squid Ink Spaghetti")
-	usesPlate = true
+	var audio = {
+		TALK = {
+			Audio = "FoodAudio/Cheesecake/Cheesecake_Talk.wav"
+		}
+	}
+	character = Character.new("Spaghetti", sprites, "Squid Ink Spaghetti", audio)

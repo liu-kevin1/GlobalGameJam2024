@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cugfgow4450le"
-path="res://.godot/imported/Cheesecake_Happy.png-e94614f5bc1158369ec0477e3fc8afbd.ctex"
+uid="uid://bssjdkb7rlwvm"
+path="res://.godot/imported/Prime_Rib_happy.png-7d83a4bdda5dae61d5a1abcafb59da69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/FoodSprites/Cheesecake/Cheesecake_Happy.png"
-dest_files=["res://.godot/imported/Cheesecake_Happy.png-e94614f5bc1158369ec0477e3fc8afbd.ctex"]
+source_file="res://Assets/Images/FoodSprites/PrimeRib/Prime_Rib_happy.png"
+dest_files=["res://.godot/imported/Prime_Rib_happy.png-7d83a4bdda5dae61d5a1abcafb59da69.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

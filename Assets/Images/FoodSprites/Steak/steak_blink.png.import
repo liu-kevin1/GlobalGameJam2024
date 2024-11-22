@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cugfgow4450le"
-path="res://.godot/imported/Cheesecake_Happy.png-e94614f5bc1158369ec0477e3fc8afbd.ctex"
+uid="uid://bk4j1igu6u3ce"
+path="res://.godot/imported/steak_blink.png-2e510a14a8c60e6a19705775f7d26592.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/FoodSprites/Cheesecake/Cheesecake_Happy.png"
-dest_files=["res://.godot/imported/Cheesecake_Happy.png-e94614f5bc1158369ec0477e3fc8afbd.ctex"]
+source_file="res://Assets/Images/FoodSprites/Steak/steak_blink.png"
+dest_files=["res://.godot/imported/steak_blink.png-2e510a14a8c60e6a19705775f7d26592.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

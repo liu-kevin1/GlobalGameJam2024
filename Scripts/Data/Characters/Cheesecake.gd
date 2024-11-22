@@ -42,6 +42,9 @@ func _init():
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
+		},
+		PLATE = {
+			Texture = preload("res://Assets/Images/Plate.png")
 		}
 	}
 	var audio = {

@@ -14,6 +14,7 @@ var choiceButtons : Node = null
 var characterSprite : Sprite2D = null
 var plateInstance : Node2D = null
 var currentCharacter : Character = null
+var currentSpriteCharacter : Character = null
 var audioInstancesNode : Node = null
 
 var hasPressedEnter : bool = false
@@ -65,6 +66,7 @@ func _ready():
 	
 	# Play the first dialogue
 	# We start with serving the cheesecake
+	DialogueManager.instance.changeSprite("Cheesecake")
 	DialogueManager.instance.playDialogue("Cheesecake_Served")
 
 	# Start the sprite animation thread
@@ -123,37 +125,45 @@ func _thread_blink():
 	while true:
 		var chance = rng.randf()
 
-		var characterSprites = currentCharacter.characterSprites
-		var blinkInfo = characterSprites.BLINK
-		if blinkInfo.has("Frequency"):
+		var characterSprites = currentSpriteCharacter.characterSprites
+		print("b) currentSpriteCharacter.characterName: <" + currentSpriteCharacter.characterName + ">")
+		var blinkInfo = characterSprites.get("BLINK", null)
+		if blinkInfo != null and blinkInfo.has("Frequency"):
 			var frequency = blinkInfo.Frequency
 
-			# Only blink if the character sprite is on an idle animation
-			if characterSprite.texture == characterSprites.IDLE.Texture and chance <= frequency:
+			# Only blink if the character sprite is on an idle animation (commented out because we have new sprites)
+			# if characterSprite.texture == characterSprites.IDLE.Texture and chance <= frequency:
+			if chance <= frequency:
 				var oldTexture = characterSprite.texture
 				characterSprite.texture = blinkInfo.Texture
 				await get_tree().create_timer(blinkInfo.Duration).timeout
 
 				# If either of these conditions are true, then don't revert the change
 				# instead, just leave things how they are
-				if characterSprites != currentCharacter.characterSprites or characterSprite.texture != blinkInfo.Texture:
+				if characterSprites != currentSpriteCharacter.characterSprites or characterSprite.texture != blinkInfo.Texture:
 					continue
 				characterSprite.texture = oldTexture
 
 		var waitDuration = 1
-		if blinkInfo.has("Wait"):
+		if blinkInfo != null and blinkInfo.has("Wait"):
 			waitDuration = blinkInfo.Wait
 		await get_tree().create_timer(waitDuration).timeout
 
-func changeSprite(characterName : String, spriteModifier : String):
-	var character = CharacterManager.instance.CHARACTERS[characterName]
+func changeSprite(characterName : String, spriteModifier : String = "IDLE"):
+	var character = CharacterManager.instance.CHARACTERS[characterName].character
+
+	print("Set currentSpriteCharacter to be: " + characterName)
+	currentSpriteCharacter = character
+	print("a) currentSpriteCharacter.characterName: " + currentSpriteCharacter.characterName)
 	# Update the character sprite with the current speaker
-	var spriteInfo = character.character.characterSprites[spriteModifier]
-	print(character.character.characterSprites)
-	print(spriteModifier)
+	var spriteInfo = character.characterSprites[spriteModifier]
+	
 	characterSprite.texture = spriteInfo.Texture
 	characterSprite.scale = spriteInfo.Scale
 	characterSprite.position = spriteInfo.Position
+	
+	if spriteInfo.get("PLATE", null) != null:
+		plateInstance.texture = spriteInfo.PLATE.Texture
 
 
 func playDialogue(dialogueName : String):
@@ -346,7 +356,7 @@ func playAudio(audioName, volume=1.0):
 	# audioStreamPlayer.finished.connect(func() : print("Finished playing"))
 	audioStreamPlayer.finished.connect(func(): audioStreamPlayer.queue_free())
 
-func togglePlate(enable:bool):
+func togglePlate(enable : bool):
 	plateInstance.visible = enable
 	
 

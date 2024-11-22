@@ -11,4 +11,9 @@ func _init():
 			Position = Vector2(1147, 900)
 		}
 	}
-	character = Character.new("Server", sprites, "Server", {}, false)
+	var audio = {
+		TALK = {
+			Audio = "FoodAudio/Cheesecake/Cheesecake_Talk.wav"
+		}
+	}
+	character = Character.new("Server", sprites, "Server", audio, false)
