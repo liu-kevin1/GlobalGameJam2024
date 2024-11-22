@@ -84,7 +84,7 @@ func _init():
 	]))
 
 	dialogueManager.addDialogue(Dialogue.new("Pizza_ConsumptionP2", [
-		DialogueSwitchSprite.new("Pizza w"),
+		DialogueSwitchSprite.new("Pizza 2"),
 		DialogueLine.new("Pizza 2", "I'm not scared of you"),
 		DialogueLine.new("Player", "Well you should be."),
 		DialogueLine.new("Pizza 2", "oh my goooooddd...."),
