@@ -94,13 +94,13 @@ func _init():
 		DialogueSwitchSprite.new("Spaghetti", "DISGUSTED"),
 		DialogueLine.new("Spaghetti", "I KNEW YOU WOULD DO THIS TO ME"),
 		DialogueLine.new("Player", "I knew this too surprisingly enough"),
-		DialogueLine.new("Player", "You begin to twirl your fork into the spaghetti"),
+		DialogueLine.new("Narrator", "You begin to twirl your fork into the spaghetti"),
 		DialogueSwitchSprite.new("Spaghetti", "HAPPY"),
 		DialogueLine.new("Spaghetti", "NOOOoooOO", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("Spaghetti", "OOooOOOoO", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("Spaghetti", "OOOOOoooO", DialogueLineModifiers.new(1, false)),
 		DialogueSwitchSprite.new("Player"),
-		DialogueLine.new("Narrator", "you swallow the spaghetti whole"),
+		DialogueLine.new("Narrator", "You swallow the spaghetti whole"),
 		DialogueLine.new("Player", "This isn't half bad, I should really cook this on my own some time!"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.enterCredits("[ YOU ATE THE SPAGHETTI ]")
@@ -115,7 +115,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Starve", [
 		DialogueSwitchSprite.new("Server"),
-		DialogueLine.new("Server", "The server comes, taking the dish away."),
+		DialogueLine.new("Narrator", "The server comes, taking the dish away."),
 		DialogueLine.new("Server", "It seems none of our cuisine was to your liking, esteemed customer."),
 		DialogueLine.new("Player", "Yeah, none of it really tickled my fancy, you know?"),
 		DialogueLine.new("Player", "Anyways, I think I'll be leaving now."),

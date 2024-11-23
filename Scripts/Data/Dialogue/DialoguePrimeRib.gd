@@ -43,9 +43,9 @@ func _init():
 		DialogueLine.new("PrimeRib", "Foolish fool! You fool! Hey- Get your eating utensils away from my magnificent form!"),
 		DialogueLine.new("Player", "I didn't even move them, though?"),
 		DialogueLine.new("PrimeRib", "You lie. I can see it in your eyes- you hunger for the flesh of a highly intelligent being such as myself."),
-		DialogueLine.new("Player", "You reach for the fork and knife."),
+		DialogueLine.new("Narrator", "You reach for the fork and knife."),
 		DialogueLine.new("PrimeRib", "AHHH! I knew it! I called it, I knew it, I said it! You've shown your true intentions!!"),
-		DialogueLine.new("Player", "You begin wiping off your utensils with your napkin."),
+		DialogueLine.new("Narrator", "You begin wiping off your utensils with your napkin."),
 		DialogueLine.new("PrimeRib", "....A-ah, but you see, I knew you were actually going to do that instead of eat me! So, it seems you honor my intelligence, then?"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [
 			Option.new("Plunge your fork into the prime rib.", func(): dialogueManager.playDialogue("PrimeRib_Consumption3")),
@@ -53,19 +53,19 @@ func _init():
 		]))
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Consumption3", [
-		DialogueLine.new("Player", "You take your fork, positioning above the tiny chunk of prime rib."),
+		DialogueLine.new("Narrator", "You take your fork, positioning above the tiny chunk of prime rib."),
 		DialogueLine.new("PrimeRib", "According to my calculations, you will not-"),
-		DialogueLine.new("Player", "And you stab straight down, into the center of the piece of meat."),
+		DialogueLine.new("Narrator", "And you stab straight down, into the center of the piece of meat."),
 		DialogueLine.new("PrimeRib", "UUUAAAAUAUAUUAUAUAAEEAAEEAAWEWAAAAAAGH!!!!!", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("PrimeRib", "YEEEEEOOOOOOWWWCCHH!!!! AAEAEOAEOOAEOAE!!!!!!", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("PrimeRib", "AAAAAAAAAEEEEEEEIIIIIII!!!!!!!!!!!!", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("Player", "Stop squirming."),
-		DialogueLine.new("Player", "You tighten your grip on your fork, before lifting it up to your mouth."),
+		DialogueLine.new("Narrator", "You tighten your grip on your fork, before lifting it up to your mouth."),
 		DialogueLine.new("PrimeRib", "W-wait! Please, we can talk this through!"),
-		DialogueLine.new("Player", "You continue ferrying the delicious hunk of rib to your incisors."),
+		DialogueLine.new("Narrator", "You continue ferrying the delicious hunk of rib to your incisors."),
 		DialogueLine.new("PrimeRib", "Noooo!! I don't want to die!!! I still have so much to reseeeaaaaaarch-"),
 		DialogueSwitchSprite.new("Player"),
-		DialogueLine.new("Player", "You bite down on the meat, sliding your fork out of your mouth."),
+		DialogueLine.new("Narrator", "You bite down on the meat, sliding your fork out of your mouth."),
 		DialogueLine.new("PrimeRib", "- muffled screaming -"),
 		DialogueLine.new("Narrator", "You chew happily on the meat. The flavor is delightful, and the texture is just right. Simply an incredible dish."),
 		DialogueLine.new("Narrator", "You continue chewing for a while longer, before realizing that it seems a bit too juicy. It tastes a bit bloody, even."),
@@ -89,7 +89,7 @@ func _init():
 		])),
 		DialogueSwitchSprite.new("PrimeRib", "CONFUSED"),
 		DialogueLine.new("PrimeRib", "...Hey. Why are you like that, all of a sudden?"),
-		DialogueLine.new("Player", "You continue with your action. The prime rib seems more and more on edge from this."),
+		DialogueLine.new("Narrator", "You continue with your action. The prime rib seems more and more on edge from this."),
 		DialogueLine.new("PrimeRib", "What are you plotting, huh? Think I can't see your thoughts behind that conniving gaze?"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [
 			Option.new("Change dishes.", func(): dialogueManager.playDialogue("PrimeRib_Skip1")),
@@ -122,7 +122,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Skip1", [
 		DialogueSwitchSprite.new("Server"),
-		DialogueLine.new("Server", "The server comes over, and he takes the plate of prime rib away."),
+		DialogueLine.new("Narrator", "The server comes over, and he takes the plate of prime rib away."),
 		DialogueLine.new("PrimeRib", "Ha! It seems that I am too much for you to handle, after all."),
 		DialogueLine.new("Server", "I will be right back with your next dish."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
