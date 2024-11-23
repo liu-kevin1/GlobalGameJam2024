@@ -63,7 +63,7 @@ func _init():
 		DialogueLine.new("Player", "Perhaps you should have rested when you could have, even for a second."),
 		DialogueLine.new("Steak", "But does that even matter now?"),
 		DialogueLine.new("Player", "I guess not."),
-		DialogueLine.new("Narrator", "You start cutting into the meat.")
+		DialogueLine.new("Narrator", "You start cutting into the meat."),
 		DialogueSwitchSprite.new("Steak", "HAPPY"),
 		DialogueLine.new("Steak", "W-wait!"),
 		DialogueLine.new("Player", "Huh? I thought you said you didn't mind."),
