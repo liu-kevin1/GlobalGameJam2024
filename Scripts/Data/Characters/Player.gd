@@ -11,4 +11,9 @@ func _init():
 			Position = Vector2(1174, 776)
 		}
 	}
-	character = Character.new("Player", sprites, "Player", {}, false)
+	var audio = {
+		TALK = {
+			Audio = "click_effect.wav"
+		}
+	}
+	character = Character.new("Player", sprites, "Player", audio, false)

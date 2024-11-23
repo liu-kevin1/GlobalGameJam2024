@@ -17,7 +17,7 @@ func _init():
 			Position = Vector2(1159, 741),
 			Frequency = 0.5, # 0.5 -> 50% chance each second for this sprite to blink
 			Duration = 0.5, # 0.5 -> Sprite stays on blink sprite for 0.5 seconds before going back to idle
-			Wait = 0.75 # 0.75 -> Waits 0.75 seconds between each attempt to blink
+			Wait = 2 # 2 -> Waits 2 seconds between each attempt to blink
 		},
 		DISGUSTED = {
 			Texture = preload("res://Assets/Images/CharacterSprites/NewYorkPizza/Left/NY_Pizza_left_disgusted.png"),
