@@ -48,7 +48,7 @@ func _init():
 		DialogueLine.new("Server", "We are a new high-end restaurant whom prides itself in top-quality service and a unique experience unlike any other."),
 		DialogueLine.new("Server", "As you know, there is a set 6 course meal to pair with your dining experience."),
 		DialogueLine.new("Server", "The first course will be out shortly. Please enjoy."),
-		
+		DialogueSwitchSprite.new("Narrator"),
 		DialogueLine.new("Narrator", "You sit there. Taking in the pleasant atmosphere of the dining room."),
 		DialogueLine.new("Narrator", "You haven’t left your room in eons."),
 		DialogueLine.new("Narrator", "Every once in a while it’s good to get out..."),
