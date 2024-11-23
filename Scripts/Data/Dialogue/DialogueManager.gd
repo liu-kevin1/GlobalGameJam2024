@@ -72,7 +72,7 @@ func _ready():
 	# We start with serving the cheesecake
 	DialogueManager.instance.changeSprite("Cheesecake")
 	DialogueManager.instance.playDialogue("Cheesecake_Served")
-
+	
 	# Start the sprite animation thread
 	startCharacterAnimation()
 	

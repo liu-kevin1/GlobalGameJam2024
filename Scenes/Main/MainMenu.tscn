@@ -1,25 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://2dv74dvdd87s"]
 
 [ext_resource type="Texture2D" uid="uid://bm3lxdahhw64g" path="res://Assets/Images/main_menu.png" id="1_mjft6"]
-[ext_resource type="Script" path="res://Scripts/InteractiveElements/MainMenu.gd" id="2_1kxnd"]
-[ext_resource type="Script" path="res://Scripts/InteractiveElements/Credits.gd" id="3_dyusg"]
-[ext_resource type="Script" path="res://Scripts/System/ScreenFade.gd" id="3_nqrom"]
-
-[sub_resource type="Animation" id="Animation_cx4hg"]
-resource_name = "Fade"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 1.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
+[ext_resource type="Script" path="res://Scripts/InteractiveElements/MenuMain.gd" id="2_bmexn"]
+[ext_resource type="Script" path="res://Scripts/InteractiveElements/Fade.gd" id="3_wex7g"]
 
 [sub_resource type="Animation" id="Animation_cyiua"]
 length = 0.001
@@ -36,13 +19,47 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wklfg"]
+resource_name = "FadeOut"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cx4hg"]
+resource_name = "FadeIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adg71"]
 _data = {
-"Fade": SubResource("Animation_cx4hg"),
+"FadeIn": SubResource("Animation_cx4hg"),
+"FadeOut": SubResource("Animation_wklfg"),
 "RESET": SubResource("Animation_cyiua")
 }
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("2_bmexn")
 
 [node name="JermaRedWine" type="Sprite2D" parent="."]
 position = Vector2(575.5, 326)
@@ -56,7 +73,6 @@ offset_top = 28.0
 offset_right = 697.0
 offset_bottom = 316.0
 theme_override_font_sizes/font_size = 64
-script = ExtResource("2_1kxnd")
 
 [node name="CreditsButton" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -65,17 +81,20 @@ offset_top = 356.0
 offset_right = 818.0
 offset_bottom = 618.0
 theme_override_font_sizes/font_size = 64
-script = ExtResource("3_dyusg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -110.0
 offset_top = -68.0
 offset_right = 1324.0
 offset_bottom = 748.0
 color = Color(0, 0, 0, 0)
-script = ExtResource("3_nqrom")
+script = ExtResource("3_wex7g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 libraries = {
 "": SubResource("AnimationLibrary_adg71")
 }
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
