@@ -122,7 +122,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Skip1", [
 		DialogueSwitchSprite.new("Server"),
-		DialogueLine.new("Server", "The server comes over, and he takes the plate of prime rib away."),
+		DialogueLine.new("Narrator", "The server comes over, and he takes the plate of prime rib away."),
 		DialogueLine.new("PrimeRib", "Ha! It seems that I am too much for you to handle, after all."),
 		DialogueLine.new("Server", "I will be right back with your next dish."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
