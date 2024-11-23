@@ -71,7 +71,10 @@ func _ready():
 	
 	# Play the first dialogue
 	# We start with serving the cheesecake
+	
 	DialogueManager.instance.changeSprite("Player")
+	Global.FADE_IN = true
+	await get_tree().create_timer(1).timeout
 	DialogueManager.instance.playDialogue("IntroScene")
 
 	# Start the sprite animation thread
