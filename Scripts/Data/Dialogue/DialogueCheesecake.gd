@@ -13,7 +13,6 @@ func _init():
 		DialogueLine.new("Server", "Please, enjoy!"),
 		DialogueSwitchSprite.new("Cheesecake"),
 		DialogueLine.new("Cheesecake", "uh...um. hi :D"),
-		DialogueSwitchSprite.new("Cheesecake", "FLUSHED"),
 		DialogueLine.new("Cheesecake", "i hope im not being a disturbance...", DialogueLineModifiers.new(1, true, [
 			Option.new("I'm into hot messes.", func(): dialogueManager.playDialogue("Cheesecake_Enthusiastic1")),
 			Option.new("I'd like someone a who has it together.", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),

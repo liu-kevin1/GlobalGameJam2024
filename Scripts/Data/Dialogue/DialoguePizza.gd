@@ -40,7 +40,8 @@ func _init():
 		DialogueSwitchSprite.new("Pizza 2"),
 		DialogueLine.new("Pizza 2", "Brother, I think we blew it..."),
 		DialogueSwitchSprite.new("Server"),
-		DialogueLine.new("Server", "Please give us just a moment while we prepare the next dish. The server strolls back into the kitchen before coming back, holding a delicate platter."),
+		DialogueLine.new("Server", "Please give us just a moment while we prepare the next dish."),
+		DialogueLine.new("Narrator", "The server strolls back into the kitchen before coming back, holding a delicate platter."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Sashimi_Served")
 		])),
