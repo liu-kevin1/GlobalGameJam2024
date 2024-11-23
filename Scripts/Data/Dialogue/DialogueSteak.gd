@@ -29,7 +29,7 @@ func _init():
 		DialogueLine.new("Steak", "I'll have you know I'm a flawless force of nature! You can't reject me!"),
 		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Absolutely, dear customer."),
-		DialogueSwitchSprite.new("Steak"),
+		DialogueSwitchSprite.new("Steak", "DISGUSTED"),
 		DialogueLine.new("Steak", "Stop it! Stop! I don't get rejected! I reject the customers here!"),
 		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "*The server picks up the plate, and you hear the yelling of the steak as it is brought back to the kitchens.*"),
@@ -42,7 +42,7 @@ func _init():
 		DialogueLine.new("Server", "Is there a problem?"),
 		DialogueLine.new("Player", "I can't do it... this steak is too perfect..."),
 		DialogueLine.new("Player", "They're out of my league! I beg you, bring me another dish!"),
-		DialogueSwitchSprite.new("Steak"),
+		DialogueSwitchSprite.new("Steak", "HAPPY"),
 		DialogueLine.new("Steak", "Muahahaha! I guess I'm too perfect for you... time to go stare at my reflection in a pot!"),
 		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Understood, dear customer."),
@@ -160,7 +160,7 @@ func _init():
 		DialogueLine.new("Steak", "I am NOT bleeding. Those are simply my sauces."),
 		DialogueLine.new("Player", "Your what!?"),
 		DialogueLine.new("Steak", "My meat sauce. Juices. Oils, even, if you will."),
-		DialogueLine.new("Player", "*You look at the shiny reddish-brown liquid, shiny with bubbles of grease.*", DialogueLineModifiers.new(1, true, [
+		DialogueLine.new("Narrator", "You look at the shiny reddish-brown liquid, shiny with bubbles of grease.", DialogueLineModifiers.new(1, true, [
 			Option.new("Sorry, but that looks a lot like blood to me.", func(): dialogueManager.playDialogue("Steak_Disgust2")),
 			Option.new("I guess it doesn't matter in the end.", func(): dialogueManager.playDialogue("Steak_Consume2")),
 			Option.new("You're right, I'm so sorry. How can I make it up to you?", func(): dialogueManager.playDialogue("Steak_Amour1")),

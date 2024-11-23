@@ -17,17 +17,20 @@ func _init():
 			Option.new("I want to get to know you.", func(): dialogueManager.playDialogue("PrimeRib_Consumption1")),
 			Option.new("You don't seem like a delectable dinner nor date to me.", func(): dialogueManager.playDialogue("PrimeRib_Honest1")),
 			Option.new("Are you always this small?", func(): dialogueManager.playDialogue("PrimeRib_Curious1")),
-			Option.new("Hard pass. Yikes.", func(): dialogueManager.playDialogue("Spaghetti_Served"))
+			Option.new("Hard pass. Yikes.", func(): dialogueManager.playDialogue("PrimeRib_Skip1"))
 		]))
 	]))
 	
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Consumption1", [
 		DialogueLine.new("PrimeRib", "Oh? You think you're worthy of getting to know me? Hm."),
+		DialogueSwitchSprite.new("PrimeRib", "DISGUSTED"),
 		DialogueLine.new("PrimeRib", "FOOL! YOU ABSOLUTE BUFFOON!"),
 		DialogueLine.new("PrimeRib", "I'll have you know, I have seventeen separate doctorates, all in different fields!"),
 		DialogueLine.new("Player", "....Sure.", DialogueLineModifiers.new(0.2)),
+		DialogueSwitchSprite.new("PrimeRib", "HAPPY"),
 		DialogueLine.new("PrimeRib", "Indeed! I am an esteemed scholar in all of the fields, too. I'd be more surprised if somebody DIDN'T know me at any of the local research convention, honestly."),
 		DialogueLine.new("Player", "...How is this related to getting to know you better"),
+		DialogueSwitchSprite.new("PrimeRib"),
 		DialogueLine.new("PrimeRib", "Bah! What a foolish question, befitting a narrow-brained person like you. Of course it is! Though, not for you. My intelligence would go to waste on a specimen such as yourself."),
 		DialogueLine.new("Player", "That's so harsh....", DialogueLineModifiers.new(0.2, true, [
 			Option.new("Actually, I think I want to learn about you even more now.", func(): dialogueManager.playDialogue("PrimeRib_Consumption2")),
@@ -36,6 +39,7 @@ func _init():
 		]))
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Consumption2", [
+		DialogueSwitchSprite.new("PrimeRib", "DISGUSTED"),
 		DialogueLine.new("PrimeRib", "Foolish fool! You fool! Hey- Get your eating utensils away from my magnificent form!"),
 		DialogueLine.new("Player", "I didn't even move them, though?"),
 		DialogueLine.new("PrimeRib", "You lie. I can see it in your eyes- you hunger for the flesh of a highly intelligent being such as myself."),
@@ -60,6 +64,7 @@ func _init():
 		DialogueLine.new("PrimeRib", "W-wait! Please, we can talk this through!"),
 		DialogueLine.new("Player", "You continue ferrying the delicious hunk of rib to your incisors."),
 		DialogueLine.new("PrimeRib", "Noooo!! I don't want to die!!! I still have so much to reseeeaaaaaarch-"),
+		DialogueSwitchSprite.new("Player"),
 		DialogueLine.new("Player", "You bite down on the meat, sliding your fork out of your mouth."),
 		DialogueLine.new("PrimeRib", "- muffled screaming -"),
 		DialogueLine.new("Player", "You chew happily on the meat. The flavor is delightful, and the texture is just right. Simply an incredible dish."),
@@ -82,6 +87,7 @@ func _init():
 			Option.new("I think I want another dish", func(): dialogueManager.playDialogue("PrimeRib_Skip1")),
 			Option.new("Look at the prime rib with a disapproving glare.")
 		])),
+		DialogueSwitchSprite.new("PrimeRib", "CONFUSED"),
 		DialogueLine.new("PrimeRib", "...Hey. Why are you like that, all of a sudden?"),
 		DialogueLine.new("Player", "You continue with your action. The prime rib seems more and more on edge from this."),
 		DialogueLine.new("PrimeRib", "What are you plotting, huh? Think I can't see your thoughts behind that conniving gaze?"),
@@ -91,6 +97,7 @@ func _init():
 		]))
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Curious1", [
+		DialogueSwitchSprite.new("PrimeRib", "CONFUSED"),
 		DialogueLine.new("PrimeRib", "What? Is there a problem? All I'm seeing is that I'm refined goodness. None of that useless additional mass, which also gives me a smaller hitbox. You should know that much, at least."),
 		DialogueLine.new("Player", "Smaller... hitbox? Well, it sounds right, but..."),
 		DialogueLine.new("PrimeRib", "You're shaming me like I'm compensating for something..."),
@@ -98,7 +105,6 @@ func _init():
 		DialogueLine.new("Player", "And it's not like I'm shaming you, I just expected something bigger. Dork."),
 		DialogueLine.new("PrimeRib", "DON'T CALL ME A DORK"),
 		DialogueLine.new("PrimeRib", "I clearly have more worth than that"),
-		
 		DialogueLine.new("Player", "...", DialogueLineModifiers.new(1, true, [
 			Option.new("Worthy of my stomach...", func(): dialogueManager.playDialogue("PrimeRib_Consumption1")),
 			Option.new("Am I worthy of eating you?", func(): dialogueManager.playDialogue("PrimeRib_Curious2")),
@@ -107,8 +113,9 @@ func _init():
 		]))
 	]))
 	dialogueManager.addDialogue(Dialogue.new("PrimeRib_Curious2", [
+		DialogueSwitchSprite.new("PrimeRib", "HAPPY"),
 		DialogueLine.new("PrimeRib", "Hm. For somebody to be worthy of eating me... They'd need at least twenty different papers, all published in separate fields. At least that much, anyways. Past that, hm..."),
-		DialogueLine.new("PrimeRib", "It appears to be lost in thought."),
+		DialogueLine.new("Narrator", "The Prime Rib appears to be lost in thought."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [
 			Option.new("Take this opportunity and POUNCE.", func(): dialogueManager.playDialogue("PrimeRib_Consumption3"))
 		]))
@@ -126,12 +133,15 @@ func _init():
 		DialogueLine.new("PrimeRib", "I'm not sure what you mean when you would say you are worthy of me"),
 		DialogueLine.new("Player", "I mean am I worthy of your company my dearest meat"),
 		DialogueLine.new("Player", "My meatness"),
+		DialogueSwitchSprite.new("PrimeRib", "HAPPY"),
 		DialogueLine.new("PrimeRib", "That is certainly not a word in my lexicon but I take that as a compliment"),
 		DialogueLine.new("Player", "How could I possibly eat something as elegant and posh as this!"),
+		DialogueSwitchSprite.new("PrimeRib", "FLUSHED"),
 		DialogueLine.new("PrimeRib", "Would you kiss my meat?"),
 		DialogueLine.new("Player", "Please don't say it like that."),
 		DialogueLine.new("Player", "But yes I would let you"),
-		DialogueLine.new("PrimeRib", "Juice oozes out of the prime rib"),
+		DialogueSwitchSprite.new("PrimeRib", "HAPPY"),
+		DialogueLine.new("Narrator", "Juice oozes out of the prime rib"),
 		DialogueSwitchSprite.new("Server"),
 		DialogueLine.new("Server", "Your next course is ready sir.", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Spaghetti_Served")
