@@ -13,7 +13,7 @@ func _init():
 	}
 	var audio = {
 		TALK = {
-			Audio = "CharacterAudio/Cheesecake/Cheesecake_Talk.wav"
+			Audio = "click_effect.wav"
 		}
 	}
 	character = Character.new("Narrator", sprites, "", audio)
