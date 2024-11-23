@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5ytmskookjg5"
-path="res://.godot/imported/Pizza_Talk.wav-0115c439f93909cfbf840659c470c792.sample"
+path="res://.godot/imported/Pizza_Talk.wav-bdac33c3de6fa0c6e1bd39bc12580548.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/FoodAudio/Pizza/Pizza_Talk.wav"
-dest_files=["res://.godot/imported/Pizza_Talk.wav-0115c439f93909cfbf840659c470c792.sample"]
+source_file="res://Assets/Audio/CharacterAudio/Pizza/Pizza_Talk.wav"
+dest_files=["res://.godot/imported/Pizza_Talk.wav-bdac33c3de6fa0c6e1bd39bc12580548.sample"]
 
 [params]
 

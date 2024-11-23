@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://fs0gayjivllx"
-path="res://.godot/imported/Cheesecake_Talk.wav-8c7dc7c113b113753ac9ab46a5cd92f8.sample"
+path="res://.godot/imported/Cheesecake_Talk.wav-3fceea9c8557937fe273ec8adabef274.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/FoodAudio/Cheesecake/Cheesecake_Talk.wav"
-dest_files=["res://.godot/imported/Cheesecake_Talk.wav-8c7dc7c113b113753ac9ab46a5cd92f8.sample"]
+source_file="res://Assets/Audio/CharacterAudio/Cheesecake/Cheesecake_Talk.wav"
+dest_files=["res://.godot/imported/Cheesecake_Talk.wav-3fceea9c8557937fe273ec8adabef274.sample"]
 
 [params]
 
