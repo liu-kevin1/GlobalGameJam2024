@@ -81,7 +81,8 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("Sashimi_NextDish", [
 		DialogueLine.new("Player", "Please rid me of this guy."),
 		DialogueSwitchSprite.new("Server"),
-		DialogueLine.new("Server", "I'll collect that, then. The server comes over to retrieve the dish, heading back into the kitchen."),
+		DialogueLine.new("Server", "I'll collect that, then."),
+		DialogueLine.new("Narrator", "The server comes over to retrieve the dish, heading back into the kitchen.")
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("PrimeRib_Served")
 		]))
