@@ -8,7 +8,7 @@ func _init():
 	# print("Initialized DialogueCheesecake")
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Served", [
 		DialogueSwitchSprite.new("Server"),
-		DialogueLine.new("Server", "Your 6 Course meal for one has arrived."),
+		DialogueLine.new("Server", "Your 6 course meal for one has arrived."),
 		DialogueLine.new("Server", "We're starting off the night with a cheesecake."),
 		DialogueLine.new("Server", "Please, enjoy!"),
 		DialogueSwitchSprite.new("Cheesecake"),
@@ -17,7 +17,7 @@ func _init():
 		DialogueLine.new("Player", "DID IT JUST TALK???????"),
 		DialogueLine.new("Cheesecake", "ummm ur being kinda weird..."),
 		DialogueLine.new("Cheesecake", "i just wanna know u"),
-		DialogueLine.new("Player", "I understand, to this food wants to know me personally... My stomach yearns for food however."),
+		DialogueLine.new("Player", "I... understand, but food that wants to know me personally is a bit... My stomach yearns for sustenance, however."),
 		DialogueLine.new("Cheesecake", "i hope im not being a disturbance...", DialogueLineModifiers.new(1, true, [
 			Option.new("I'm into hot messes.", func(): dialogueManager.playDialogue("Cheesecake_Enthusiastic1")),
 			Option.new("I'd like someone a who has it together.", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
@@ -37,7 +37,7 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Enthusiastic1", [
 		DialogueLine.new("Cheesecake", "y-you are? that's the meanest yet nicest thing you could say about me. :)"),
 		DialogueSwitchSprite.new("Cheesecake", "HAPPY"),
-		DialogueLine.new("Cheesecake", "people think i'm ugly and vomit usually *sniffles*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Cheesecake", "people think i'm ugly and vomit usually", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueSwitchSprite.new("Cheesecake", "FLUSHED"),
 		DialogueLine.new("Cheesecake", "i'm into u too o-o", DialogueLineModifiers.new(1, true, [
 			Option.new("*Vomits violently*", func(): dialogueManager.playDialogue("Cheesecake_Skip1")),
@@ -47,18 +47,19 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Disgusted1", [
 		DialogueSwitchSprite.new("Cheesecake", "HAPPY"),
-		DialogueLine.new("Cheesecake", "w-whaat? *stares at you with wide eyes*", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Cheesecake", "w-whaat?", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Narrator", "The cheesecake stares at you with wide eyes."),
 		DialogueLine.new("Player", "It's just what I think though, don't take it so personally."),
 		DialogueLine.new("Player", "It's been 5 whole minutes, I think I really did it now."),
 		DialogueLine.new("Narrator", "Man this is awkward..."),
 		DialogueLine.new("Player", "...You ok?"),
-		DialogueLine.new("Narrator", "A waterfall of tears appear out of Cheesecake", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Narrator", "A waterfall of tears appear out of Cheesecake's eyes.", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Cheesecake", "UAAAAAHHAHAAHAAAAHHhhhh", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Player", "Oh dear.."),
-		DialogueLine.new("Narrator", "Cheesecake's tears start pouring out at an alarmingly fast rate", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Narrator", "Cheesecake's tears start pouring out at an alarmingly fast rate.", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Cheesecake", "UUUHHHUUGGHH WEEEEeeeeeeehhh....", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
-		DialogueLine.new("Narrator", "The water out of Cheesecake's tears start overflowing plate", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
-		DialogueLine.new("Player", "Wait, hold on- *starts panicking*", DialogueLineModifiers.new(1, true, [
+		DialogueLine.new("Narrator", "Cheesecake's tears start overflowing the plate. You start to panic; this is a truly torrential amount of tears.", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
+		DialogueLine.new("Player", "Wait, hold on-", DialogueLineModifiers.new(1, true, [
 			Option.new("I have to eat this thing now or the whole restaurant sinks like the titanic!", func(): dialogueManager.playDialogue("Cheesecake_Consumption3")),
 			Option.new("Scared, you shout for the server to fix the problem you created", func(): dialogueManager.playDialogue("Cheesecake_Skip3")),
 		])),
@@ -66,7 +67,7 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Consumption1", [
 		DialogueSwitchSprite.new("Cheesecake", "CONFUSED"),
 		DialogueLine.new("Cheesecake", "...wait..wai-wait waitwaitwait...uh that's not exactly what i meant- you wouldnt do that right? i know youre just joking, youre just saying that because of how stunning i look-", DialogueLineModifiers.new(1, true, [], [], "CONFUSED")),
-		DialogueLine.new("Narrator", "My rules, cake."),
+		DialogueLine.new("Narrator", "You aren't joking."),
 		DialogueLine.new("Cheesecake", "ah, now youre just going to give me some accessories to enhance my beauty...i must admit, a fork is probably the worst choice but i think i can pull it off.", DialogueLineModifiers.new(1, true, [
 			Option.new("Mildly concerned, you freeze just before your fork touches the cheesecake", func(): dialogueManager.playDialogue("Cheesecake_Skip2")),
 			Option.new("Continue to dig into cheesecake", func(): dialogueManager.playDialogue("Cheesecake_Consumption2")),
@@ -74,10 +75,10 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Consumption2", [
 		DialogueSwitchSprite.new("Cheesecake", "HAPPY"),
-		DialogueLine.new("Narrator", "Being the psychopathic creature you are, you start dismembering the cheesecake"),
+		DialogueLine.new("Narrator", "Being the psychopathic creature you are, you start dismembering the cheesecake."),
 		DialogueLine.new("Cheesecake", "EEEEEEEEEEEEEEEEHHHHHHhuhhhh", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
 		DialogueLine.new("Cheesecake", "HHHEUUUGHHH HUFF huff... personally i dont think i need surgery, but if youre going to do it at least give me some anesthesia", DialogueLineModifiers.new(1, true, [], [], "HAPPY")),
-		DialogueLine.new("Player", "You bring the chunk of cheesecake closer to your mouth"),
+		DialogueLine.new("Narrator", "You bring the chunk of cheesecake closer to your mouth"),
 		DialogueSwitchSprite.new("Cheesecake", "FLUSHED"),
 		DialogueLine.new("Cheesecake", "..ohhhh i see, you just want to kiss me *hehe* well why didnt you just say so at the start...although doing so with a bunch of pixels on a screen is a bit strange...", DialogueLineModifiers.new(1, true, [], [], "FLUSHED")),
 		DialogueLine.new("Player", "........."),
@@ -99,9 +100,9 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Consumption3", [
 		DialogueSwitchSprite.new("Narrator"),
 		DialogueLine.new("Narrator", "You swallow the cheesecake as its screams go down into your body."),
-		DialogueLine.new("Player", "You try to stand up but collapse."),
-		DialogueLine.new("Player", "You lose your breath."),
-		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Narrator", "You try to stand up but collapse."),
+		DialogueLine.new("Narrator", "You lose your breath."),
+		DialogueLine.new("Narrator", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.enterCredits("[ YOU SWALLOWED THE CHEESECAKE...? ]")
 		])),
 	]))
@@ -124,8 +125,8 @@ func _init():
 		DialogueLine.new("Player", ".........."),
 		DialogueLine.new("Player", "I can't do this anymore."),
 		DialogueSwitchSprite.new("Cheesecake", "HAPPY"),
-		DialogueLine.new("Cheesecake", "oh yay, youve changed your mind on eating me :D....wait wait wait, why am i being taken away? hold on, WAI- *is taken away by server*", DialogueLineModifiers.new(1, false, [], [], "HAPPY")),
-		DialogueLine.new("Cheesecake", ".........", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Cheesecake", "oh yay, youve changed your mind on eating me :D....wait wait wait, why am i being taken away? hold on, WAI-", DialogueLineModifiers.new(1, false, [], [], "HAPPY")),
+		DialogueLine.new("Narrator", "The cheesecake is taken away by the server.", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Cheesecake_NextDish")
 		])),
 	]))
@@ -133,7 +134,8 @@ func _init():
 		DialogueSwitchSprite.new("Cheesecake", "HAPPY"),
 		DialogueLine.new("Player", "Help! I'm too young to drown!"),
 		DialogueSwitchSprite.new("Server"),
-		DialogueLine.new("Server", "Not again.... *takes the cheesecake away and starts watering the plants with its tears*"),
+		DialogueLine.new("Server", "Not again...."),
+		DialogueLine.new("Narrator", "The server takes the cheesecake away and starts watering the plants with its tears."),
 		DialogueLine.new("Server", "So sorry, I will bring the next dish out shortly."),
 		DialogueLine.new("Player", "...................", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.playDialogue("Cheesecake_NextDish")

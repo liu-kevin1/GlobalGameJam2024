@@ -53,6 +53,7 @@ func _ready():
 	
 	
 	# Initialize the dialogue modules
+	DialogueIntro.new()
 	DialogueCheesecake.new()
 	DialoguePizza.new()
 	DialoguePrimeRib.new()
@@ -70,9 +71,9 @@ func _ready():
 	
 	# Play the first dialogue
 	# We start with serving the cheesecake
-	DialogueManager.instance.changeSprite("Cheesecake")
-	DialogueManager.instance.playDialogue("Cheesecake_Served")
-	
+	DialogueManager.instance.changeSprite("Player")
+	DialogueManager.instance.playDialogue("IntroScene")
+
 	# Start the sprite animation thread
 	startCharacterAnimation()
 	
@@ -154,7 +155,7 @@ func _thread_blink():
 		await get_tree().create_timer(waitDuration).timeout
 
 func changeBackgroundSprite(backgroundName : String):
-	var newBackgroundSprite = load(backgroundName)
+	var newBackgroundSprite = load("res://Assets/Images/" + backgroundName + ".png")
 	backgroundSprite.texture = newBackgroundSprite
 
 func changeSprite(characterName : String, spriteModifier : String = "IDLE"):
