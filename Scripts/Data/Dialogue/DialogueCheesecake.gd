@@ -66,7 +66,7 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("Cheesecake_Consumption1", [
 		DialogueSwitchSprite.new("Cheesecake", "CONFUSED"),
 		DialogueLine.new("Cheesecake", "...wait..wai-wait waitwaitwait...uh that's not exactly what i meant- you wouldnt do that right? i know youre just joking, youre just saying that because of how stunning i look-", DialogueLineModifiers.new(1, true, [], [], "CONFUSED")),
-		DialogueLine.new("Narrator", "My rules, cake."),
+		DialogueLine.new("Narrator", "You aren't joking."),
 		DialogueLine.new("Cheesecake", "ah, now youre just going to give me some accessories to enhance my beauty...i must admit, a fork is probably the worst choice but i think i can pull it off.", DialogueLineModifiers.new(1, true, [
 			Option.new("Mildly concerned, you freeze just before your fork touches the cheesecake", func(): dialogueManager.playDialogue("Cheesecake_Skip2")),
 			Option.new("Continue to dig into cheesecake", func(): dialogueManager.playDialogue("Cheesecake_Consumption2")),

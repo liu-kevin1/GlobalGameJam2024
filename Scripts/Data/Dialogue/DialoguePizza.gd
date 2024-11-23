@@ -35,7 +35,7 @@ func _init():
 	]))
 
 	dialogueManager.addDialogue(Dialogue.new("Pizza_Skip", [
-		DialogueSwitchSprite.new("Pizza 1"),
+		DialogueSwitchSprite.new("Pizza 1", "DISGUSTED"),
 		DialogueLine.new("Pizza 1", "We're just that uninteresting to you?"),
 		DialogueSwitchSprite.new("Pizza 2"),
 		DialogueLine.new("Pizza 2", "Brother, I think we blew it..."),
