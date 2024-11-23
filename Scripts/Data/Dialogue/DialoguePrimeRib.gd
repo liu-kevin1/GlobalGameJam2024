@@ -67,10 +67,10 @@ func _init():
 		DialogueSwitchSprite.new("Player"),
 		DialogueLine.new("Player", "You bite down on the meat, sliding your fork out of your mouth."),
 		DialogueLine.new("PrimeRib", "- muffled screaming -"),
-		DialogueLine.new("Player", "You chew happily on the meat. The flavor is delightful, and the texture is just right. Simply an incredible dish."),
-		DialogueLine.new("Player", "You continue chewing for a while longer, before realizing that it seems a bit too juicy. It tastes a bit bloody, even."),
-		DialogueLine.new("Player", "...Was it raw? Wait, does that explain why it was so soft?!"),
-		DialogueLine.new("Player", ".........Ah, oh well. What's done is done.", DialogueLineModifiers.new(1, true, [], [
+		DialogueLine.new("Narrator", "You chew happily on the meat. The flavor is delightful, and the texture is just right. Simply an incredible dish."),
+		DialogueLine.new("Narrator", "You continue chewing for a while longer, before realizing that it seems a bit too juicy. It tastes a bit bloody, even."),
+		DialogueLine.new("Narrator", "...Was it raw? Wait, does that explain why it was so soft?!"),
+		DialogueLine.new("Narrator", ".........Ah, oh well. What's done is done.", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.enterCredits("[ YOU ATE THE... RAW PRIME RIB? ]")
 		]))
 	]))
