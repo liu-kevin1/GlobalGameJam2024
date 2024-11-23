@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdoy801vfk2vk"]
 
-[ext_resource type="Texture2D" uid="uid://dbtdhjdwpvx86" path="res://Assets/Images/gray.png" id="1_f6qgq"]
+[ext_resource type="Texture2D" uid="uid://drk5oybv725p2" path="res://Assets/Images/DiningTableBackground.png" id="1_mxbuo"]
 [ext_resource type="Script" path="res://Scripts/InteractiveElements/Restart.gd" id="2_3k7n4"]
 [ext_resource type="Script" path="res://Scripts/System/TextEdit.gd" id="3_i4qnd"]
 
@@ -44,8 +44,9 @@ _data = {
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(611, 356)
-texture = ExtResource("1_f6qgq")
+position = Vector2(581, 315)
+scale = Vector2(0.539093, 0.475935)
+texture = ExtResource("1_mxbuo")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -61,6 +62,7 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_kfq6y")
 }
+speed_scale = 2.0
 
 [node name="CreditsLabel" type="Label" parent="."]
 offset_left = 632.0
@@ -71,9 +73,9 @@ theme_override_font_sizes/font_size = 16
 text = "[ CREDITS ]
 Audio and Sound Design: Allan Tan​
 
-​Character Dialogue: Kevin Liu, ​Jasmin Chen, Elia Poncia, Jared Lee, Claire Chen
+​Character Dialogue: Khayniyah Culpepper, Kevin Liu, ​Jasmin Chen, Elia Poncia, Jared Lee, Claire Chen
 
-Director: Kevin Liu,  Khayniyah Culpepper
+Director: Khayniyah Culpepper, Kevin Liu
 
 Graphic Design: Khayniyah Culpepper, Claire Chen​​
 
