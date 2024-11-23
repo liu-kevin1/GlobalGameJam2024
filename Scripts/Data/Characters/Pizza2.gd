@@ -43,7 +43,7 @@ func _init():
 	}
 	var audio = {
 		TALK = {
-			Audio = "FoodAudio/Pizza/Pizza_Talk.wav"
+			Audio = "CharacterAudio/Pizza/Pizza_Talk.wav"
 		}
 	}
 	character = Character.new("Pizza 2", sprites, "Chill Pizza", audio)
