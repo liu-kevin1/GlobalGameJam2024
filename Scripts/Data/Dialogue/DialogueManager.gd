@@ -11,7 +11,10 @@ const clickEffect = preload("res://Assets/Instances/ClickEffect.tscn")
 var dialogueBox : Label = null
 var choiceButtons : Node = null
 # var templateButton : Button = null
+
 var characterSprite : Sprite2D = null
+var backgroundSprite : Sprite2D = null
+
 var plateInstance : Node2D = null
 var currentCharacter : Character = null
 var currentSpriteCharacter : Character = null
@@ -43,8 +46,9 @@ func _ready():
 	dialogueBox = root.get_node("MainGameScene/DialogueBox")
 	choiceButtons = root.get_node("MainGameScene/ChoiceButtons")
 	characterSprite = root.get_node("MainGameScene/CharacterSprite")
+	backgroundSprite = root.get_node("MainGameScene/BackgroundSprite")
 	audioInstancesNode = root.get_node("MainGameScene/AudioInstances")
-	plateInstance = root.get_node("MainGameScene/Plate")
+	plateInstance = root.get_node("MainGameScene/PlateSprite")
 	dialogueBox.visible = true
 	
 	
@@ -149,6 +153,10 @@ func _thread_blink():
 			waitDuration = blinkInfo.Wait
 		await get_tree().create_timer(waitDuration).timeout
 
+func changeBackgroundSprite(backgroundName : String):
+	var newBackgroundSprite = load(backgroundName)
+	backgroundSprite.texture = newBackgroundSprite
+
 func changeSprite(characterName : String, spriteModifier : String = "IDLE"):
 	var character = CharacterManager.instance.CHARACTERS[characterName].character
 
@@ -162,8 +170,8 @@ func changeSprite(characterName : String, spriteModifier : String = "IDLE"):
 	characterSprite.scale = spriteInfo.Scale
 	characterSprite.position = spriteInfo.Position
 	
-	if spriteInfo.get("PLATE", null) != null:
-		plateInstance.texture = spriteInfo.PLATE.Texture
+	if character.characterSprites.get("PLATE", null) != null:
+		plateInstance.texture = character.characterSprites.PLATE.Texture
 
 
 func playDialogue(dialogueName : String):
@@ -183,7 +191,10 @@ func playDialogue(dialogueName : String):
 	# For each line in the dialogue...
 	for line in dial.dialogueActions:
 		# Initialize our variables
-		if line is DialogueSwitchSprite:
+		if line is DialogueSwitchBackground:
+			changeBackgroundSprite(line.backgroundName)
+
+		elif line is DialogueSwitchSprite:
 			changeSprite(line.characterName, line.spriteModifier)
 			if(line.currentCharacter.usesPlate):
 				togglePlate(true)
@@ -257,8 +268,8 @@ func playDialogue(dialogueName : String):
 			for event in events:
 				event.call()
 
-		# Tell everybody that we finished playing this dialogue
-		dialogueFinished.emit()
+			# Tell everybody that we finished playing this dialogue
+			dialogueFinished.emit()
 
 func generateOptions(options : Array[Option]):
 	# print("Generating options for", options)

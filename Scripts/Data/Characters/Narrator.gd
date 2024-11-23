@@ -8,7 +8,7 @@ func _init():
 		IDLE = {
 			Texture = preload("res://Assets/Images/CharacterSprites/Cheesecake/Cheesecake.png"),
 			Scale = Vector2(0, 0),
-			Position = Vector2(1147, 876)
+			Position = Vector2(1174, 731)
 		}
 	}
 	var audio = {

@@ -8,7 +8,7 @@ func _init():
 		IDLE = {
 			Texture = preload("res://Assets/Images/shinji_chair.png"),
 			Scale = Vector2(1, 1),
-			Position = Vector2(1147, 676)
+			Position = Vector2(1174, 676)
 		}
 	}
 	character = Character.new("ShinjiChair", sprites, "")
