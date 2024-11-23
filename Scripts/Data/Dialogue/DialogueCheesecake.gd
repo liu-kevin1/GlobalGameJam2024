@@ -17,7 +17,7 @@ func _init():
 		DialogueLine.new("Player", "DID IT JUST TALK???????"),
 		DialogueLine.new("Cheesecake", "ummm ur being kinda weird..."),
 		DialogueLine.new("Cheesecake", "i just wanna know u"),
-		DialogueLine.new("Player", "I understand, to this food wants to know me personally... My stomach yearns for food however."),
+		DialogueLine.new("Player", "I... understand, but food that wants to know me personally is a bit... My stomach yearns for sustenance, however."),
 		DialogueLine.new("Cheesecake", "i hope im not being a disturbance...", DialogueLineModifiers.new(1, true, [
 			Option.new("I'm into hot messes.", func(): dialogueManager.playDialogue("Cheesecake_Enthusiastic1")),
 			Option.new("I'd like someone a who has it together.", func(): dialogueManager.playDialogue("Cheesecake_Disgusted1")),
