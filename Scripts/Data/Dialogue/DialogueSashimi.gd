@@ -89,6 +89,7 @@ func _init():
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Sashimi_Option3", [
 		DialogueLine.new("Sashimi", "You know what. YOU are definitely part of the problem. You should-"),
+		DialogueSwitchSprite.new("Player"),
 		DialogueLine.new("Narrator", "You throw the plate Sushi is on across the room."),
 		DialogueLine.new("Server", "Please don't do that, the fine china costs money."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
