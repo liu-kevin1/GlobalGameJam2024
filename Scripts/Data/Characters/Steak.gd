@@ -6,12 +6,12 @@ var character : Character
 func _init():
 	var sprites = {
 		IDLE = {
-			Texture = preload("res://Assets/Images/FoodSprites/Steak/steak.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/Steak/steak.png"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		},
 		BLINK = {
-			Texture = preload("res://Assets/Images/FoodSprites/Steak/steak_blink.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/Steak/steak_blink.png"),
 			# Texture = preload("res://Assets/Images/shinji_chair.png"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876),
@@ -20,25 +20,25 @@ func _init():
 			Wait = 0.75 # 0.75 -> Waits 0.75 seconds between each attempt to blink
 		},
 		CONFUSED = {
-			Texture = preload("res://Assets/Images/FoodSprites/Steak/steak_confused.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/Steak/steak_confused.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		},
 		DISGUSTED = {
-			Texture = preload("res://Assets/Images/FoodSprites/Steak/steak_disgusted.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/Steak/steak_disgusted.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		},
 		FLUSHED = {
-			Texture = preload("res://Assets/Images/FoodSprites/Steak/steak_flushed.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/Steak/steak_flushed.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		},
 		HAPPY = {
-			Texture = preload("res://Assets/Images/FoodSprites/Steak/steak_happy.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/Steak/steak_happy.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)

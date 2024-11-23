@@ -6,12 +6,12 @@ var character : Character
 func _init():
 	var sprites = {
 		IDLE = {
-			Texture = preload("res://Assets/Images/FoodSprites/SquidInkSpaghetti/Squid_Ink_Spaget.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/SquidInkSpaghetti/Squid_Ink_Spaget.png"),
 			Scale = Vector2(0.75, 0.75),
 			Position = Vector2(1147, 876)
 		},
 		BLINK = {
-			Texture = preload("res://Assets/Images/FoodSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Blink.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Blink.png"),
 			# Texture = preload("res://Assets/Images/shinji_chair.png"),
 			Scale = Vector2(0.75, 0.75),
 			Position = Vector2(1147, 876),
@@ -20,25 +20,25 @@ func _init():
 			Wait = 0.75 # 0.75 -> Waits 0.75 seconds between each attempt to blink
 		},
 		CONFUSED = {
-			Texture = preload("res://Assets/Images/FoodSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Confused.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Confused.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.75, 0.75),
 			Position = Vector2(1147, 876)
 		},
 		DISGUSTED = {
-			Texture = preload("res://Assets/Images/FoodSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Disgusted.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Disgusted.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.75, 0.75),
 			Position = Vector2(1147, 876)
 		},
 		FLUSHED = {
-			Texture = preload("res://Assets/Images/FoodSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Flushed.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Flushed.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.75, 0.75),
 			Position = Vector2(1147, 876)
 		},
 		HAPPY = {
-			Texture = preload("res://Assets/Images/FoodSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Happy.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/SquidInkSpaghetti/Squid_Ink_Spaget_Happy.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.75, 0.75),
 			Position = Vector2(1147, 876)

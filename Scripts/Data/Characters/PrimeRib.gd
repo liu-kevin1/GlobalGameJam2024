@@ -6,12 +6,12 @@ var character : Character
 func _init():
 	var sprites = {
 		IDLE = {
-			Texture = preload("res://Assets/Images/FoodSprites/PrimeRib/Prime_Rib.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/PrimeRib/Prime_Rib.png"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 820)
 		},
 		BLINK = {
-			Texture = preload("res://Assets/Images/FoodSprites/PrimeRib/Prime_Rib_blink.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/PrimeRib/Prime_Rib_blink.png"),
 			# Texture = preload("res://Assets/Images/shinji_chair.png"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876),
@@ -20,25 +20,25 @@ func _init():
 			Wait = 0.75 # 0.75 -> Waits 0.75 seconds between each attempt to blink
 		},
 		CONFUSED = {
-			Texture = preload("res://Assets/Images/FoodSprites/PrimeRib/Prime_Rib_confused.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/PrimeRib/Prime_Rib_confused.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		},
 		DISGUSTED = {
-			Texture = preload("res://Assets/Images/FoodSprites/PrimeRib/Prime_Rib_disgusted.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/PrimeRib/Prime_Rib_disgusted.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		},
 		FLUSHED = {
-			Texture = preload("res://Assets/Images/FoodSprites/PrimeRib/Prime_Rib_flushed.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/PrimeRib/Prime_Rib_flushed.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
 		},
 		HAPPY = {
-			Texture = preload("res://Assets/Images/FoodSprites/PrimeRib/Prime_Rib_happy.png"),
+			Texture = preload("res://Assets/Images/CharacterSprites/PrimeRib/Prime_Rib_happy.png"),
 			# Texture = preload("res://Assets/Images/jerma_july.jpg"),
 			Scale = Vector2(0.5, 0.5),
 			Position = Vector2(1147, 876)
