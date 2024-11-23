@@ -99,7 +99,7 @@ func generateClickEffect(position):
 		effect.queue_free())
 	sprite.play("Click")
 
-	playAudio("click_effect.wav", 2.0)
+	playAudio("light_tap.wav", 2.0)
 
 
 func _input(event):
