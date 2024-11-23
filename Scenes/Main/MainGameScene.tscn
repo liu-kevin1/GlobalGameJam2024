@@ -48,7 +48,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 8
 theme_override_font_sizes/font_size = 24
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis eros sit amet felis tincidunt gravida vel ullamcorper neque. Aenean vehicula eu augue id finibus."
-horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="ChoiceButtons" type="Node" parent="."]
