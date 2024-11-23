@@ -46,13 +46,25 @@ func _init():
 			func(): dialogueManager.playDialogue("Sashimi_Served")
 		])),
 	]))
+	dialogueManager.addDialogue(Dialogue.new("Pizza_Skip2", [
+		DialogueSwitchSprite.new("Pizza 1", "FLUSHED"),
+		DialogueLine.new("Pizza 1", "I love how he just let us off"),
+		DialogueSwitchSprite.new("Pizza 2", "FLUSHED"),
+		DialogueLine.new("Pizza 2", "Brother, I will remember this..."),
+		DialogueSwitchSprite.new("Server"),
+		DialogueLine.new("Server", "Please give us just a moment while we prepare the next dish."),
+		DialogueLine.new("Narrator", "The server strolls back into the kitchen before coming back, holding a delicate platter."),
+		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
+			func(): dialogueManager.playDialogue("Sashimi_Served")
+		])),
+	]))
 
 	dialogueManager.addDialogue(Dialogue.new("Pizza_ConsumptionP1", [
-		DialogueSwitchSprite.new("Pizza 1"),
+		DialogueSwitchSprite.new("Pizza 1", "DISGUSTED"),
 		DialogueLine.new("Pizza 1", "WHY ME??"),
 		DialogueLine.new("Player", "I just don't like loudmouths at my table"),
 		DialogueLine.new("Pizza 1", "My brother was the one who was snarky with you though!!"),
-		DialogueSwitchSprite.new("Pizza 2"),
+		DialogueSwitchSprite.new("Pizza 2", "HAPPY"),
 		DialogueLine.new("Pizza 2", "I get the last laugh..."),
 		DialogueLine.new("Player", "I spare you for now but you better pray that I'm still not hungry"),
 		DialogueSwitchSprite.new("Pizza 1"),
@@ -60,7 +72,7 @@ func _init():
 		DialogueLine.new("Player", "You slowly lift up the pizza with your hands"),
 		DialogueLine.new("Pizza 1", "You OBVIOUSLY have no morals do you!!"),
 		DialogueLine.new("Player", "Yeah hunger is my moral but you're still just too loud"),
-		DialogueSwitchSprite.new("Pizza 2"),
+		DialogueSwitchSprite.new("Pizza 2", "HAPPY"),
 		DialogueLine.new("Pizza 2", "Get him please...."),
 		DialogueLine.new("Player", "uhhh", DialogueLineModifiers.new(1, true, [
 			Option.new("Alright then", func(): dialogueManager.playDialogue("Pizza_ConsumptionP12")),
@@ -72,11 +84,12 @@ func _init():
 	dialogueManager.addDialogue(Dialogue.new("Pizza_ConsumptionP12", [
 		DialogueSwitchSprite.new("Pizza 1"),
 		DialogueLine.new("Pizza 1", "NOOOOO"),
-		DialogueSwitchSprite.new("Pizza 2"),
+		DialogueSwitchSprite.new("Pizza 2", "HAPPY"),
 		DialogueLine.new("Pizza 2", "serves you right."),
 		DialogueLine.new("Player", "You begin to chomp on the Pizza as their cheese begins to extend off of them"),
 		DialogueLine.new("Pizza 2", "nice."),
 		DialogueLine.new("Player", "You're not horrified by this?"),
+		DialogueSwitchSprite.new("Pizza 2"),
 		DialogueLine.new("Pizza 2", "not really, he was kinda getting on my nerves and you just did me a big favor."),
 		DialogueLine.new("Player", "It's a win-win then"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
@@ -85,9 +98,10 @@ func _init():
 	]))
 
 	dialogueManager.addDialogue(Dialogue.new("Pizza_ConsumptionP2", [
-		DialogueSwitchSprite.new("Pizza 2"),
+		DialogueSwitchSprite.new("Pizza 2", "CONFUSED"),
 		DialogueLine.new("Pizza 2", "I'm not scared of you"),
 		DialogueLine.new("Player", "Well you should be."),
+		DialogueSwitchSprite.new("Pizza 2"),
 		DialogueLine.new("Pizza 2", "oh my goooooddd...."),
 		DialogueLine.new("Player", "The Pizza sauce splats on the plate as you devour the slice within seconds."),
 		DialogueSwitchSprite.new("Pizza 1"),
@@ -113,23 +127,23 @@ func _init():
 
 	dialogueManager.addDialogue(Dialogue.new("Pizza_Wholesome", [
 		DialogueLine.new("Player", "You two are a genuine cuteness overload"),
-		DialogueSwitchSprite.new("Pizza 1"),
+		DialogueSwitchSprite.new("Pizza 1", "HAPPY"),
 		DialogueLine.new("Pizza 1", "THANK YOU!"),
-		DialogueSwitchSprite.new("Pizza 2"),
+		DialogueSwitchSprite.new("Pizza 2", "DISGUSTED"),
 		DialogueLine.new("Pizza 2", "please don't be so louud..."),
 		DialogueLine.new("Player", "I want to keep you two on my plate until you get cold!"),
-		DialogueSwitchSprite.new("Pizza 1"),
+		DialogueSwitchSprite.new("Pizza 1", "HAPPY"),
 		DialogueLine.new("Pizza 1", "It's not like me being cold matters anyway!"),
 		DialogueSwitchSprite.new("Pizza 2"),
 		DialogueLine.new("Pizza 2", "Yeah we don't even have a perception for that."),
 		DialogueLine.new("Player", "I never knew that my food couldn't feel the temperature!"),
 		DialogueSwitchSprite.new("Pizza 1"),
 		DialogueLine.new("Pizza 1", "THANK YOU FOR YOUR KIND WO-"),
-		DialogueSwitchSprite.new("Pizza 2"),
+		DialogueSwitchSprite.new("Pizza 2", "DISGUSTED"),
 		DialogueLine.new("Pizza 2", "shut up....."),
 		DialogueLine.new("Player", "You decide to spare the pizzas"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
-			func(): dialogueManager.playDialogue("Pizza_Skip")
+			func(): dialogueManager.playDialogue("Pizza_Skip2")
 		])),
 	]))
 
