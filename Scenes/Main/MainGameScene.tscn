@@ -74,6 +74,7 @@ stream = ExtResource("12_y2nva")
 autoplay = true
 
 [node name="DialogueBoxBackground" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1172, 970)
 scale = Vector2(0.470278, 0.25912)
 texture = ExtResource("10_hfyqm")
