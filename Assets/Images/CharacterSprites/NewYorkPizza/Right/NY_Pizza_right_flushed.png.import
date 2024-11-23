@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3te14fcy56ds"
-path="res://.godot/imported/NY_Pizza.png-71e537e19d7c26de0e90a7ad077c1fb0.ctex"
+uid="uid://cju3atmbsq6op"
+path="res://.godot/imported/NY_Pizza_right_flushed.png-b89cf07d4361b243b0bb911879d1f414.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/CharacterSprites/NewYorkPizza/NY_Pizza.png"
-dest_files=["res://.godot/imported/NY_Pizza.png-71e537e19d7c26de0e90a7ad077c1fb0.ctex"]
+source_file="res://Assets/Images/CharacterSprites/NewYorkPizza/Right/NY_Pizza_right_flushed.png"
+dest_files=["res://.godot/imported/NY_Pizza_right_flushed.png-b89cf07d4361b243b0bb911879d1f414.ctex"]
 
 [params]
 
