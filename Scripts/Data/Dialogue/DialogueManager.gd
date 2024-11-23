@@ -352,10 +352,11 @@ func enterCredits(text):
 	# print(text)
 
 	# Get the credits scene, set the text to be loaded, and transition
-	var credits = Global.CREDITS_SCENE
 	Global.CREDIT_TEXT = text
 	# Transition to the game scene
-	get_tree().change_scene_to_packed(credits)
+	Global.FADE_OUT = true
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://Scenes/Main/Credits.tscn")
 
 func playAudio(audioName, volume=1.0):
 	var audioStreamPlayer = templateAudioStreamPlayer.instantiate()

@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdoy801vfk2vk"]
+[gd_scene load_steps=12 format=3 uid="uid://bdoy801vfk2vk"]
 
 [ext_resource type="Texture2D" uid="uid://drk5oybv725p2" path="res://Assets/Images/DiningTableBackground.png" id="1_mxbuo"]
 [ext_resource type="Script" path="res://Scripts/System/TextEdit.gd" id="3_i4qnd"]
 [ext_resource type="Script" path="res://Scripts/InteractiveElements/MenuCredits.gd" id="3_tj86a"]
 [ext_resource type="Script" path="res://Scripts/InteractiveElements/Fade.gd" id="4_f7062"]
-[ext_resource type="Texture2D" uid="uid://ddyv06o6iu4r3" path="res://Assets/Images/untitled.png" id="5_up7ve"]
 
 [sub_resource type="Animation" id="Animation_f1c4i"]
 resource_name = "Fade"
@@ -154,6 +153,7 @@ libraries = {
 speed_scale = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -147.0
 offset_top = -83.0
 offset_right = 1287.0
@@ -165,9 +165,3 @@ script = ExtResource("4_f7062")
 libraries = {
 "": SubResource("AnimationLibrary_adg71")
 }
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(672, 339)
-scale = Vector2(-2.96246, -2.96246)
-texture = ExtResource("5_up7ve")
