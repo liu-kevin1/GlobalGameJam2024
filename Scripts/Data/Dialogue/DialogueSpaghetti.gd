@@ -55,7 +55,7 @@ func _init():
 		DialogueSwitchSprite.new("Spaghetti", "HAPPY"),
 		DialogueLine.new("Spaghetti", "I will keep being me then."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
-			func(): dialogueManager.enterCredits("Spaghetti_Skip")
+			func(): dialogueManager.playDialogue("Spaghetti_Skip")
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Jojo's", [
@@ -87,7 +87,7 @@ func _init():
 		DialogueSwitchSprite.new("Spaghetti", "DISGUSTED"),
 		DialogueLine.new("Spaghetti", "I hope we meet never"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
-			func(): dialogueManager.enterCredits("Spaghetti_Skip")
+			func(): dialogueManager.playDialogue("Spaghetti_Skip")
 		])),
 	]))
 	dialogueManager.addDialogue(Dialogue.new("Spaghetti_Consumption2", [
@@ -100,7 +100,7 @@ func _init():
 		DialogueLine.new("Spaghetti", "OOooOOOoO", DialogueLineModifiers.new(1, false)),
 		DialogueLine.new("Spaghetti", "OOOOOoooO", DialogueLineModifiers.new(1, false)),
 		DialogueSwitchSprite.new("Player"),
-		DialogueLine.new("Player", "you swallow the spaghetti whole"),
+		DialogueLine.new("Narrator", "you swallow the spaghetti whole"),
 		DialogueLine.new("Player", "This isn't half bad, I should really cook this on my own some time!"),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
 			func(): dialogueManager.enterCredits("[ YOU ATE THE SPAGHETTI ]")
@@ -122,7 +122,7 @@ func _init():
 		DialogueLine.new("Server", "Unfortunately, I cannot let you do that until you eat a dish. But, as you have already refused all the dishes..."),
 		DialogueLine.new("Server", "...I suppose we will have to leave you here to starve, then."),
 		DialogueLine.new("Player", "Um, sorry, what?"),
-		DialogueLine.new("Server", "The server rushes out of the restaurant, and all the doors lock. The windows close automatically, and you find yourself unable to get up from your seat."),
+		DialogueLine.new("Narrator", "The server rushes out of the restaurant, and all the doors lock. The windows close automatically, and you find yourself unable to get up from your seat."),
 		DialogueLine.new("Player", "......So, this is the end? Starving to death in a restaurant?..."),
 		DialogueLine.new("Player", "...This sucks."),
 		DialogueLine.new("Player", ".........", DialogueLineModifiers.new(1, true, [], [
